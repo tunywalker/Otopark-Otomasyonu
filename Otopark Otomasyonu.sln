@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otopark Otomasyonu", "Otopark Otomasyonu\Otopark Otomasyonu.csproj", "{BEAD6D84-94F3-4E86-AEB9-07C658F08450}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Debug|x64.ActiveCfg = Debug|x64
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Debug|x64.Build.0 = Debug|x64
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Release|x64.ActiveCfg = Release|x64
+		{BEAD6D84-94F3-4E86-AEB9-07C658F08450}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A9D4829-01C1-455A-B087-85115B49E66F}
+	EndGlobalSection
+EndGlobal

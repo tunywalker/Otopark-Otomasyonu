@@ -162,6 +162,7 @@ namespace Otopark_Otomasyonu
         private void button4_Click(object sender, EventArgs e)
         {
             processImageFile("c:/plaka/ornekPlaka.jpg");
+            //Deneme
         }
     }
 }

@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="databaseConnection.cs" />
     <Compile Include="kameraEkle.cs">
       <SubType>Form</SubType>
     </Compile>

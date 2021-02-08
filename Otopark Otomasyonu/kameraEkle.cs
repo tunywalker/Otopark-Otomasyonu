@@ -27,15 +27,27 @@ namespace Otopark_Otomasyonu
         }
 
         databaseConnection c1;
+        Kamera k = new Kamera();
         private void kameraEkle_Load(object sender, EventArgs e)
         {
-            c1 = new databaseConnection();
-        c1.kameraAdGetir(listBox1);
+           
+        k.kameraAdGetir(listBox1);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            c1.formdoldur(textBox1, comboBox1, textBox3, comboBox2, checkBox1, checkBox2);
+            if (listBox1.SelectedIndex >= 0)
+            {
+                k.formdoldur(textBox1, comboBox1, textBox3, comboBox2, checkBox1, checkBox2, listBox1.SelectedIndex+1);
+                this.k = k.kameraGetir(listBox1.SelectedIndex + 1);
+                
+                  //  MessageBox.Show("Guncelle");
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

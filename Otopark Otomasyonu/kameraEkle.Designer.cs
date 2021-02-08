@@ -189,6 +189,7 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kameralar";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // kameraEkle
             // 

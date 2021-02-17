@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.checkAktif = new System.Windows.Forms.CheckBox();
+            this.comboLokasyon = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkYabanci = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboYontem = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textFiligran = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textKadi = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,17 +50,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.checkAktif);
+            this.groupBox1.Controls.Add(this.comboLokasyon);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.checkYabanci);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboYontem);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textFiligran);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textKadi);
             this.groupBox1.Location = new System.Drawing.Point(217, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(279, 253);
@@ -68,46 +68,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kamera Ekle/Düzenle";
             // 
-            // checkBox2
+            // checkAktif
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(180, 179);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(52, 17);
-            this.checkBox2.TabIndex = 19;
-            this.checkBox2.Text = "Aktif";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkAktif.AutoSize = true;
+            this.checkAktif.Location = new System.Drawing.Point(191, 179);
+            this.checkAktif.Name = "checkAktif";
+            this.checkAktif.Size = new System.Drawing.Size(62, 21);
+            this.checkAktif.TabIndex = 19;
+            this.checkAktif.Text = "Aktif";
+            this.checkAktif.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // comboLokasyon
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboLokasyon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLokasyon.FormattingEnabled = true;
+            this.comboLokasyon.Items.AddRange(new object[] {
             "Giriş",
             "Çıkış"});
-            this.comboBox2.Location = new System.Drawing.Point(107, 142);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 18;
-            this.comboBox2.Text = "Seçiniz";
+            this.comboLokasyon.Location = new System.Drawing.Point(107, 142);
+            this.comboLokasyon.Name = "comboLokasyon";
+            this.comboLokasyon.Size = new System.Drawing.Size(140, 25);
+            this.comboLokasyon.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 145);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.Size = new System.Drawing.Size(87, 17);
             this.label5.TabIndex = 17;
             this.label5.Text = "Lokasyon: ";
             // 
-            // checkBox1
+            // checkYabanci
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(24, 179);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(148, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "Yabancı Araçları Tanı";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkYabanci.AutoSize = true;
+            this.checkYabanci.Location = new System.Drawing.Point(-1, 179);
+            this.checkYabanci.Name = "checkYabanci";
+            this.checkYabanci.Size = new System.Drawing.Size(186, 21);
+            this.checkYabanci.TabIndex = 16;
+            this.checkYabanci.Text = "Yabancı Araçları Tanı";
+            this.checkYabanci.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -117,41 +117,44 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // comboYontem
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Harekete Duyarlı",
-            "Sürekli Tarama "});
-            this.comboBox1.Location = new System.Drawing.Point(107, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 14;
-            this.comboBox1.Text = "Seçiniz";
+            this.comboYontem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboYontem.FormattingEnabled = true;
+            this.comboYontem.Items.AddRange(new object[] {
+            "Sürekli Tarama ",
+            "Harekete Duyarlı"});
+            this.comboYontem.Location = new System.Drawing.Point(107, 60);
+            this.comboYontem.Name = "comboYontem";
+            this.comboYontem.Size = new System.Drawing.Size(140, 25);
+            this.comboYontem.TabIndex = 14;
+            this.comboYontem.SelectedIndexChanged += new System.EventHandler(this.comboYontem_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 13;
             this.label3.Text = "Filigran:";
             // 
-            // textBox3
+            // textFiligran
             // 
-            this.textBox3.Location = new System.Drawing.Point(107, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 20);
-            this.textBox3.TabIndex = 12;
+            this.textFiligran.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.textFiligran.Location = new System.Drawing.Point(107, 97);
+            this.textFiligran.Name = "textFiligran";
+            this.textFiligran.Size = new System.Drawing.Size(140, 23);
+            this.textFiligran.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "Yöntem:";
             // 
@@ -160,23 +163,24 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(96, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Kamera Adı:";
             // 
-            // textBox1
+            // textKadi
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 9;
+            this.textKadi.Location = new System.Drawing.Point(107, 24);
+            this.textKadi.Name = "textKadi";
+            this.textKadi.Size = new System.Drawing.Size(140, 23);
+            this.textKadi.TabIndex = 9;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 17;
             this.listBox1.Location = new System.Drawing.Point(7, 27);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 186);
+            this.listBox1.Size = new System.Drawing.Size(180, 174);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -189,11 +193,10 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kameralar";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // kameraEkle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(506, 271);
@@ -215,16 +218,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkYabanci;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboYontem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textFiligran;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textKadi;
+        private System.Windows.Forms.CheckBox checkAktif;
+        private System.Windows.Forms.ComboBox comboLokasyon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox1;
         private System.IO.Ports.SerialPort serialPort1;

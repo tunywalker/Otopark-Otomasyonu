@@ -30,7 +30,8 @@ namespace Otopark_Otomasyonu
         Kamera k = new Kamera();
         private void kameraEkle_Load(object sender, EventArgs e)
         {
-           
+            comboLokasyon.SelectedIndex = 0;
+            comboYontem.SelectedIndex = 0;
         k.kameraAdGetir(listBox1);
         }
 
@@ -38,14 +39,28 @@ namespace Otopark_Otomasyonu
         {
             if (listBox1.SelectedIndex >= 0)
             {
-                k.formdoldur(textBox1, comboBox1, textBox3, comboBox2, checkBox1, checkBox2, listBox1.SelectedIndex+1);
+                k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif, listBox1.SelectedIndex+1);
                 this.k = k.kameraGetir(listBox1.SelectedIndex + 1);
                 
                   //  MessageBox.Show("Guncelle");
             }
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.k = new Kamera(textKadi.Text, comboYontem.SelectedIndex.ToString(),
+                textFiligran.Text,
+                ((comboLokasyon.SelectedIndex==0) ? "0" : "1").ToString(),
+                ((checkYabanci.Checked==true) ? 0 : 1).ToString(),
+                ((checkAktif.Checked) ? 0 : 1).ToString()
+               );
+            if (k.kameraKaydet(this.k))
+                k.kameraAdGetir(listBox1);
+
+                
+        }
+
+        private void comboYontem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

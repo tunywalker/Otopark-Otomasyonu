@@ -67,7 +67,7 @@ namespace Otopark_Otomasyonu
           
             else
             {
-                if (k.aktifKameraSayisi()+1 > 3 && k.kameraGetir(Convert.ToInt32( listBox2.Items[listBox1.SelectedIndex])).k_aktif!="1")
+                if (k.aktifKameraSayisi()+1 > 2 )
                 {
                     hataYazdir("Aktif kamera sayısı 2 den fazla olamaz. Aktif olmayarak kayıt edildi.");
                     checkAktif.Checked = false;
@@ -111,7 +111,7 @@ namespace Otopark_Otomasyonu
             else
             {
               
-                    if (k.aktifKameraSayisi() + 1 > 2)
+                    if (k.aktifKameraSayisi() + 1 > 2 && k.kameraGetir(Convert.ToInt32(listBox2.Items[listBox1.SelectedIndex])).k_aktif != "1" && checkAktif.Checked)
                     {
                         hataYazdir("Aktif kamera sayısı 2 den fazla olamaz. Aktif olmayarak güncellendi.");
                         checkAktif.Checked = false;

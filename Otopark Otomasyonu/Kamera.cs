@@ -18,13 +18,14 @@ namespace Otopark_Otomasyonu
       public  string k_aktif;
         string k_sadeceuye;
         string k_lokasyon;
+        string k_url;
         public Kamera()
         {
 
 
 
         }
-       public Kamera(string k_adi,  string k_hareketeduyarli,string k_filigran,string k_lokasyon,string k_sadeceuye,string k_aktif)
+       public Kamera(string k_adi,  string k_hareketeduyarli,string k_filigran,string k_lokasyon,string k_sadeceuye,string k_aktif, string k_url)
         {
             this.k_adi = k_adi;
             this.k_hareketeduyarli = k_hareketeduyarli;
@@ -32,6 +33,7 @@ namespace Otopark_Otomasyonu
             this.k_lokasyon = k_lokasyon;
             this.k_aktif = k_aktif;
             this.k_sadeceuye = k_sadeceuye;
+            this.k_url = k_url;
             
         }
         
@@ -51,7 +53,7 @@ namespace Otopark_Otomasyonu
                     kGetirilen.k_id= Convert.ToInt16((okuyucu["k_id"]));
                 kGetirilen.k_adi= (okuyucu["k_adi"].ToString());
                     kGetirilen.k_hareketeduyarli = okuyucu["k_hareketeduyarli"].ToString();
-                    
+                      kGetirilen.k_url = okuyucu["k_url"].ToString();
                     kGetirilen.k_filigran = okuyucu["k_filigran"].ToString();
                     kGetirilen.k_lokasyon = okuyucu["k_lokasyon"].ToString();
                     kGetirilen.k_sadeceuye = okuyucu["k_sadeceuye"].ToString();
@@ -77,6 +79,7 @@ namespace Otopark_Otomasyonu
             {
 
                 String k_adi = kayitEdilecek.k_adi;
+                String k_url = kayitEdilecek.k_url;
                 String k_hareketeduyarli = kayitEdilecek.k_hareketeduyarli;
                 String k_filigran = kayitEdilecek.k_filigran;
                 String k_aktif = kayitEdilecek.k_aktif;
@@ -84,13 +87,14 @@ namespace Otopark_Otomasyonu
                 String k_sadeceuye = kayitEdilecek.k_sadeceuye;
                 baglanti1.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
-                MySqlCommand ekle = new MySqlCommand("insert into kameralar (k_adi,k_hareketeduyarli,k_filigran,k_aktif,k_sadeceuye,k_lokasyon) values " +
+                MySqlCommand ekle = new MySqlCommand("insert into kameralar (k_adi,k_hareketeduyarli,k_filigran,k_aktif,k_sadeceuye,k_lokasyon,k_url) values " +
                     "('"
                     + k_adi + "','"
                     + k_hareketeduyarli + "','"
                     + k_filigran + "','"
                     + k_aktif + "','"
                     + k_sadeceuye + "','"
+                    + k_url + "','"
                     + k_lokasyon
                     + "')", baglanti1.mysqlbaglan);
 
@@ -165,6 +169,7 @@ namespace Otopark_Otomasyonu
             String k_aktif = guncellenecek.k_aktif;
             String k_lokasyon = guncellenecek.k_lokasyon;
             String k_sadeceuye = guncellenecek.k_sadeceuye;
+            String k_url = guncellenecek.k_url;
             baglanti1.mysqlbaglan.Open();
             // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
           /*  MySqlCommand guncelle = new MySqlCommand("insert into kameralar (k_adi,k_hareketeduyarli,k_filigran,k_aktif,k_sadeceuye,k_lokasyon) values " +
@@ -182,7 +187,8 @@ namespace Otopark_Otomasyonu
                 "',k_filigran='" + guncellenecek.k_filigran + 
                 "',k_sadeceuye='" + guncellenecek.k_sadeceuye + 
                 "',k_aktif='" + guncellenecek.k_aktif +
-                "',k_lokasyon='" + guncellenecek.k_lokasyon + 
+                "',k_lokasyon='" + guncellenecek.k_lokasyon +
+                "',k_url='" + guncellenecek.k_url +
                 "' where k_id='" + id + "'", baglanti1.mysqlbaglan);
 
             // sorguyu çalıştırıyorum.
@@ -207,7 +213,7 @@ namespace Otopark_Otomasyonu
 
 
         }
-        public void formdoldur(TextBox tx1, ComboBox cb1, TextBox tx2, ComboBox cb2, CheckBox cBox1, CheckBox cBox2 , int kameraId)
+        public void formdoldur(TextBox tx1, ComboBox cb1, TextBox tx2, ComboBox cb2, CheckBox cBox1, CheckBox cBox2 , TextBox textUrl,int kameraId)
         {
 
             Kamera k1 = new Kamera();
@@ -220,7 +226,7 @@ namespace Otopark_Otomasyonu
                
                     tx1.Text = k1.k_adi;
                     cb1.SelectedIndex = (k1.k_hareketeduyarli== "1") ? 1 : 0;
-               
+                textUrl.Text = k1.k_url;
                     tx2.Text = k1.k_filigran;
                     cb2.SelectedIndex = (k1.k_lokasyon == "0") ? 0 : 1;
                     cBox1.Checked = (k1.k_sadeceuye == "1") ? true : false;
@@ -234,7 +240,11 @@ namespace Otopark_Otomasyonu
             }
 
         }
-        public void kameraAdGetir(ListBox listbox, ListBox listbox2)
+        public bool  urlKontrol(String url)
+        {
+            return false;
+        }
+        public void kameraAdGetir(ListBox listbox, ListBox listbox2,ListBox aktifKamera)
         {
             baglanti1.mysqlbaglan.Open();
 
@@ -242,6 +252,7 @@ namespace Otopark_Otomasyonu
             MySqlDataReader okuyucu = komut.ExecuteReader();
             listbox.Items.Clear();
             listbox2.Items.Clear();
+            aktifKamera.Items.Clear();
            
             try
             {
@@ -249,6 +260,10 @@ namespace Otopark_Otomasyonu
                 {   // Çoklu veri okumak için
                     listbox.Items.Add(okuyucu["k_adi"].ToString());
                     listbox2.Items.Add(okuyucu["k_id"].ToString());
+                    if (okuyucu["k_aktif"].ToString()=="1")
+                    {
+                        aktifKamera.Items.Add(okuyucu["k_id"]);
+                    }
                 
                 }
                 baglanti1.mysqlbaglan.Close();

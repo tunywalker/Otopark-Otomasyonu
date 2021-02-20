@@ -33,7 +33,7 @@ namespace Otopark_Otomasyonu
             labelHata.Text = "";
             comboLokasyon.SelectedIndex = 0;
             comboYontem.SelectedIndex = 0;
-        k.kameraAdGetir(listBox1,listBox2);
+             k.kameraAdGetir(listBox1,listBox2,listAktifKamera);
             buttonGuncelle.Visible = false;
             buttonEkle.Visible = true;
             timer1.Interval = 1000;
@@ -49,7 +49,7 @@ namespace Otopark_Otomasyonu
             {
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
                 this.k = k.kameraGetir(Convert.ToInt16( listBox2.Items[listBox1.SelectedIndex]));
-                k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif, this.k.k_id);
+                k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif,textUrl, this.k.k_id);
                 buttonEkle.Visible = false;
                 buttonGuncelle.Visible = true;
                 //  MessageBox.Show("Guncelle");
@@ -76,10 +76,10 @@ namespace Otopark_Otomasyonu
                     textFiligran.Text,
                     ((comboLokasyon.SelectedIndex == 0) ? "0" : "1").ToString(),
                     ((checkYabanci.Checked == true) ? 1 : 0).ToString(),
-                    ((checkAktif.Checked) ? 1 : 0).ToString()
+                    ((checkAktif.Checked) ? 1 : 0).ToString(),textUrl.Text
                    );
                 if (k.kameraKaydet(this.k))
-                    k.kameraAdGetir(listBox1, listBox2);
+                    k.kameraAdGetir(listBox1, listBox2,listAktifKamera);
 
 
             }
@@ -122,11 +122,12 @@ namespace Otopark_Otomasyonu
                    textFiligran.Text,
                    ((comboLokasyon.SelectedIndex == 0) ? "0" : "1").ToString(),
                    ((checkYabanci.Checked == true) ? 1 : 0).ToString(),
-                   ((checkAktif.Checked) ? 1 : 0).ToString()
+                   ((checkAktif.Checked) ? 1 : 0).ToString(),
+                   textUrl.Text
                   );
                 if (k.kameraGuncelle(this.k, Convert.ToInt16(listBox2.Items[listBox1.SelectedIndex])))
                 {
-                    k.kameraAdGetir(listBox1, listBox2);
+                    k.kameraAdGetir(listBox1, listBox2,listAktifKamera);
                     formTemizle();
 
 
@@ -172,7 +173,7 @@ namespace Otopark_Otomasyonu
             {
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
                 if (k.kameraSil(Convert.ToInt16(listBox2.Items[listBox2.SelectedIndex]))) ;
-                k.kameraAdGetir(listBox1, listBox2);
+                k.kameraAdGetir(listBox1, listBox2,listAktifKamera);
                 formTemizle();
             }
             catch

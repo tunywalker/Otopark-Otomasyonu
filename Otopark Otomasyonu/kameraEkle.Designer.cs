@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textUrl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.buttonGuncelle = new System.Windows.Forms.Button();
             this.checkAktif = new System.Windows.Forms.CheckBox();
             this.comboLokasyon = new System.Windows.Forms.ComboBox();
@@ -45,15 +47,15 @@
             this.labelHata = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listAktifKamera = new System.Windows.Forms.ListBox();
             this.buttonSil = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.listAktifKamera = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textUrl = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -72,17 +74,33 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textKadi);
-            this.groupBox1.Location = new System.Drawing.Point(214, 36);
+            this.groupBox1.Location = new System.Drawing.Point(203, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 324);
+            this.groupBox1.Size = new System.Drawing.Size(279, 302);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textUrl
+            // 
+            this.textUrl.Location = new System.Drawing.Point(113, 24);
+            this.textUrl.Name = "textUrl";
+            this.textUrl.Size = new System.Drawing.Size(140, 20);
+            this.textUrl.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Url:";
+            // 
             // buttonGuncelle
             // 
-            this.buttonGuncelle.Location = new System.Drawing.Point(96, 275);
+            this.buttonGuncelle.Location = new System.Drawing.Point(96, 182);
             this.buttonGuncelle.Name = "buttonGuncelle";
             this.buttonGuncelle.Size = new System.Drawing.Size(93, 23);
             this.buttonGuncelle.TabIndex = 20;
@@ -93,9 +111,9 @@
             // checkAktif
             // 
             this.checkAktif.AutoSize = true;
-            this.checkAktif.Location = new System.Drawing.Point(211, 232);
+            this.checkAktif.Location = new System.Drawing.Point(201, 159);
             this.checkAktif.Name = "checkAktif";
-            this.checkAktif.Size = new System.Drawing.Size(62, 21);
+            this.checkAktif.Size = new System.Drawing.Size(52, 17);
             this.checkAktif.TabIndex = 19;
             this.checkAktif.Text = "Aktif";
             this.checkAktif.UseVisualStyleBackColor = true;
@@ -107,33 +125,33 @@
             this.comboLokasyon.Items.AddRange(new object[] {
             "Giriş",
             "Çıkış"});
-            this.comboLokasyon.Location = new System.Drawing.Point(107, 195);
+            this.comboLokasyon.Location = new System.Drawing.Point(113, 132);
             this.comboLokasyon.Name = "comboLokasyon";
-            this.comboLokasyon.Size = new System.Drawing.Size(140, 25);
+            this.comboLokasyon.Size = new System.Drawing.Size(140, 21);
             this.comboLokasyon.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 195);
+            this.label5.Location = new System.Drawing.Point(15, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 17);
+            this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "Lokasyon: ";
             // 
             // checkYabanci
             // 
             this.checkYabanci.AutoSize = true;
-            this.checkYabanci.Location = new System.Drawing.Point(12, 232);
+            this.checkYabanci.Location = new System.Drawing.Point(18, 159);
             this.checkYabanci.Name = "checkYabanci";
-            this.checkYabanci.Size = new System.Drawing.Size(177, 21);
+            this.checkYabanci.Size = new System.Drawing.Size(141, 17);
             this.checkYabanci.TabIndex = 16;
             this.checkYabanci.Text = "Sadece Üyeleri Tanı";
             this.checkYabanci.UseVisualStyleBackColor = true;
             // 
             // buttonEkle
             // 
-            this.buttonEkle.Location = new System.Drawing.Point(96, 275);
+            this.buttonEkle.Location = new System.Drawing.Point(96, 182);
             this.buttonEkle.Name = "buttonEkle";
             this.buttonEkle.Size = new System.Drawing.Size(87, 23);
             this.buttonEkle.TabIndex = 15;
@@ -148,61 +166,62 @@
             this.comboYontem.Items.AddRange(new object[] {
             "Sürekli Tarama ",
             "Harekete Duyarlı"});
-            this.comboYontem.Location = new System.Drawing.Point(107, 113);
+            this.comboYontem.Location = new System.Drawing.Point(113, 76);
             this.comboYontem.Name = "comboYontem";
-            this.comboYontem.Size = new System.Drawing.Size(140, 25);
+            this.comboYontem.Size = new System.Drawing.Size(140, 21);
             this.comboYontem.TabIndex = 14;
             this.comboYontem.SelectedIndexChanged += new System.EventHandler(this.comboYontem_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 150);
+            this.label3.Location = new System.Drawing.Point(15, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Filigran:";
             // 
             // textFiligran
             // 
             this.textFiligran.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textFiligran.Location = new System.Drawing.Point(107, 150);
+            this.textFiligran.Location = new System.Drawing.Point(113, 103);
             this.textFiligran.Name = "textFiligran";
-            this.textFiligran.Size = new System.Drawing.Size(140, 23);
+            this.textFiligran.Size = new System.Drawing.Size(140, 20);
             this.textFiligran.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 113);
+            this.label2.Location = new System.Drawing.Point(15, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Yöntem:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 83);
+            this.label1.Location = new System.Drawing.Point(15, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Kamera Adı:";
             // 
             // textKadi
             // 
-            this.textKadi.Location = new System.Drawing.Point(107, 77);
+            this.textKadi.Location = new System.Drawing.Point(113, 50);
             this.textKadi.Name = "textKadi";
-            this.textKadi.Size = new System.Drawing.Size(140, 23);
+            this.textKadi.Size = new System.Drawing.Size(140, 20);
             this.textKadi.TabIndex = 9;
             // 
             // labelHata
             // 
             this.labelHata.AutoSize = true;
+            this.labelHata.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelHata.ForeColor = System.Drawing.Color.Red;
-            this.labelHata.Location = new System.Drawing.Point(35, 9);
+            this.labelHata.Location = new System.Drawing.Point(6, 16);
             this.labelHata.Name = "labelHata";
-            this.labelHata.Size = new System.Drawing.Size(49, 17);
+            this.labelHata.Size = new System.Drawing.Size(49, 16);
             this.labelHata.TabIndex = 13;
             this.labelHata.Text = "HATA";
             this.labelHata.Click += new System.EventHandler(this.labelHata_Click);
@@ -210,10 +229,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(6, 22);
+            this.listBox1.Location = new System.Drawing.Point(10, 27);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 191);
+            this.listBox1.Size = new System.Drawing.Size(180, 173);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -224,16 +242,25 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 36);
+            this.groupBox2.Location = new System.Drawing.Point(1, 68);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(196, 264);
+            this.groupBox2.Size = new System.Drawing.Size(196, 302);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kameralar";
             // 
+            // listAktifKamera
+            // 
+            this.listAktifKamera.FormattingEnabled = true;
+            this.listAktifKamera.Location = new System.Drawing.Point(6, 219);
+            this.listAktifKamera.Name = "listAktifKamera";
+            this.listAktifKamera.Size = new System.Drawing.Size(180, 30);
+            this.listAktifKamera.TabIndex = 21;
+            this.listAktifKamera.Visible = false;
+            // 
             // buttonSil
             // 
-            this.buttonSil.Location = new System.Drawing.Point(54, 222);
+            this.buttonSil.Location = new System.Drawing.Point(55, 219);
             this.buttonSil.Name = "buttonSil";
             this.buttonSil.Size = new System.Drawing.Size(43, 31);
             this.buttonSil.TabIndex = 22;
@@ -243,7 +270,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 222);
+            this.button1.Location = new System.Drawing.Point(10, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 31);
             this.button1.TabIndex = 21;
@@ -254,10 +281,9 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 17;
-            this.listBox2.Location = new System.Drawing.Point(6, 158);
+            this.listBox2.Location = new System.Drawing.Point(6, 219);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(180, 38);
+            this.listBox2.Size = new System.Drawing.Size(180, 30);
             this.listBox2.TabIndex = 11;
             this.listBox2.Visible = false;
             // 
@@ -265,39 +291,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // listAktifKamera
+            // groupBox3
             // 
-            this.listAktifKamera.FormattingEnabled = true;
-            this.listAktifKamera.ItemHeight = 17;
-            this.listAktifKamera.Location = new System.Drawing.Point(6, 158);
-            this.listAktifKamera.Name = "listAktifKamera";
-            this.listAktifKamera.Size = new System.Drawing.Size(180, 38);
-            this.listAktifKamera.TabIndex = 21;
-            this.listAktifKamera.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Url:";
-            // 
-            // textUrl
-            // 
-            this.textUrl.Location = new System.Drawing.Point(107, 39);
-            this.textUrl.Name = "textUrl";
-            this.textUrl.Size = new System.Drawing.Size(140, 23);
-            this.textUrl.TabIndex = 21;
+            this.groupBox3.Controls.Add(this.labelHata);
+            this.groupBox3.Location = new System.Drawing.Point(1, 5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(481, 57);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
             // 
             // kameraEkle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(523, 372);
-            this.Controls.Add(this.labelHata);
+            this.BackColor = System.Drawing.Color.Khaki;
+            this.ClientSize = new System.Drawing.Size(478, 281);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -310,8 +319,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -340,5 +350,6 @@
         private System.Windows.Forms.ListBox listAktifKamera;
         private System.Windows.Forms.TextBox textUrl;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

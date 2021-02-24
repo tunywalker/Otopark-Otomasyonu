@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Net;
 
 namespace Otopark_Otomasyonu
 {
@@ -25,6 +26,7 @@ namespace Otopark_Otomasyonu
 
 
         }
+        Form kameraEkle = new Form();
        public Kamera(string k_adi,  string k_hareketeduyarli,string k_filigran,string k_lokasyon,string k_sadeceuye,string k_aktif, string k_url)
         {
             this.k_adi = k_adi;
@@ -221,7 +223,7 @@ namespace Otopark_Otomasyonu
             k1 = kameraGetir(kameraId);
             try
             {
-                
+               
 ;                
                
                     tx1.Text = k1.k_adi;
@@ -242,7 +244,19 @@ namespace Otopark_Otomasyonu
         }
         public bool  urlKontrol(String url)
         {
-            return false;
+            try
+            {
+
+                WebRequest webRequest = WebRequest.Create(url);
+                WebResponse webResponse;
+                webResponse = webRequest.GetResponse();
+            }
+            catch //If exception thrown then couldn't get response from address
+            {
+                
+                return false;
+            }
+            return true;
         }
         public void kameraAdGetir(ListBox listbox, ListBox listbox2,ListBox aktifKamera)
         {
@@ -258,7 +272,15 @@ namespace Otopark_Otomasyonu
             {
                 while (okuyucu.Read())
                 {   // Çoklu veri okumak için
-                    listbox.Items.Add(okuyucu["k_adi"].ToString());
+                    if (okuyucu["k_aktif"].ToString() == "1")
+                        listbox.Items.Add(okuyucu["k_adi"].ToString() + " - Aktif");
+                    else
+                        listbox.Items.Add(okuyucu["k_adi"].ToString());
+
+                    
+
+
+
                     listbox2.Items.Add(okuyucu["k_id"].ToString());
                     if (okuyucu["k_aktif"].ToString()=="1")
                     {

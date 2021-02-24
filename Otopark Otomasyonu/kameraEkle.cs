@@ -40,7 +40,14 @@ namespace Otopark_Otomasyonu
         }
         public void hataYazdir(String hataMetni)
         {
+            labelHata.ForeColor = Color.Red;
             labelHata.Text = hataMetni;
+            timer1.Start();
+        }
+        public void bildiriYazdir(String bildiri)
+        {
+            labelHata.Text = bildiri;
+            labelHata.ForeColor = Color.Green;
             timer1.Start();
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,6 +57,10 @@ namespace Otopark_Otomasyonu
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
                 this.k = k.kameraGetir(Convert.ToInt16( listBox2.Items[listBox1.SelectedIndex]));
                 k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif,textUrl, this.k.k_id);
+                if (k.urlKontrol(textUrl.Text))
+                    bildiriYazdir("Kamera  Çalışıyor");
+                else
+                    hataYazdir("Kamera  Çalışmıyor");
                 buttonEkle.Visible = false;
                 buttonGuncelle.Visible = true;
                 //  MessageBox.Show("Guncelle");
@@ -91,6 +102,7 @@ namespace Otopark_Otomasyonu
         }
         public void formTemizle()
         {
+            textUrl.Text = "";
             textKadi.Text = "";
             textFiligran.Text = "";
             checkAktif.Checked = false;
@@ -104,6 +116,7 @@ namespace Otopark_Otomasyonu
 
         private void buttonGuncelle_Click(object sender, EventArgs e)
         {
+            
             if (textKadi.Text.Trim() == "")
                 hataYazdir("Kamera Adı boş bırakılamaz!");
 

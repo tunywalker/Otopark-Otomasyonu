@@ -18,6 +18,8 @@ namespace Otopark_Otomasyonu
 
         public kameraEkle()
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
+
             InitializeComponent();
         }
 
@@ -52,6 +54,10 @@ namespace Otopark_Otomasyonu
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+
+           
             if (listBox1.SelectedIndex >= 0)
             {
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
@@ -64,6 +70,12 @@ namespace Otopark_Otomasyonu
                 buttonEkle.Visible = false;
                 buttonGuncelle.Visible = true;
                 //  MessageBox.Show("Guncelle");
+            }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 

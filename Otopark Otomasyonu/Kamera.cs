@@ -71,6 +71,42 @@ namespace Otopark_Otomasyonu
             }
             catch (Exception e)
             {
+                MessageBox.Show("");
+                return kGetirilen;
+            }
+        }
+        public Kamera kameraGetirAktif()
+        {
+            baglanti1.mysqlbaglan.Open();
+            Kamera[] aktifKameralar = new Kamera[2];
+            MySqlCommand komut = new MySqlCommand("select * from kameralar where k_aktif='" + '1' + "'", baglanti1.mysqlbaglan);
+            aktifKameralar[0] = new Kamera();
+            aktifKameralar[0] = new Kamera();
+            MySqlDataReader okuyucu = komut.ExecuteReader();
+
+            while (okuyucu.Read())
+
+            {   // Çoklu veri okumak için
+                kGetirilen.k_id = Convert.ToInt16((okuyucu["k_id"]));
+                kGetirilen.k_adi = (okuyucu["k_adi"].ToString());
+                kGetirilen.k_hareketeduyarli = okuyucu["k_hareketeduyarli"].ToString();
+                kGetirilen.k_url = okuyucu["k_url"].ToString();
+                kGetirilen.k_filigran = okuyucu["k_filigran"].ToString();
+                kGetirilen.k_lokasyon = okuyucu["k_lokasyon"].ToString();
+                kGetirilen.k_sadeceuye = okuyucu["k_sadeceuye"].ToString();
+                kGetirilen.k_aktif = okuyucu["k_aktif"].ToString();
+
+
+
+            }
+            baglanti1.mysqlbaglan.Close();
+            return kGetirilen;
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("");
                 return kGetirilen;
             }
         }
@@ -238,7 +274,7 @@ namespace Otopark_Otomasyonu
             }
             catch (Exception e)
             {
-            
+                MessageBox.Show("hata");
             }
 
         }

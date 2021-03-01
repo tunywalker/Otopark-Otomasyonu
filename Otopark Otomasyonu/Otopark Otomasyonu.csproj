@@ -134,12 +134,6 @@
     <Compile Include="kameraEkle.Designer.cs">
       <DependentUpon>kameraEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="kameraKontrol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="kameraKontrol.Designer.cs">
-      <DependentUpon>kameraKontrol.cs</DependentUpon>
-    </Compile>
     <Compile Include="kameraMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +144,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="kameraEkle.resx">
       <DependentUpon>kameraEkle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="kameraKontrol.resx">
-      <DependentUpon>kameraKontrol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kameraMonitor.resx">
       <DependentUpon>kameraMonitor.cs</DependentUpon>

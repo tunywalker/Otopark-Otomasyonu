@@ -21,20 +21,26 @@ namespace Otopark_Otomasyonu
         JPEGStream stream;
         public kameraMonitor()
         {
-            stream = new JPEGStream("http://192.168.1.103:8080/photo.jpg");
+            stream = new JPEGStream("http://192.168.1.108:8080/photo.jpg");
             //http://192.168.1.5:8080/shot.jpg?rnd=660075
 
             InitializeComponent();
             stream.NewFrame += stream_NewFrame;
-            InitializeComponent();
+           
         }
+        Kamera kamera1 = new Kamera();
+        Kamera kamera2 = new Kamera();
+
         void stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
-            picOriginal.Image = bmp;
+            try
+            {
+                Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
+                picOriginal.Image = bmp;
+            }
+            catch { }
         }
-        private FilterInfoCollection webcam;//webcam isminde tanımladığımız değişken bilgisayara kaç kamera bağlıysa onları tutan bir dizi. 
-        private VideoCaptureDevice cam;//cam ise bizim kullanacağımız aygıt.
+     
         public static string AssemblyDirectory
         {
             get
@@ -165,16 +171,15 @@ namespace Otopark_Otomasyonu
 
             return "";
         }
-        int durum = 1;
+       
         int timer = 0;
         Random rnd = new Random();
         int rastgele;
         private void kameraMonitor_Load(object sender, EventArgs e)
         {
-
-            stream.Start();
-            timer1.Interval = 3000;
-            timer1.Start();
+         stream.Start();
+            timerKamera1.Interval = 3000;
+            timerKamera1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -212,12 +217,42 @@ namespace Otopark_Otomasyonu
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex==1)
+        /*    if (tabControl1.SelectedIndex==1)
             {
                 tabControl1.SelectedIndex = 0;
-                kameraEkle kameraEkleForm = new kameraEkle();
-                kameraEkleForm.Show();
-            }
+               
+            }*/
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void kameraMenüsüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            kameraEkle kameraEkleForm = new kameraEkle();
+            kameraEkleForm.Show();
+        }
+
+        private void timerLoad_Tick(object sender, EventArgs e)
+        {
+            kamera1=kamera1.kameraGetirAktif();
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Otopark_Otomasyonu
     class Kamera
     {
      public   int k_id;
-        string k_adi;
+       public string k_adi;
         string k_hareketeduyarli;
         string k_filigran;
       public  string k_aktif;
         string k_sadeceuye;
         string k_lokasyon;
-        string k_url;
+      public  string k_url;
         public Kamera()
         {
 
@@ -40,9 +40,14 @@ namespace Otopark_Otomasyonu
         }
         
          databaseConnection baglanti1 = new databaseConnection();
+        databaseConnection baglanti2 = new databaseConnection();
 
         public Kamera kameraGetir(int id)
         {
+            try { 
+            baglanti1.mysqlbaglan.Close();
+            }
+            catch { }
             baglanti1.mysqlbaglan.Open();
             Kamera kGetirilen = new Kamera();
             MySqlCommand komut = new MySqlCommand("select * from kameralar where k_id='" + id + "'", baglanti1.mysqlbaglan);
@@ -71,43 +76,44 @@ namespace Otopark_Otomasyonu
             }
             catch (Exception e)
             {
+                baglanti1.mysqlbaglan.Close();
                 MessageBox.Show("");
                 return kGetirilen;
             }
         }
-        public Kamera kameraGetirAktif()
+        public Kamera[] kameraGetirAktif()
         {
-            baglanti1.mysqlbaglan.Open();
+            try
+            {
+                baglanti2.mysqlbaglan.Open();
+            
             Kamera[] aktifKameralar = new Kamera[2];
-            MySqlCommand komut = new MySqlCommand("select * from kameralar where k_aktif='" + '1' + "'", baglanti1.mysqlbaglan);
-            aktifKameralar[0] = new Kamera();
-            aktifKameralar[0] = new Kamera();
+            MySqlCommand komut = new MySqlCommand("select * from kameralar where k_aktif='" + '1' + "'", baglanti2.mysqlbaglan);
+           
             MySqlDataReader okuyucu = komut.ExecuteReader();
 
             while (okuyucu.Read())
 
             {   // Çoklu veri okumak için
-                kGetirilen.k_id = Convert.ToInt16((okuyucu["k_id"]));
-                kGetirilen.k_adi = (okuyucu["k_adi"].ToString());
-                kGetirilen.k_hareketeduyarli = okuyucu["k_hareketeduyarli"].ToString();
-                kGetirilen.k_url = okuyucu["k_url"].ToString();
-                kGetirilen.k_filigran = okuyucu["k_filigran"].ToString();
-                kGetirilen.k_lokasyon = okuyucu["k_lokasyon"].ToString();
-                kGetirilen.k_sadeceuye = okuyucu["k_sadeceuye"].ToString();
-                kGetirilen.k_aktif = okuyucu["k_aktif"].ToString();
+                 
+                    if (aktifKameralar[0] == null)
+                    {
+                        aktifKameralar[0] = new Kamera(okuyucu["k_adi"].ToString(), okuyucu["k_hareketeduyarli"].ToString(), okuyucu["k_filigran"].ToString(), okuyucu["k_lokasyon"].ToString(), okuyucu["k_sadeceuye"].ToString(), "1", okuyucu["k_url"].ToString());
+                   // MessageBox.Show(aktifKameralar[0].k_url.ToString());
+                }
+                    else aktifKameralar[1] = kameraGetir(Convert.ToInt16((okuyucu["k_id"])));
 
 
 
-            }
-            baglanti1.mysqlbaglan.Close();
-            return kGetirilen;
-            try
-            {
+
+                }
+            baglanti2.mysqlbaglan.Close();
+            return aktifKameralar;
+           
             }
             catch (Exception e)
             {
-                MessageBox.Show("");
-                return kGetirilen;
+                                return null;
             }
         }
         public bool kameraKaydet(Kamera kayitEdilecek)

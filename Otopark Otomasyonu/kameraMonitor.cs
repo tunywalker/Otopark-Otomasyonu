@@ -13,25 +13,27 @@ using openalprnet;
 using AForge.Video;  //Referansları ekliyoruz
 using AForge.Video.DirectShow; //Referansları ekliyoruz
 using System.Drawing.Imaging;
+using System.Threading;
 
 namespace Otopark_Otomasyonu
 {
     public partial class kameraMonitor : Form
     {
-        JPEGStream stream;
+        JPEGStream kamera1Video;
+        MJPEGStream kamera2Video;
         public kameraMonitor()
         {
-            stream = new JPEGStream("http://192.168.1.108:8080/photo.jpg");
-            //http://192.168.1.5:8080/shot.jpg?rnd=660075
 
+          
             InitializeComponent();
-            stream.NewFrame += stream_NewFrame;
            
+
         }
         Kamera kamera1 = new Kamera();
         Kamera kamera2 = new Kamera();
 
-        void stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
+       
+        void kamera1Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             try
             {
@@ -40,7 +42,16 @@ namespace Otopark_Otomasyonu
             }
             catch { }
         }
-     
+        void kamera2Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
+                pictureBox1.Image = bmp;
+            }
+            catch { }
+        }
+
         public static string AssemblyDirectory
         {
             get
@@ -134,7 +145,7 @@ namespace Otopark_Otomasyonu
 
             using (var alpr = new AlprNet(region, config_file, runtime_data_dir))
             {
-
+                lbxPlates.Items.Clear();
 
                 var results = alpr.Recognize(fileName);
 
@@ -155,6 +166,7 @@ namespace Otopark_Otomasyonu
                     images.Add(cropped);
                     foreach (var plate in result.TopNPlates)
                     {
+                        
                         lbxPlates.Items.Add(plate.Characters);
                         break;
                     }
@@ -164,7 +176,7 @@ namespace Otopark_Otomasyonu
                 if (images.Any())
                 {
 
-                    //   picLicensePlate.Image = combineImages(images); PLakayı kes
+                       picLicensePlate.Image = combineImages(images); 
                 }
 
             }
@@ -176,10 +188,14 @@ namespace Otopark_Otomasyonu
         Random rnd = new Random();
         int rastgele;
         private void kameraMonitor_Load(object sender, EventArgs e)
+
         {
-         stream.Start();
+
+            timerLoad.Interval = 5000;
+            timerLoad.Start();
+           
             timerKamera1.Interval = 3000;
-            timerKamera1.Start();
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -249,10 +265,64 @@ namespace Otopark_Otomasyonu
             kameraEkle kameraEkleForm = new kameraEkle();
             kameraEkleForm.Show();
         }
-
+        Kamera[] aktifkameralar = new Kamera[2];
+        
         private void timerLoad_Tick(object sender, EventArgs e)
         {
-            kamera1=kamera1.kameraGetirAktif();
+            try
+            {
+                if (kamera1Video != null)
+                    kamera1Video.Stop();
+                if (kamera2Video != null)
+                    kamera2Video.Stop();
+                
+                kamera1Video = null;
+                kamera2Video = null;
+            }
+            catch
+            {
+
+            }
+
+            try
+            {
+                
+                aktifkameralar = kamera1.kameraGetirAktif();
+                if (aktifkameralar[0] != null) { 
+                kamera1 = (Kamera)aktifkameralar[0];
+                    kameraGroup1.Text = kamera1.k_adi;
+                kamera1Video = new JPEGStream(kamera1.k_url.ToString());
+               
+                kamera1Video.NewFrame += kamera1Video_NewFrame;
+
+                kamera1Video.Start();
+                    timerKamera1.Start();
+                }
+                //MessageBox.Show("zz");
+                if (aktifkameralar[1]!=null)
+                {
+                    kamera2 = (Kamera)aktifkameralar[1];
+                    kameraGroup2.Text = kamera2.k_adi;
+                    kamera2Video = new MJPEGStream(kamera2.k_url.ToString());
+
+                    kamera2Video.NewFrame += kamera2Video_NewFrame;
+
+                    kamera2Video.Start();
+                }
+                
+
+            }
+            catch
+            {
+
+                MessageBox.Show("");
+            }
+          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            kamera1.kameraGetirAktif();
         }
     }
 }

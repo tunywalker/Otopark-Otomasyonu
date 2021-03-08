@@ -14,32 +14,60 @@ using AForge.Video;  //Referansları ekliyoruz
 using AForge.Video.DirectShow; //Referansları ekliyoruz
 using System.Drawing.Imaging;
 using System.Threading;
+using AForge.Vision.Motion;
 
 namespace Otopark_Otomasyonu
 {
     public partial class kameraMonitor : Form
     {
-        MJPEGStream kamera1Video;
+        JPEGStream kamera1Video;
         JPEGStream kamera2Video;
         AsyncVideoSource asenkronKamera1;
         public kameraMonitor()
         {
 
-          
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
            
 
         }
         Kamera kamera1 = new Kamera();
         Kamera kamera2 = new Kamera();
-
-       
+        FilterInfoCollection fic;
+       // MotionDetector motionDetector;
+        
         void kamera1Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
+           /*
+            float motion = detector.ProcessFrame(bmp); // running on worker thread
+
+            float motion2 = motion * 100;
+            this.Invoke((MethodInvoker)delegate
+            {
+                label1.Text = motion2.ToString(); // runs on UI thread
+
+                if (motion2 > 0.80)
+                {
+                    label1.Text = "0";
+                }
+                else
+                {
+                    label1.Text = "1";
+                }
+            });*/
             try
             {
+
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
                 pictureBoxKamera1.Image = bmp;
+
+
+               
+
+                // ring alarm or do somethng else
+
+
+
             }
             catch { }
         }
@@ -143,54 +171,72 @@ namespace Otopark_Otomasyonu
             var region = "eu";
             String config_file = Path.Combine(AssemblyDirectory, "openalpr.conf");
             String runtime_data_dir = Path.Combine(AssemblyDirectory, "runtime_data");
-
-            using (var alpr = new AlprNet(region, config_file, runtime_data_dir))
+            try
             {
-               
-
-                var results = alpr.Recognize(fileName);
-
-                var images = new List<Image>(results.Plates.Count());
-                //    var i = 1;
-               if (results.Plates.Count() > 0)
+                using (var alpr = new AlprNet(region, config_file, runtime_data_dir))
                 {
-                    lbxPlates.Items.Clear();
-                }
-                foreach (var result in results.Plates)
-                {
-                    var rect = boundingRectangle(result.PlatePoints);
-                    var img = Image.FromFile(fileName);
-                    var cropped = cropImage(img, rect);
-                   // resimKutusu.Image = cropImage2(img);
-                    img.Dispose();
-                    images.Add(cropped);
 
-                    foreach (var plate in result.TopNPlates)
+
+                    var results = alpr.Recognize(fileName);
+
+                    var images = new List<Image>(results.Plates.Count());
+                    //    var i = 1;
+                    if (results.Plates.Count() > 0)
                     {
-                        
-                        lbxPlates.Items.Add(plate.Characters);
-                        break;
+                        lbxPlates.Items.Clear();
+                    }
+                    foreach (var result in results.Plates)
+                    {
+                        var rect = boundingRectangle(result.PlatePoints);
+                        var img = Image.FromFile(fileName);
+                        var cropped = cropImage(img, rect);
+                        // resimKutusu.Image = cropImage2(img);
+                        img.Dispose();
+                        images.Add(cropped);
+
+                        foreach (var plate in result.TopNPlates)
+                        {
+
+                            lbxPlates.Items.Add(plate.Characters);
+                            break;
+                        }
+
+                    }
+
+                    if (images.Any())
+                    {
+
+                        picLicensePlate.Image = combineImages(images);
                     }
 
                 }
 
-                if (images.Any())
-                {
-
-                       picLicensePlate.Image = combineImages(images); 
-                }
-
+                return "";
             }
-
-            return "";
+            catch
+            {
+                return "";
+            }
         }
        
         int timer = 0;
         Random rnd = new Random();
         int rastgele;
+        MotionDetector detector;
         private void kameraMonitor_Load(object sender, EventArgs e)
 
         {
+
+
+            IMotionDetector motionDetector =  new TwoFramesDifferenceDetector() ;
+            // create instance of motion processing algorithm
+            BlobCountingObjectsProcessing motionProcessing = new BlobCountingObjectsProcessing();
+            // create motion detector
+             detector = new MotionDetector(motionDetector, motionProcessing);
+
+ 
+
+
             labelFiligran1.Parent = pictureBoxKamera1;
             labelFiligran2.Parent = pictureboxKamera2;
             labelFiligran1.Location = new Point(0, pictureBoxKamera1.Height-40);
@@ -244,8 +290,14 @@ namespace Otopark_Otomasyonu
                     //Now Dispose to free the memory
                     varBmp.Dispose();
                     varBmp = null;
-
-                    processImageFile("C:/plaka/" + rastgele + ".png");
+                    String dosyayolu = "C:/plaka/" + rastgele + ".png";
+                    while (backgroundWorker1.IsBusy)
+                    {
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    backgroundWorker1.RunWorkerAsync(argument: dosyayolu);
+                    //processImageFile("C:/plaka/" + rastgele + ".png");
                 }
             }
         }
@@ -260,7 +312,7 @@ namespace Otopark_Otomasyonu
             kameraEkleForm.Show();
         }
         Kamera[] aktifkameralar = new Kamera[2];
-        
+        IVideoSource videoSource;
         private void timerLoad_Tick(object sender, EventArgs e)
         {
             try
@@ -289,14 +341,17 @@ namespace Otopark_Otomasyonu
                   
                         kamera1 = (Kamera)aktifkameralar[0];
                         kameraGroup1.Text = kamera1.k_adi;
-                      
 
-                    kamera1Video = new MJPEGStream(kamera1.k_url.ToString());
-                    
+
+                   kamera1Video = new JPEGStream(kamera1.k_url.ToString());
+                //   videoSource = new JPEGStream(kamera1.k_url.ToString());
+                   // videoSourcePlayer1.VideoSource = videoSource;
                     labelFiligran1.Text = aktifkameralar[0].k_filigran;
-                        kamera1Video.NewFrame += kamera1Video_NewFrame;
-                        kamera1Video.Start();
-                        timerKamera1.Start();
+                  //  videoSourcePlayer1.NewFrame += (this.videoSourcePlayer1_NewFrame);
+                  //  videoSourcePlayer1.Start();
+                     kamera1Video.NewFrame += kamera1Video_NewFrame;
+                   kamera1Video.Start();
+                      timerKamera1.Start();
                 }
                 //MessageBox.Show("zz");
                 if (aktifkameralar[1] != null) { 
@@ -375,6 +430,17 @@ namespace Otopark_Otomasyonu
                     processImageFile("C:/plaka/" + rastgele + "x.png");
                 }
             }
+        }
+
+        private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            String filename = e.Argument.ToString();
+            processImageFile(filename);
         }
     }
 }

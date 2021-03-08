@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Net;
+
 
 
 namespace Otopark_Otomasyonu
@@ -30,6 +32,7 @@ namespace Otopark_Otomasyonu
 
         databaseConnection c1;
         Kamera k = new Kamera();
+        
         private void kameraEkle_Load(object sender, EventArgs e)
         {
             labelHata.Text = "";
@@ -52,21 +55,28 @@ namespace Otopark_Otomasyonu
             labelHata.ForeColor = Color.Green;
             timer1.Start();
         }
+        string testUrl;
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
+              
            
             if (listBox1.SelectedIndex >= 0)
             {
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
                 this.k = k.kameraGetir(Convert.ToInt16( listBox2.Items[listBox1.SelectedIndex]));
                 k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif,textUrl, this.k.k_id);
-                if (k.urlKontrol(textUrl.Text))
-                    bildiriYazdir("Kamera  Çalışıyor");
-                else
-                    hataYazdir("Kamera  Çalışmıyor");
+                    if (textUrl.Text.Contains(".mjpg") && textUrl.Text != "")
+                    {
+                        
+                        if (k.urlKontrol(textUrl.Text))
+                            bildiriYazdir("Kamera  Çalışıyor");
+                    
+                    
+                    }
+                    else
+                        hataYazdir("Kamera  Çalışmıyor");
                 buttonEkle.Visible = false;
                 buttonGuncelle.Visible = true;
                 //  MessageBox.Show("Guncelle");
@@ -210,6 +220,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void labelHata_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

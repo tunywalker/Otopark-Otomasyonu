@@ -19,8 +19,9 @@ namespace Otopark_Otomasyonu
 {
     public partial class kameraMonitor : Form
     {
-        JPEGStream kamera1Video;
-        MJPEGStream kamera2Video;
+        MJPEGStream kamera1Video;
+        JPEGStream kamera2Video;
+        AsyncVideoSource asenkronKamera1;
         public kameraMonitor()
         {
 
@@ -38,7 +39,7 @@ namespace Otopark_Otomasyonu
             try
             {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
-                picOriginal.Image = bmp;
+                pictureBoxKamera1.Image = bmp;
             }
             catch { }
         }
@@ -47,7 +48,7 @@ namespace Otopark_Otomasyonu
             try
             {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
-                pictureBox1.Image = bmp;
+                pictureboxKamera2.Image = bmp;
             }
             catch { }
         }
@@ -145,25 +146,25 @@ namespace Otopark_Otomasyonu
 
             using (var alpr = new AlprNet(region, config_file, runtime_data_dir))
             {
-                lbxPlates.Items.Clear();
+               
 
                 var results = alpr.Recognize(fileName);
 
                 var images = new List<Image>(results.Plates.Count());
                 //    var i = 1;
-                if (results.Plates.Count() == 0)
+               if (results.Plates.Count() > 0)
                 {
-                    picOriginal.ImageLocation = fileName;
-                    picOriginal.Load();
+                    lbxPlates.Items.Clear();
                 }
                 foreach (var result in results.Plates)
                 {
                     var rect = boundingRectangle(result.PlatePoints);
                     var img = Image.FromFile(fileName);
                     var cropped = cropImage(img, rect);
-                    picOriginal.Image = cropImage2(img);
+                   // resimKutusu.Image = cropImage2(img);
                     img.Dispose();
                     images.Add(cropped);
+
                     foreach (var plate in result.TopNPlates)
                     {
                         
@@ -190,30 +191,53 @@ namespace Otopark_Otomasyonu
         private void kameraMonitor_Load(object sender, EventArgs e)
 
         {
+            labelFiligran1.Parent = pictureBoxKamera1;
+            labelFiligran2.Parent = pictureboxKamera2;
+            labelFiligran1.Location = new Point(0, pictureBoxKamera1.Height-40);
+            labelFiligran2.Location = new Point(0, pictureBoxKamera1.Height - 40);
 
             timerLoad.Interval = 5000;
             timerLoad.Start();
            
-            timerKamera1.Interval = 3000;
+            timerKamera1.Interval = 5000;
+            timerKamera2.Interval = 5000;
            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            try
+            {
+                System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
+
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+                foreach (DirectoryInfo dir in di.GetDirectories())
+                {
+                    dir.Delete(true);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             timer++;
             rastgele = rnd.Next(1, 10000);
             if (true)
             {
 
 
-                if (picOriginal.Image != null)
+                if (pictureBoxKamera1.Image != null)
                 {
                     if (timer % 10 == 0)
                     {
                         lbxPlates.Items.Clear();
                     }
 
-                    Bitmap varBmp = new Bitmap(picOriginal.Image);
+                    Bitmap varBmp = new Bitmap(pictureBoxKamera1.Image);
                     Bitmap newBitmap = new Bitmap(varBmp);
                     //processImageFile("C:/plaka/SavedImage.jpg");
                     varBmp.Save(@"C:\plaka\" + rastgele + ".png", ImageFormat.Png);
@@ -226,39 +250,9 @@ namespace Otopark_Otomasyonu
             }
         }
 
-        private void tabControl1_Selected(object sender, TabControlEventArgs e)
-        {
-            
-        }
+     
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        /*    if (tabControl1.SelectedIndex==1)
-            {
-                tabControl1.SelectedIndex = 0;
-               
-            }*/
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void kameraMenüsüToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -273,9 +267,12 @@ namespace Otopark_Otomasyonu
             {
                 if (kamera1Video != null)
                     kamera1Video.Stop();
+                
                 if (kamera2Video != null)
                     kamera2Video.Stop();
-                
+              
+                labelFiligran1.Text = "";
+                labelFiligran2.Text = "";
                 kamera1Video = null;
                 kamera2Video = null;
             }
@@ -289,24 +286,28 @@ namespace Otopark_Otomasyonu
                 
                 aktifkameralar = kamera1.kameraGetirAktif();
                 if (aktifkameralar[0] != null) { 
-                kamera1 = (Kamera)aktifkameralar[0];
-                    kameraGroup1.Text = kamera1.k_adi;
-                kamera1Video = new JPEGStream(kamera1.k_url.ToString());
-               
-                kamera1Video.NewFrame += kamera1Video_NewFrame;
+                  
+                        kamera1 = (Kamera)aktifkameralar[0];
+                        kameraGroup1.Text = kamera1.k_adi;
+                      
 
-                kamera1Video.Start();
-                    timerKamera1.Start();
+                    kamera1Video = new MJPEGStream(kamera1.k_url.ToString());
+                    
+                    labelFiligran1.Text = aktifkameralar[0].k_filigran;
+                        kamera1Video.NewFrame += kamera1Video_NewFrame;
+                        kamera1Video.Start();
+                        timerKamera1.Start();
                 }
                 //MessageBox.Show("zz");
-                if (aktifkameralar[1]!=null)
-                {
+                if (aktifkameralar[1] != null) { 
+                    
+                        
                     kamera2 = (Kamera)aktifkameralar[1];
                     kameraGroup2.Text = kamera2.k_adi;
-                    kamera2Video = new MJPEGStream(kamera2.k_url.ToString());
-
+                    kamera2Video = new JPEGStream(kamera2.k_url.ToString());
+                    labelFiligran2.Text = aktifkameralar[1].k_filigran;
                     kamera2Video.NewFrame += kamera2Video_NewFrame;
-
+                    timerKamera2.Start();
                     kamera2Video.Start();
                 }
                 
@@ -319,10 +320,61 @@ namespace Otopark_Otomasyonu
             }
           
         }
-
+     
         private void button1_Click(object sender, EventArgs e)
         {
             kamera1.kameraGetirAktif();
+        }
+
+        private void pictureBoxKamera1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerKamera2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
+
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+                foreach (DirectoryInfo dir in di.GetDirectories())
+                {
+                    dir.Delete(true);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            timer++;
+            rastgele = rnd.Next(1, 10000);
+            if (true)
+            {
+
+
+                if (pictureboxKamera2.Image != null)
+                {
+                    if (timer % 10 == 0)
+                    {
+                        lbxPlates.Items.Clear();
+                    }
+
+                    Bitmap varBmp = new Bitmap(pictureboxKamera2.Image);
+                    Bitmap newBitmap = new Bitmap(varBmp);
+                    //processImageFile("C:/plaka/SavedImage.jpg");
+                    varBmp.Save(@"C:\plaka\" + rastgele + "x.png", ImageFormat.Png);
+                    //Now Dispose to free the memory
+                    varBmp.Dispose();
+                    varBmp = null;
+
+                    processImageFile("C:/plaka/" + rastgele + "x.png");
+                }
+            }
         }
     }
 }

@@ -32,25 +32,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kameraMonitor));
             this.timerKamera1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picOriginal = new System.Windows.Forms.PictureBox();
+            this.pictureBoxKamera1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.picLicensePlate = new System.Windows.Forms.PictureBox();
             this.lbxPlates = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
             this.kameraGroup1 = new System.Windows.Forms.GroupBox();
+            this.labelFiligran1 = new System.Windows.Forms.Label();
             this.kameraGroup2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelFiligran2 = new System.Windows.Forms.Label();
+            this.pictureboxKamera2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timerLoad = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.timerKamera2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
             this.kameraGroup2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,21 +71,22 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
-            // picOriginal
+            // pictureBoxKamera1
             // 
-            this.picOriginal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picOriginal.Location = new System.Drawing.Point(0, 18);
-            this.picOriginal.Name = "picOriginal";
-            this.picOriginal.Size = new System.Drawing.Size(380, 340);
-            this.picOriginal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picOriginal.TabIndex = 34;
-            this.picOriginal.TabStop = false;
+            this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxKamera1.Location = new System.Drawing.Point(0, 18);
+            this.pictureBoxKamera1.Name = "pictureBoxKamera1";
+            this.pictureBoxKamera1.Size = new System.Drawing.Size(506, 500);
+            this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxKamera1.TabIndex = 34;
+            this.pictureBoxKamera1.TabStop = false;
+            this.pictureBoxKamera1.Click += new System.EventHandler(this.pictureBoxKamera1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(35, 646);
+            this.label3.Location = new System.Drawing.Point(138, 643);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 18);
             this.label3.TabIndex = 37;
@@ -91,7 +95,7 @@
             // picLicensePlate
             // 
             this.picLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLicensePlate.Location = new System.Drawing.Point(84, 445);
+            this.picLicensePlate.Location = new System.Drawing.Point(572, 596);
             this.picLicensePlate.Name = "picLicensePlate";
             this.picLicensePlate.Size = new System.Drawing.Size(445, 107);
             this.picLicensePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +107,7 @@
             this.lbxPlates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxPlates.FormattingEnabled = true;
             this.lbxPlates.ItemHeight = 17;
-            this.lbxPlates.Location = new System.Drawing.Point(101, 646);
+            this.lbxPlates.Location = new System.Drawing.Point(204, 643);
             this.lbxPlates.Name = "lbxPlates";
             this.lbxPlates.Size = new System.Drawing.Size(161, 21);
             this.lbxPlates.TabIndex = 35;
@@ -115,7 +119,7 @@
             this.toolKameraButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(824, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1141, 27);
             this.toolStrip1.TabIndex = 40;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -130,39 +134,68 @@
             // 
             // kameraGroup1
             // 
-            this.kameraGroup1.Controls.Add(this.picOriginal);
+            this.kameraGroup1.Controls.Add(this.labelFiligran1);
+            this.kameraGroup1.Controls.Add(this.pictureBoxKamera1);
             this.kameraGroup1.Controls.Add(this.pictureBox2);
-            this.kameraGroup1.Location = new System.Drawing.Point(9, 33);
+            this.kameraGroup1.Location = new System.Drawing.Point(5, 29);
             this.kameraGroup1.Margin = new System.Windows.Forms.Padding(2);
             this.kameraGroup1.Name = "kameraGroup1";
             this.kameraGroup1.Padding = new System.Windows.Forms.Padding(2);
-            this.kameraGroup1.Size = new System.Drawing.Size(390, 373);
+            this.kameraGroup1.Size = new System.Drawing.Size(506, 529);
             this.kameraGroup1.TabIndex = 41;
             this.kameraGroup1.TabStop = false;
             this.kameraGroup1.Text = "KameraGrup1";
             // 
+            // labelFiligran1
+            // 
+            this.labelFiligran1.AutoSize = true;
+            this.labelFiligran1.BackColor = System.Drawing.Color.Transparent;
+            this.labelFiligran1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelFiligran1.ForeColor = System.Drawing.Color.White;
+            this.labelFiligran1.Location = new System.Drawing.Point(25, 482);
+            this.labelFiligran1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFiligran1.Name = "labelFiligran1";
+            this.labelFiligran1.Size = new System.Drawing.Size(70, 25);
+            this.labelFiligran1.TabIndex = 39;
+            this.labelFiligran1.Text = "label1";
+            // 
             // kameraGroup2
             // 
-            this.kameraGroup2.Controls.Add(this.pictureBox1);
+            this.kameraGroup2.Controls.Add(this.labelFiligran2);
+            this.kameraGroup2.Controls.Add(this.pictureboxKamera2);
             this.kameraGroup2.Controls.Add(this.pictureBox3);
-            this.kameraGroup2.Location = new System.Drawing.Point(437, 33);
+            this.kameraGroup2.Location = new System.Drawing.Point(572, 29);
             this.kameraGroup2.Margin = new System.Windows.Forms.Padding(2);
             this.kameraGroup2.Name = "kameraGroup2";
             this.kameraGroup2.Padding = new System.Windows.Forms.Padding(2);
-            this.kameraGroup2.Size = new System.Drawing.Size(376, 373);
+            this.kameraGroup2.Size = new System.Drawing.Size(513, 518);
             this.kameraGroup2.TabIndex = 42;
             this.kameraGroup2.TabStop = false;
             this.kameraGroup2.Text = "KameraGrup2";
             // 
-            // pictureBox1
+            // labelFiligran2
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(356, 340);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
+            this.labelFiligran2.AutoSize = true;
+            this.labelFiligran2.BackColor = System.Drawing.Color.Transparent;
+            this.labelFiligran2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelFiligran2.ForeColor = System.Drawing.Color.White;
+            this.labelFiligran2.Location = new System.Drawing.Point(36, 482);
+            this.labelFiligran2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFiligran2.Name = "labelFiligran2";
+            this.labelFiligran2.Size = new System.Drawing.Size(70, 25);
+            this.labelFiligran2.TabIndex = 40;
+            this.labelFiligran2.Text = "label2";
+            // 
+            // pictureboxKamera2
+            // 
+            this.pictureboxKamera2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureboxKamera2.Location = new System.Drawing.Point(5, 18);
+            this.pictureboxKamera2.Name = "pictureboxKamera2";
+            this.pictureboxKamera2.Size = new System.Drawing.Size(500, 500);
+            this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureboxKamera2.TabIndex = 34;
+            this.pictureboxKamera2.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -180,7 +213,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(303, 655);
+            this.button1.Location = new System.Drawing.Point(406, 652);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 43;
@@ -188,12 +221,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timerKamera2
+            // 
+            this.timerKamera2.Tick += new System.EventHandler(this.timerKamera2_Tick);
+            // 
             // kameraMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(824, 750);
+            this.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.ClientSize = new System.Drawing.Size(1141, 714);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.kameraGroup2);
             this.Controls.Add(this.picLicensePlate);
@@ -205,13 +242,15 @@
             this.Text = "kameraMonitor";
             this.Load += new System.EventHandler(this.kameraMonitor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.kameraGroup1.ResumeLayout(false);
+            this.kameraGroup1.PerformLayout();
             this.kameraGroup2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.kameraGroup2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,7 +260,7 @@
         #endregion
         private System.Windows.Forms.Timer timerKamera1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox picOriginal;
+        private System.Windows.Forms.PictureBox pictureBoxKamera1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picLicensePlate;
         private System.Windows.Forms.ListBox lbxPlates;
@@ -229,9 +268,12 @@
         private System.Windows.Forms.ToolStripButton toolKameraButton;
         private System.Windows.Forms.GroupBox kameraGroup1;
         private System.Windows.Forms.GroupBox kameraGroup2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureboxKamera2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Timer timerLoad;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelFiligran1;
+        private System.Windows.Forms.Label labelFiligran2;
+        private System.Windows.Forms.Timer timerKamera2;
     }
 }

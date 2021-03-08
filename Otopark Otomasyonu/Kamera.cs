@@ -15,7 +15,7 @@ namespace Otopark_Otomasyonu
      public   int k_id;
        public string k_adi;
         string k_hareketeduyarli;
-        string k_filigran;
+      public  string k_filigran;
       public  string k_aktif;
         string k_sadeceuye;
         string k_lokasyon;
@@ -25,6 +25,23 @@ namespace Otopark_Otomasyonu
 
 
 
+        }
+        public bool urlKontrol(String url)
+        {
+            try
+            {
+
+                WebRequest webRequest = WebRequest.Create(url);
+                WebResponse webResponse;
+                webRequest.Timeout = 1000;
+                webResponse = webRequest.GetResponse();
+            }
+            catch //If exception thrown then couldn't get response from address
+            {
+
+                return false;
+            }
+            return true;
         }
         Form kameraEkle = new Form();
        public Kamera(string k_adi,  string k_hareketeduyarli,string k_filigran,string k_lokasyon,string k_sadeceuye,string k_aktif, string k_url)
@@ -284,22 +301,7 @@ namespace Otopark_Otomasyonu
             }
 
         }
-        public bool  urlKontrol(String url)
-        {
-            try
-            {
-
-                WebRequest webRequest = WebRequest.Create(url);
-                WebResponse webResponse;
-                webResponse = webRequest.GetResponse();
-            }
-            catch //If exception thrown then couldn't get response from address
-            {
-                
-                return false;
-            }
-            return true;
-        }
+       
         public void kameraAdGetir(ListBox listbox, ListBox listbox2,ListBox aktifKamera)
         {
             baglanti1.mysqlbaglan.Open();

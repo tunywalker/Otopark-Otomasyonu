@@ -189,5 +189,17 @@
   <ItemGroup>
     <None Include="Resources\WhatsApp Image 2020-08-07 at 12.27.11.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newCar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reddet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sonra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\resources\tekrar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

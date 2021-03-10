@@ -164,7 +164,7 @@ namespace Otopark_Otomasyonu
             }
         }
 
-        public string processImageFile(string fileName)
+        public string processImageFileGiris(string fileName)
         {
 
 
@@ -183,6 +183,8 @@ namespace Otopark_Otomasyonu
                     //    var i = 1;
                     if (results.Plates.Count() > 0)
                     {
+                        kamera1kilit = 1;
+                        
                         lbxPlates.Items.Clear();
                     }
                     foreach (var result in results.Plates)
@@ -190,7 +192,7 @@ namespace Otopark_Otomasyonu
                         var rect = boundingRectangle(result.PlatePoints);
                         var img = Image.FromFile(fileName);
                         var cropped = cropImage(img, rect);
-                        // resimKutusu.Image = cropImage2(img);
+                         //resimKutusu.Image = cropImage2(img);
                         img.Dispose();
                         images.Add(cropped);
 
@@ -198,8 +200,9 @@ namespace Otopark_Otomasyonu
                         {
 
                             lbxPlates.Items.Add(plate.Characters);
-                            break;
+                          
                         }
+                       
 
                     }
 
@@ -218,23 +221,96 @@ namespace Otopark_Otomasyonu
                 return "";
             }
         }
-       
+        public string processImageFileCikis(string fileName)
+        {
+
+
+            var region = "eu";
+            String config_file = Path.Combine(AssemblyDirectory, "openalpr.conf");
+            String runtime_data_dir = Path.Combine(AssemblyDirectory, "runtime_data");
+            try
+            {
+                using (var alpr = new AlprNet(region, config_file, runtime_data_dir))
+                {
+
+
+                    var results = alpr.Recognize(fileName);
+
+                    var images = new List<Image>(results.Plates.Count());
+                    //    var i = 1;
+                    if (results.Plates.Count() > 0)
+                    {
+                        
+                        kamera2kilit = 1;
+                        listBox1.Items.Clear();
+                    }
+                    foreach (var result in results.Plates)
+                    {
+                        var rect = boundingRectangle(result.PlatePoints);
+                        var img = Image.FromFile(fileName);
+                        var cropped = cropImage(img, rect);
+                        //resimKutusu.Image = cropImage2(img);
+                        img.Dispose();
+                        images.Add(cropped);
+
+                        foreach (var plate in result.TopNPlates)
+                        {
+
+                            listBox1.Items.Add(plate.Characters);
+
+                        }
+
+
+                    }
+
+                    if (images.Any())
+                    {
+
+                        pictureBox1.Image = combineImages(images);
+                    }
+
+                }
+
+                return "";
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
         int timer = 0;
         Random rnd = new Random();
         int rastgele;
         MotionDetector detector;
+        public void butonResimAyarla(Button btn)
+        {
+
+            btn.AutoSize = false;
+
+            Image image = new Bitmap(20, 20);
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                g.DrawImage(btn.Image, 0, 0, 20, 20);
+            }
+            btn.ImageAlign = ContentAlignment.MiddleLeft;
+            btn.Image = image;
+        }
         private void kameraMonitor_Load(object sender, EventArgs e)
 
         {
+            label1.Text = "";
 
+            /* IMotionDetector motionDetector =  new TwoFramesDifferenceDetector() ;
+             // create instance of motion processing algorithm
+             BlobCountingObjectsProcessing motionProcessing = new BlobCountingObjectsProcessing();
+             // create motion detector
+              detector = new MotionDetector(motionDetector, motionProcessing);*/
+            butonResimAyarla(button2);
+            butonResimAyarla(butonGirisReddet);
+            butonResimAyarla(sonraKaydet);
+            butonResimAyarla(buttonTekrarTani);
 
-            IMotionDetector motionDetector =  new TwoFramesDifferenceDetector() ;
-            // create instance of motion processing algorithm
-            BlobCountingObjectsProcessing motionProcessing = new BlobCountingObjectsProcessing();
-            // create motion detector
-             detector = new MotionDetector(motionDetector, motionProcessing);
-
- 
 
 
             labelFiligran1.Parent = pictureBoxKamera1;
@@ -249,57 +325,61 @@ namespace Otopark_Otomasyonu
             timerKamera2.Interval = 5000;
            
         }
-
+        int kamera1kilit=0, kamera2kilit=0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            try
+            if (kamera1kilit != 1)
             {
-                System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
-
-                foreach (FileInfo file in di.GetFiles())
+                try
                 {
-                    file.Delete();
-                }
-                foreach (DirectoryInfo dir in di.GetDirectories())
-                {
-                    dir.Delete(true);
-                }
-            }
-            catch (Exception)
-            {
+                    System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
 
-                throw;
-            }
-            timer++;
-            rastgele = rnd.Next(1, 10000);
-            if (true)
-            {
-
-
-                if (pictureBoxKamera1.Image != null)
-                {
-                    if (timer % 10 == 0)
+                    foreach (FileInfo file in di.GetFiles())
                     {
-                        lbxPlates.Items.Clear();
+                        file.Delete();
                     }
-
-                    Bitmap varBmp = new Bitmap(pictureBoxKamera1.Image);
-                    Bitmap newBitmap = new Bitmap(varBmp);
-                    //processImageFile("C:/plaka/SavedImage.jpg");
-                    varBmp.Save(@"C:\plaka\" + rastgele + ".png", ImageFormat.Png);
-                    //Now Dispose to free the memory
-                    varBmp.Dispose();
-                    varBmp = null;
-                    String dosyayolu = "C:/plaka/" + rastgele + ".png";
-                    while (backgroundWorker1.IsBusy)
+                    foreach (DirectoryInfo dir in di.GetDirectories())
                     {
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(1000);
+                        dir.Delete(true);
                     }
-                    backgroundWorker1.RunWorkerAsync(argument: dosyayolu);
-                    //processImageFile("C:/plaka/" + rastgele + ".png");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                timer++;
+                rastgele = rnd.Next(1, 10000);
+                if (true)
+                {
+
+
+                    if (pictureBoxKamera1.Image != null)
+                    {
+                        if (timer % 10 == 0)
+                        {
+                            lbxPlates.Items.Clear();
+                        }
+
+                        Bitmap varBmp = new Bitmap(pictureBoxKamera1.Image);
+                        Bitmap newBitmap = new Bitmap(varBmp);
+                        //processImageFile("C:/plaka/SavedImage.jpg");
+                        varBmp.Save(@"C:\plaka\" + rastgele + ".png", ImageFormat.Png);
+                        //Now Dispose to free the memory
+                        varBmp.Dispose();
+                        varBmp = null;
+                        String dosyayolu = "C:/plaka/" + rastgele + ".png";
+                        while (backgroundWorker1.IsBusy)
+                        {
+                            Application.DoEvents();
+                            System.Threading.Thread.Sleep(1000);
+                        }
+                        backgroundWorker1.RunWorkerAsync(argument: dosyayolu);
+                        //processImageFile("C:/plaka/" + rastgele + ".png");
+                    }
                 }
             }
+
         }
 
      
@@ -378,7 +458,9 @@ namespace Otopark_Otomasyonu
      
         private void button1_Click(object sender, EventArgs e)
         {
-            kamera1.kameraGetirAktif();
+            kamera1kilit = 0;
+            lbxPlates.Items.Clear();
+            textBox1.Text = "";
         }
 
         private void pictureBoxKamera1_Click(object sender, EventArgs e)
@@ -388,48 +470,57 @@ namespace Otopark_Otomasyonu
 
         private void timerKamera2_Tick(object sender, EventArgs e)
         {
-            try
+            if (kamera2kilit!=1)
             {
-                System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
-
-                foreach (FileInfo file in di.GetFiles())
+                try
                 {
-                    file.Delete();
-                }
-                foreach (DirectoryInfo dir in di.GetDirectories())
-                {
-                    dir.Delete(true);
-                }
-            }
-            catch (Exception)
-            {
+                    System.IO.DirectoryInfo di = new DirectoryInfo(@"C:\plaka\");
 
-                throw;
-            }
-            timer++;
-            rastgele = rnd.Next(1, 10000);
-            if (true)
-            {
-
-
-                if (pictureboxKamera2.Image != null)
-                {
-                    if (timer % 10 == 0)
+                    foreach (FileInfo file in di.GetFiles())
                     {
-                        lbxPlates.Items.Clear();
+                        file.Delete();
                     }
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        dir.Delete(true);
+                    }
+                }
+                catch (Exception)
+                {
 
-                    Bitmap varBmp = new Bitmap(pictureboxKamera2.Image);
-                    Bitmap newBitmap = new Bitmap(varBmp);
-                    //processImageFile("C:/plaka/SavedImage.jpg");
-                    varBmp.Save(@"C:\plaka\" + rastgele + "x.png", ImageFormat.Png);
-                    //Now Dispose to free the memory
-                    varBmp.Dispose();
-                    varBmp = null;
+                    throw;
+                }
+                timer++;
+                rastgele = rnd.Next(1, 10000);
+                if (true)
+                {
 
-                    processImageFile("C:/plaka/" + rastgele + "x.png");
+
+                    if (pictureboxKamera2.Image != null)
+                    {
+                        if (timer % 10 == 0)
+                        {
+                            lbxPlates.Items.Clear();
+                        }
+
+                        Bitmap varBmp = new Bitmap(pictureboxKamera2.Image);
+                        Bitmap newBitmap = new Bitmap(varBmp);
+                        //processImageFile("C:/plaka/SavedImage.jpg");
+                        varBmp.Save(@"C:\plaka\" + rastgele + "x.png", ImageFormat.Png);
+                        //Now Dispose to free the memory
+                        varBmp.Dispose();
+                        varBmp = null;
+                        String dosyayolu = "C:/plaka/" + rastgele + "x.png";
+                        while (backgroundWorker1.IsBusy)
+                        {
+                            Application.DoEvents();
+                            System.Threading.Thread.Sleep(1000);
+                        }
+                        backgroundWorker2.RunWorkerAsync(argument: dosyayolu);
+                    }
                 }
             }
+           
         }
 
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
@@ -440,7 +531,33 @@ namespace Otopark_Otomasyonu
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             String filename = e.Argument.ToString();
-            processImageFile(filename);
+            processImageFileGiris(filename);
+        }
+
+        private void lbxPlates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                textBox1.Text = lbxPlates.Items[lbxPlates.SelectedIndex].ToString();
+            }
+            catch { }
+           
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureboxKamera2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            String filename = e.Argument.ToString();
+           
+            processImageFileCikis(filename);
         }
     }
 }

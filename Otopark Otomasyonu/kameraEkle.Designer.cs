@@ -61,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox1.Controls.Add(this.textUrl);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.buttonGuncelle);
@@ -294,7 +295,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Khaki;
+            this.groupBox3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox3.Controls.Add(this.labelHata);
             this.groupBox3.Location = new System.Drawing.Point(1, 5);
             this.groupBox3.Name = "groupBox3";
@@ -310,7 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Khaki;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(478, 325);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

@@ -46,7 +46,10 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textPlaka = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.butonGirisReddet = new System.Windows.Forms.Button();
             this.sonraKaydet = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -58,20 +61,17 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
             this.kameraGroup2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // timerKamera1
@@ -210,7 +210,7 @@
             // 
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox2.Controls.Add(this.butonGirisReddet);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.textPlaka);
             this.groupBox2.Controls.Add(this.sonraKaydet);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.buttonTekrarTani);
@@ -225,13 +225,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giriş İşlemleri";
             // 
-            // textBox1
+            // textPlaka
             // 
-            this.textBox1.Location = new System.Drawing.Point(326, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 31);
-            this.textBox1.TabIndex = 45;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textPlaka.Location = new System.Drawing.Point(326, 133);
+            this.textPlaka.Name = "textPlaka";
+            this.textPlaka.Size = new System.Drawing.Size(182, 31);
+            this.textPlaka.TabIndex = 45;
+            this.textPlaka.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Location = new System.Drawing.Point(572, 583);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(505, 192);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Çıkış";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 17;
+            this.listBox1.Location = new System.Drawing.Point(343, 19);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(121, 106);
+            this.listBox1.TabIndex = 36;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(20, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(269, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
             // 
             // butonGirisReddet
             // 
@@ -272,6 +302,7 @@
             this.button2.Text = "Üyelik Oluştur";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonTekrarTani
             // 
@@ -358,36 +389,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(24, 34);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(572, 583);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 192);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Çıkış";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(343, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(121, 106);
-            this.listBox1.TabIndex = 36;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            // 
             // kameraMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,13 +412,13 @@
             this.kameraGroup2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,7 +450,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.Button sonraKaydet;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textPlaka;
         private System.Windows.Forms.Button butonGirisReddet;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.GroupBox groupBox1;

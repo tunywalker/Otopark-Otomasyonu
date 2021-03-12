@@ -390,6 +390,7 @@ namespace Otopark_Otomasyonu
         {
             kameraEkle kameraEkleForm = new kameraEkle();
             kameraEkleForm.Show();
+           
         }
         Kamera[] aktifkameralar = new Kamera[2];
         IVideoSource videoSource;
@@ -460,7 +461,7 @@ namespace Otopark_Otomasyonu
         {
             kamera1kilit = 0;
             lbxPlates.Items.Clear();
-            textBox1.Text = "";
+            textPlaka.Text = "";
         }
 
         private void pictureBoxKamera1_Click(object sender, EventArgs e)
@@ -516,7 +517,7 @@ namespace Otopark_Otomasyonu
                             Application.DoEvents();
                             System.Threading.Thread.Sleep(1000);
                         }
-                        backgroundWorker2.RunWorkerAsync(argument: dosyayolu);
+                         backgroundWorker2.RunWorkerAsync(argument: dosyayolu);
                     }
                 }
             }
@@ -537,7 +538,7 @@ namespace Otopark_Otomasyonu
         private void lbxPlates_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
-                textBox1.Text = lbxPlates.Items[lbxPlates.SelectedIndex].ToString();
+                textPlaka.Text = lbxPlates.Items[lbxPlates.SelectedIndex].ToString();
             }
             catch { }
            
@@ -551,6 +552,15 @@ namespace Otopark_Otomasyonu
         private void pictureboxKamera2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AracGiris form2 = new AracGiris() {
+            plaka=textPlaka.Text,plakaResim=(Bitmap)picLicensePlate.Image
+            
+            };
+            form2.Show();
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)

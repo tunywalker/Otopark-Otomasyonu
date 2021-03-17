@@ -146,6 +146,7 @@
     <Compile Include="AracGiris.Designer.cs">
       <DependentUpon>AracGiris.cs</DependentUpon>
     </Compile>
+    <Compile Include="Arac.cs" />
     <Compile Include="Kamera.cs" />
     <Compile Include="databaseConnection.cs" />
     <Compile Include="kameraEkle.cs">

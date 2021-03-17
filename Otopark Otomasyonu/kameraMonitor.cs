@@ -38,28 +38,30 @@ namespace Otopark_Otomasyonu
         
         void kamera1Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-           /*
-            float motion = detector.ProcessFrame(bmp); // running on worker thread
+            /*
+             float motion = detector.ProcessFrame(bmp); // running on worker thread
 
-            float motion2 = motion * 100;
-            this.Invoke((MethodInvoker)delegate
-            {
-                label1.Text = motion2.ToString(); // runs on UI thread
+             float motion2 = motion * 100;
+             this.Invoke((MethodInvoker)delegate
+             {
+                 label1.Text = motion2.ToString(); // runs on UI thread
 
-                if (motion2 > 0.80)
-                {
-                    label1.Text = "0";
-                }
-                else
-                {
-                    label1.Text = "1";
-                }
-            });*/
-            try
-            {
-
+                 if (motion2 > 0.80)
+                 {
+                     label1.Text = "0";
+                 }
+                 else
+                 {
+                     label1.Text = "1";
+                 }
+             });*/
+            try {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
                 pictureBoxKamera1.Image = bmp;
+            }
+            catch { }
+
+
 
 
                
@@ -68,8 +70,7 @@ namespace Otopark_Otomasyonu
 
 
 
-            }
-            catch { }
+          
         }
         void kamera2Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -322,7 +323,7 @@ namespace Otopark_Otomasyonu
             timerLoad.Start();
            
             timerKamera1.Interval = 5000;
-            timerKamera2.Interval = 5000;
+           timerKamera2.Interval = 5000;
            
         }
         int kamera1kilit=0, kamera2kilit=0;
@@ -512,11 +513,12 @@ namespace Otopark_Otomasyonu
                         varBmp.Dispose();
                         varBmp = null;
                         String dosyayolu = "C:/plaka/" + rastgele + "x.png";
-                        while (backgroundWorker1.IsBusy)
+                        while (backgroundWorker2.IsBusy)
                         {
                             Application.DoEvents();
                             System.Threading.Thread.Sleep(1000);
                         }
+
                          backgroundWorker2.RunWorkerAsync(argument: dosyayolu);
                     }
                 }
@@ -561,6 +563,12 @@ namespace Otopark_Otomasyonu
             
             };
             form2.Show();
+        }
+
+        private void sonraKaydet_Click(object sender, EventArgs e)
+        {
+            Arac A1 = new Arac(textPlaka.Text, "-1", DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,"D2", "Anonim","Üyeliksiz Giriş");
+            A1.aracKaydet(A1);
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)

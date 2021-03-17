@@ -21,6 +21,7 @@ namespace Otopark_Otomasyonu
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            
             try
             {
 
@@ -33,11 +34,36 @@ namespace Otopark_Otomasyonu
 
                 throw;
             }
+           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string aracturu="";
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    aracturu = "HS";
+                    break;
+                case 1:
+                    aracturu= "M";
+                    break;
+                case 2: 
+                    aracturu="MK";
+                    break;
+                case 3:
+                    aracturu = "O";
+                    break;
+                default:
+                    break;
+            }
+            Arac A1 = new Arac(textPlaka.Text, aracturu, DateTime.Now.ToString(), "1", (Bitmap)pictureBox1.Image, comboBox3.Text.Replace("-",""), label8.Text, richTextBox1.Text);
+        A1.aracKaydet(A1);
+                }
     }
 }

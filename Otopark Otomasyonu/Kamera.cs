@@ -28,19 +28,20 @@ namespace Otopark_Otomasyonu
         }
         public bool urlKontrol(String url)
         {
-            try
-            {
+            /* try
+             {
 
-                WebRequest webRequest = WebRequest.Create(url);
-                WebResponse webResponse;
-                webRequest.Timeout = 1000;
-                webResponse = webRequest.GetResponse();
-            }
-            catch //If exception thrown then couldn't get response from address
-            {
+                 WebRequest webRequest = WebRequest.Create(url);
+                 WebResponse webResponse;
+                 webRequest.Timeout = 1000;
+                 webResponse = webRequest.GetResponse();
+             }
+             catch //If exception thrown then couldn't get response from address
+             {
 
-                return false;
-            }
+                 return false;
+             }
+             return true;*/
             return true;
         }
         Form kameraEkle = new Form();

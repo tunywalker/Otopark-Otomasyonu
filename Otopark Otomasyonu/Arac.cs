@@ -29,15 +29,23 @@ namespace Otopark_Otomasyonu
         databaseConnection baglanti1 = new databaseConnection();
         public string bitmapToBase64(Bitmap resim)
         {
-            System.IO.MemoryStream ms = new MemoryStream();
-            resim.Save(ms, ImageFormat.Jpeg);
-            byte[] byteImage = ms.ToArray();
-            return  Convert.ToBase64String(byteImage);
+            if (resim != null)
+            {
+
+                System.IO.MemoryStream ms = new MemoryStream();
+                resim.Save(ms, ImageFormat.Jpeg);
+                byte[] byteImage = ms.ToArray();
+                return Convert.ToBase64String(byteImage);
+            }
+                return "null";
+           
+            
 
         }
         public bool aracKaydet(Arac kayitEdilecek)
         {
-
+            try
+            {
 
                 String plaka = kayitEdilecek.arac_plaka;
                 String tur = kayitEdilecek.arac_tur;
@@ -72,8 +80,7 @@ namespace Otopark_Otomasyonu
                     return false;
             // bağlantıyı kapatalım
 
-            try
-            {
+           
             }
             catch (Exception HataYakala)
             {

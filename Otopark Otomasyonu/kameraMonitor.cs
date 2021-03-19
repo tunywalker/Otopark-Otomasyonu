@@ -562,7 +562,10 @@ namespace Otopark_Otomasyonu
             plaka=textPlaka.Text,plakaResim=(Bitmap)picLicensePlate.Image
             
             };
-            form2.Show();
+           if( form2.ShowDialog()==DialogResult.OK)
+            {
+              MessageBox.Show(form2.kayitDurumu.ToString());
+            }
         }
 
         private void sonraKaydet_Click(object sender, EventArgs e)

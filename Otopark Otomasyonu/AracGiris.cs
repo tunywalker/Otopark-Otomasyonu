@@ -18,13 +18,15 @@ namespace Otopark_Otomasyonu
         {
             InitializeComponent();
         }
+        public Boolean kayitDurumu { get { return kayit; } }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             
             try
             {
-
+                comboBox1.SelectedIndex = 0;
+                comboBox3.SelectedIndex = 0;
                 textPlaka.Text = plaka;
                 labelGirisTarihi.Text = DateTime.Now.ToString();
                 pictureBox1.Image = plakaResim;
@@ -41,7 +43,7 @@ namespace Otopark_Otomasyonu
         {
 
         }
-
+        Boolean kayit;
         private void button1_Click(object sender, EventArgs e)
         {
             string aracturu="";
@@ -63,7 +65,9 @@ namespace Otopark_Otomasyonu
                     break;
             }
             Arac A1 = new Arac(textPlaka.Text, aracturu, DateTime.Now.ToString(), "1", (Bitmap)pictureBox1.Image, comboBox3.Text.Replace("-",""), label8.Text, richTextBox1.Text);
-        A1.aracKaydet(A1);
-                }
+     kayit=   A1.aracKaydet(A1);
+            Close();
+            DialogResult = DialogResult.OK;
+        }
     }
 }

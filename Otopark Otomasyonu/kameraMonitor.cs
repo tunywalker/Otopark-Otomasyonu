@@ -15,6 +15,7 @@ using AForge.Video.DirectShow; //Referansları ekliyoruz
 using System.Drawing.Imaging;
 using System.Threading;
 using AForge.Vision.Motion;
+using Tulpep.NotificationWindow;
 
 namespace Otopark_Otomasyonu
 {
@@ -546,32 +547,91 @@ namespace Otopark_Otomasyonu
            
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+       public void bildirimYazdir(String Tur, String Metin)
         {
-           
-        }
+            PopupNotifier popup = new PopupNotifier();
+            Bitmap Icon=null;
+            String Baslik="";
+            switch (Tur)
+            {
+                case "Uyarı":
+                   Baslik= "Hata Bildirimi";
+                    Icon = Properties.Resources.uyari2; //icon from resources
 
-        private void pictureboxKamera2_Click(object sender, EventArgs e)
+                    break;
+                case "Giriş":
+                    Baslik = "Giriş Bildirimi";
+                    Icon = Properties.Resources.basari; //icon from resources
+                    break;
+                case "Çıkış":
+                    Baslik = "Çıkış Bildirimi";
+                    Icon = Properties.Resources.basarisiz; //icon from resources
+                    break;
+                default:
+                    Baslik = "Bildirim";
+                    break;
+            }
+
+            popup.TitleText = Baslik;
+            popup.Image = Icon;
+            popup.TitleFont = new System.Drawing.Font("Tahoma", 20F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 15F);
+            popup.ContentText = Metin;
+            popup.Popup();// show  
+
+        }
+        public void girisTemizle()
+        {
+            picLicensePlate.Image = null;
+            lbxPlates.Items.Clear();
+            textPlaka.Text = "";
+            groupBox2.Visible = false;
+        }
+        public void girisİslemleri(bool kayitDurumu, String plakaNo)
         {
 
+            if (kayitDurumu)
+            {
+                bildirimYazdir("Giriş", " '" + plakaNo + "' nolu plaka için giriş onayı verildi.");
+                girisTemizle();
+            }
+            else
+            {
+                if (plakaNo.Trim() == "")
+                {
+                    bildirimYazdir("Uyarı", "Plaka numarası boş olamaz.");
+                }
+                else
+                    bildirimYazdir("Uyarı", " '" + plakaNo + "' nolu plaka için giriş başarısız.");
+            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            AracGiris form2 = new AracGiris() {
-            plaka=textPlaka.Text,plakaResim=(Bitmap)picLicensePlate.Image
-            
+            AracGiris aracGirisForm = new AracGiris() {
+                plaka = textPlaka.Text, plakaResim = (Bitmap)picLicensePlate.Image
+
             };
-           if( form2.ShowDialog()==DialogResult.OK)
+            if (aracGirisForm.ShowDialog() == DialogResult.OK)
             {
-              MessageBox.Show(form2.kayitDurumu.ToString());
+                girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
+
             }
+
+
+
+
         }
 
         private void sonraKaydet_Click(object sender, EventArgs e)
         {
             Arac A1 = new Arac(textPlaka.Text, "-1", DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,"D2", "Anonim","Üyeliksiz Giriş");
-            A1.aracKaydet(A1);
+            girisİslemleri(A1.aracKaydet(A1), textPlaka.Text);
+            
+        }
+
+        private void butonGirisReddet_Click(object sender, EventArgs e)
+        {
+            girisTemizle();
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)

@@ -132,6 +132,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    </Reference>
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\Ubiety.Dns.Core.dll</HintPath>
     </Reference>
@@ -210,6 +213,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\x64\Debug\resources\tekrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basarisiz.png" />
+    <None Include="Resources\uyari2.png" />
+    <None Include="Resources\basari.png" />
+    <None Include="Resources\uyari1.png" />
+    <None Include="Resources\uyari.png" />
+    <None Include="Resources\warn.png" />
+    <None Include="bin\x64\Debug\resources\warningicon.png" />
+    <Content Include="Resources\warningicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

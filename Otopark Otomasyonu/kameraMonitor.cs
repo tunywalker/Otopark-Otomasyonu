@@ -244,7 +244,7 @@ namespace Otopark_Otomasyonu
                     {
                         
                         kamera2kilit = 1;
-                        listBox1.Items.Clear();
+                        lbxPlatesCikis.Items.Clear();
                     }
                     foreach (var result in results.Plates)
                     {
@@ -258,7 +258,7 @@ namespace Otopark_Otomasyonu
                         foreach (var plate in result.TopNPlates)
                         {
 
-                            listBox1.Items.Add(plate.Characters);
+                            lbxPlatesCikis.Items.Add(plate.Characters);
 
                         }
 
@@ -268,7 +268,7 @@ namespace Otopark_Otomasyonu
                     if (images.Any())
                     {
 
-                        pictureBox1.Image = combineImages(images);
+                        picLicensePlateCikis.Image = combineImages(images);
                     }
 
                 }
@@ -298,9 +298,19 @@ namespace Otopark_Otomasyonu
             btn.ImageAlign = ContentAlignment.MiddleLeft;
             btn.Image = image;
         }
+
+        public void kapasiteHesapla()
+        {
+
+        }
+        int kapasite;
+        Otopark otopark1 = new Otopark();
         private void kameraMonitor_Load(object sender, EventArgs e)
 
         {
+            kapasite   = 100;
+          
+            
             label1.Text = "";
 
             /* IMotionDetector motionDetector =  new TwoFramesDifferenceDetector() ;
@@ -398,6 +408,7 @@ namespace Otopark_Otomasyonu
         IVideoSource videoSource;
         private void timerLoad_Tick(object sender, EventArgs e)
         {
+            toolStripLabel2.Text = otopark1.dolulukOrani(kapasite);
             try
             {
                 if (kamera1Video != null)
@@ -632,6 +643,20 @@ namespace Otopark_Otomasyonu
         private void butonGirisReddet_Click(object sender, EventArgs e)
         {
             girisTemizle();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                textPlkaCikis.Text = lbxPlatesCikis.Items[lbxPlatesCikis.SelectedIndex].ToString();
+            }
+            catch { }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)

@@ -34,45 +34,47 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbxPlates = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.kameraGroup1 = new System.Windows.Forms.GroupBox();
             this.labelFiligran1 = new System.Windows.Forms.Label();
+            this.pictureBoxKamera1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.kameraGroup2 = new System.Windows.Forms.GroupBox();
             this.labelFiligran2 = new System.Windows.Forms.Label();
+            this.pictureboxKamera2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timerLoad = new System.Windows.Forms.Timer(this.components);
             this.timerKamera2 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textPlaka = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.butonGirisReddet = new System.Windows.Forms.Button();
+            this.textPlaka = new System.Windows.Forms.TextBox();
             this.sonraKaydet = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonTekrarTani = new System.Windows.Forms.Button();
             this.picLicensePlate = new System.Windows.Forms.PictureBox();
-            this.pictureboxKamera2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxKamera1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textPlkaCikis = new System.Windows.Forms.TextBox();
+            this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
+            this.lbxPlatesCikis = new System.Windows.Forms.ListBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
-            this.kameraGroup2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.kameraGroup2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).BeginInit();
             this.SuspendLayout();
             // 
             // timerKamera1
@@ -83,10 +85,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(-560, 60);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(-420, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
+            this.label3.Size = new System.Drawing.Size(54, 18);
             this.label3.TabIndex = 37;
             this.label3.Text = "PLAKA";
             // 
@@ -94,11 +95,10 @@
             // 
             this.lbxPlates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxPlates.FormattingEnabled = true;
-            this.lbxPlates.ItemHeight = 22;
-            this.lbxPlates.Location = new System.Drawing.Point(516, 23);
-            this.lbxPlates.Margin = new System.Windows.Forms.Padding(4);
+            this.lbxPlates.ItemHeight = 17;
+            this.lbxPlates.Location = new System.Drawing.Point(387, 19);
             this.lbxPlates.Name = "lbxPlates";
-            this.lbxPlates.Size = new System.Drawing.Size(160, 114);
+            this.lbxPlates.Size = new System.Drawing.Size(121, 89);
             this.lbxPlates.TabIndex = 35;
             this.lbxPlates.SelectedIndexChanged += new System.EventHandler(this.lbxPlates_SelectedIndexChanged);
             // 
@@ -112,33 +112,51 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1456, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1092, 37);
             this.toolStrip1.TabIndex = 40;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolKameraButton
+            // 
+            this.toolKameraButton.Image = ((System.Drawing.Image)(resources.GetObject("toolKameraButton.Image")));
+            this.toolKameraButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolKameraButton.Name = "toolKameraButton";
+            this.toolKameraButton.Size = new System.Drawing.Size(114, 34);
+            this.toolKameraButton.Text = "Kamera Ayarları";
+            this.toolKameraButton.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Padding = new System.Windows.Forms.Padding(0, 19, 0, 0);
-            this.toolStripLabel1.Size = new System.Drawing.Size(69, 39);
+            this.toolStripLabel1.Size = new System.Drawing.Size(54, 34);
             this.toolStripLabel1.Text = "Kapasite:";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(47, 39);
+            this.toolStripLabel2.Size = new System.Drawing.Size(36, 34);
             this.toolStripLabel2.Text = "0/100";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 34);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // kameraGroup1
             // 
             this.kameraGroup1.Controls.Add(this.labelFiligran1);
             this.kameraGroup1.Controls.Add(this.pictureBoxKamera1);
             this.kameraGroup1.Controls.Add(this.pictureBox2);
-            this.kameraGroup1.Location = new System.Drawing.Point(7, 58);
-            this.kameraGroup1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.kameraGroup1.Location = new System.Drawing.Point(5, 47);
+            this.kameraGroup1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.kameraGroup1.Name = "kameraGroup1";
-            this.kameraGroup1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.kameraGroup1.Size = new System.Drawing.Size(699, 630);
+            this.kameraGroup1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kameraGroup1.Size = new System.Drawing.Size(524, 512);
             this.kameraGroup1.TabIndex = 41;
             this.kameraGroup1.TabStop = false;
             this.kameraGroup1.Text = "KameraGrup1";
@@ -149,22 +167,44 @@
             this.labelFiligran1.BackColor = System.Drawing.Color.Transparent;
             this.labelFiligran1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelFiligran1.ForeColor = System.Drawing.Color.White;
-            this.labelFiligran1.Location = new System.Drawing.Point(33, 593);
+            this.labelFiligran1.Location = new System.Drawing.Point(25, 482);
+            this.labelFiligran1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFiligran1.Name = "labelFiligran1";
-            this.labelFiligran1.Size = new System.Drawing.Size(86, 31);
+            this.labelFiligran1.Size = new System.Drawing.Size(70, 25);
             this.labelFiligran1.TabIndex = 39;
             this.labelFiligran1.Text = "label1";
+            // 
+            // pictureBoxKamera1
+            // 
+            this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxKamera1.Location = new System.Drawing.Point(7, 18);
+            this.pictureBoxKamera1.Name = "pictureBoxKamera1";
+            this.pictureBoxKamera1.Size = new System.Drawing.Size(508, 500);
+            this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxKamera1.TabIndex = 34;
+            this.pictureBoxKamera1.TabStop = false;
+            this.pictureBoxKamera1.Click += new System.EventHandler(this.pictureBoxKamera1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(120, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // kameraGroup2
             // 
             this.kameraGroup2.Controls.Add(this.labelFiligran2);
             this.kameraGroup2.Controls.Add(this.pictureboxKamera2);
             this.kameraGroup2.Controls.Add(this.pictureBox3);
-            this.kameraGroup2.Location = new System.Drawing.Point(763, 58);
-            this.kameraGroup2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.kameraGroup2.Location = new System.Drawing.Point(572, 47);
+            this.kameraGroup2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.kameraGroup2.Name = "kameraGroup2";
-            this.kameraGroup2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.kameraGroup2.Size = new System.Drawing.Size(684, 615);
+            this.kameraGroup2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kameraGroup2.Size = new System.Drawing.Size(513, 500);
             this.kameraGroup2.TabIndex = 42;
             this.kameraGroup2.TabStop = false;
             this.kameraGroup2.Text = "KameraGrup2";
@@ -175,11 +215,33 @@
             this.labelFiligran2.BackColor = System.Drawing.Color.Transparent;
             this.labelFiligran2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelFiligran2.ForeColor = System.Drawing.Color.White;
-            this.labelFiligran2.Location = new System.Drawing.Point(48, 593);
+            this.labelFiligran2.Location = new System.Drawing.Point(36, 482);
+            this.labelFiligran2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFiligran2.Name = "labelFiligran2";
-            this.labelFiligran2.Size = new System.Drawing.Size(86, 31);
+            this.labelFiligran2.Size = new System.Drawing.Size(70, 25);
             this.labelFiligran2.TabIndex = 40;
             this.labelFiligran2.Text = "label2";
+            // 
+            // pictureboxKamera2
+            // 
+            this.pictureboxKamera2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureboxKamera2.Location = new System.Drawing.Point(5, 18);
+            this.pictureboxKamera2.Name = "pictureboxKamera2";
+            this.pictureboxKamera2.Size = new System.Drawing.Size(500, 500);
+            this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureboxKamera2.TabIndex = 34;
+            this.pictureboxKamera2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(125, 38);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 38;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
             // 
             // timerLoad
             // 
@@ -192,9 +254,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(711, 82);
+            this.label1.Location = new System.Drawing.Point(533, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 41;
             this.label1.Text = "label1";
             // 
@@ -218,86 +281,42 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.picLicensePlate);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 694);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(12, 564);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(689, 254);
+            this.groupBox2.Size = new System.Drawing.Size(517, 206);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giriş İşlemleri";
-            // 
-            // textPlaka
-            // 
-            this.textPlaka.Location = new System.Drawing.Point(435, 164);
-            this.textPlaka.Margin = new System.Windows.Forms.Padding(4);
-            this.textPlaka.Name = "textPlaka";
-            this.textPlaka.Size = new System.Drawing.Size(241, 37);
-            this.textPlaka.TabIndex = 45;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(763, 718);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(673, 236);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Çıkış";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(457, 23);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(160, 114);
-            this.listBox1.TabIndex = 36;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(27, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(359, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
             // 
             // butonGirisReddet
             // 
             this.butonGirisReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.butonGirisReddet.Image = global::Otopark_Otomasyonu.Properties.Resources.reddet;
             this.butonGirisReddet.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.butonGirisReddet.Location = new System.Drawing.Point(8, 209);
-            this.butonGirisReddet.Margin = new System.Windows.Forms.Padding(4);
+            this.butonGirisReddet.Location = new System.Drawing.Point(6, 170);
             this.butonGirisReddet.Name = "butonGirisReddet";
-            this.butonGirisReddet.Size = new System.Drawing.Size(183, 37);
+            this.butonGirisReddet.Size = new System.Drawing.Size(137, 30);
             this.butonGirisReddet.TabIndex = 46;
             this.butonGirisReddet.Text = "Girişi Reddet";
             this.butonGirisReddet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.butonGirisReddet.UseVisualStyleBackColor = true;
             this.butonGirisReddet.Click += new System.EventHandler(this.butonGirisReddet_Click);
             // 
+            // textPlaka
+            // 
+            this.textPlaka.Location = new System.Drawing.Point(326, 133);
+            this.textPlaka.Name = "textPlaka";
+            this.textPlaka.Size = new System.Drawing.Size(182, 31);
+            this.textPlaka.TabIndex = 45;
+            // 
             // sonraKaydet
             // 
             this.sonraKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.sonraKaydet.Image = global::Otopark_Otomasyonu.Properties.Resources.sonra;
             this.sonraKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sonraKaydet.Location = new System.Drawing.Point(8, 164);
-            this.sonraKaydet.Margin = new System.Windows.Forms.Padding(4);
+            this.sonraKaydet.Location = new System.Drawing.Point(6, 133);
             this.sonraKaydet.Name = "sonraKaydet";
-            this.sonraKaydet.Size = new System.Drawing.Size(217, 37);
+            this.sonraKaydet.Size = new System.Drawing.Size(163, 30);
             this.sonraKaydet.TabIndex = 40;
             this.sonraKaydet.Text = "Çıkışta İşlem Yap";
             this.sonraKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,10 +329,9 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(8, 113);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(6, 92);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 37);
+            this.button2.Size = new System.Drawing.Size(141, 30);
             this.button2.TabIndex = 44;
             this.button2.Text = "Üyelik Oluştur";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -325,10 +343,9 @@
             this.buttonTekrarTani.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.buttonTekrarTani.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
             this.buttonTekrarTani.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonTekrarTani.Location = new System.Drawing.Point(435, 209);
-            this.buttonTekrarTani.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTekrarTani.Location = new System.Drawing.Point(326, 170);
             this.buttonTekrarTani.Name = "buttonTekrarTani";
-            this.buttonTekrarTani.Size = new System.Drawing.Size(243, 37);
+            this.buttonTekrarTani.Size = new System.Drawing.Size(182, 30);
             this.buttonTekrarTani.TabIndex = 43;
             this.buttonTekrarTani.Text = "Tekrar Tanımla";
             this.buttonTekrarTani.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -338,91 +355,87 @@
             // picLicensePlate
             // 
             this.picLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLicensePlate.Location = new System.Drawing.Point(8, 32);
-            this.picLicensePlate.Margin = new System.Windows.Forms.Padding(4);
+            this.picLicensePlate.Location = new System.Drawing.Point(6, 31);
             this.picLicensePlate.Name = "picLicensePlate";
-            this.picLicensePlate.Size = new System.Drawing.Size(485, 73);
+            this.picLicensePlate.Size = new System.Drawing.Size(364, 60);
             this.picLicensePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLicensePlate.TabIndex = 33;
             this.picLicensePlate.TabStop = false;
             // 
-            // pictureboxKamera2
+            // groupBox1
             // 
-            this.pictureboxKamera2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureboxKamera2.Location = new System.Drawing.Point(7, 22);
-            this.pictureboxKamera2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureboxKamera2.Name = "pictureboxKamera2";
-            this.pictureboxKamera2.Size = new System.Drawing.Size(666, 615);
-            this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureboxKamera2.TabIndex = 34;
-            this.pictureboxKamera2.TabStop = false;
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.textPlkaCikis);
+            this.groupBox1.Controls.Add(this.picLicensePlateCikis);
+            this.groupBox1.Controls.Add(this.lbxPlatesCikis);
+            this.groupBox1.Location = new System.Drawing.Point(572, 583);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(505, 192);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Çıkış";
             // 
-            // pictureBox3
+            // textPlkaCikis
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(167, 47);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 38;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
+            this.textPlkaCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.textPlkaCikis.Location = new System.Drawing.Point(308, 118);
+            this.textPlkaCikis.Name = "textPlkaCikis";
+            this.textPlkaCikis.Size = new System.Drawing.Size(182, 31);
+            this.textPlkaCikis.TabIndex = 47;
             // 
-            // pictureBoxKamera1
+            // picLicensePlateCikis
             // 
-            this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxKamera1.Location = new System.Drawing.Point(9, 22);
-            this.pictureBoxKamera1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxKamera1.Name = "pictureBoxKamera1";
-            this.pictureBoxKamera1.Size = new System.Drawing.Size(677, 615);
-            this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxKamera1.TabIndex = 34;
-            this.pictureBoxKamera1.TabStop = false;
-            this.pictureBoxKamera1.Click += new System.EventHandler(this.pictureBoxKamera1_Click);
+            this.picLicensePlateCikis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLicensePlateCikis.Location = new System.Drawing.Point(17, 19);
+            this.picLicensePlateCikis.Name = "picLicensePlateCikis";
+            this.picLicensePlateCikis.Size = new System.Drawing.Size(270, 53);
+            this.picLicensePlateCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLicensePlateCikis.TabIndex = 37;
+            this.picLicensePlateCikis.TabStop = false;
             // 
-            // pictureBox2
+            // lbxPlatesCikis
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(160, 34);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
+            this.lbxPlatesCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbxPlatesCikis.FormattingEnabled = true;
+            this.lbxPlatesCikis.ItemHeight = 17;
+            this.lbxPlatesCikis.Location = new System.Drawing.Point(368, 12);
+            this.lbxPlatesCikis.Name = "lbxPlatesCikis";
+            this.lbxPlatesCikis.Size = new System.Drawing.Size(121, 89);
+            this.lbxPlatesCikis.TabIndex = 36;
+            this.lbxPlatesCikis.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // toolKameraButton
+            // notifyIcon1
             // 
-            this.toolKameraButton.Image = ((System.Drawing.Image)(resources.GetObject("toolKameraButton.Image")));
-            this.toolKameraButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolKameraButton.Name = "toolKameraButton";
-            this.toolKameraButton.Size = new System.Drawing.Size(139, 39);
-            this.toolKameraButton.Text = "Kamera Ayarları";
-            this.toolKameraButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
-            // toolStripButton1
+            // button3
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 39);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(17, 78);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(141, 30);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Çıkış İşlemleri";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // kameraMonitor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1456, 962);
+            this.ClientSize = new System.Drawing.Size(1092, 778);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.kameraGroup2);
             this.Controls.Add(this.kameraGroup1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "kameraMonitor";
             this.Text = "kameraMonitor";
             this.Load += new System.EventHandler(this.kameraMonitor_Load);
@@ -430,17 +443,18 @@
             this.toolStrip1.PerformLayout();
             this.kameraGroup1.ResumeLayout(false);
             this.kameraGroup1.PerformLayout();
-            this.kameraGroup2.ResumeLayout(false);
-            this.kameraGroup2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.kameraGroup2.ResumeLayout(false);
+            this.kameraGroup2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,8 +490,10 @@
         private System.Windows.Forms.Button butonGirisReddet;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListBox lbxPlatesCikis;
+        private System.Windows.Forms.PictureBox picLicensePlateCikis;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.TextBox textPlkaCikis;
+        private System.Windows.Forms.Button button3;
     }
 }

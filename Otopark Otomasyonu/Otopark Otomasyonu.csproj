@@ -150,6 +150,12 @@
       <DependentUpon>AracGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="Arac.cs" />
+    <Compile Include="AracCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AracCikis.Designer.cs">
+      <DependentUpon>AracCikis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kamera.cs" />
     <Compile Include="databaseConnection.cs" />
     <Compile Include="kameraEkle.cs">
@@ -164,10 +170,14 @@
     <Compile Include="kameraMonitor.Designer.cs">
       <DependentUpon>kameraMonitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otopark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AracGiris.resx">
       <DependentUpon>AracGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AracCikis.resx">
+      <DependentUpon>AracCikis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kameraEkle.resx">
       <DependentUpon>kameraEkle.cs</DependentUpon>

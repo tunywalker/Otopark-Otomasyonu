@@ -20,6 +20,9 @@ namespace Otopark_Otomasyonu
         string k_sadeceuye;
         string k_lokasyon;
       public  string k_url;
+        databaseConnection baglanti1 = new databaseConnection();
+        databaseConnection baglanti2 = new databaseConnection();
+
         public Kamera()
         {
 
@@ -57,9 +60,8 @@ namespace Otopark_Otomasyonu
             
         }
         
-         databaseConnection baglanti1 = new databaseConnection();
-        databaseConnection baglanti2 = new databaseConnection();
-
+   
+       
         public Kamera kameraGetir(int id)
         {
             try { 

@@ -59,11 +59,11 @@
             this.buttonTekrarTani = new System.Windows.Forms.Button();
             this.picLicensePlate = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.textPlkaCikis = new System.Windows.Forms.TextBox();
             this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
             this.lbxPlatesCikis = new System.Windows.Forms.ListBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
@@ -153,9 +153,9 @@
             this.kameraGroup1.Controls.Add(this.pictureBoxKamera1);
             this.kameraGroup1.Controls.Add(this.pictureBox2);
             this.kameraGroup1.Location = new System.Drawing.Point(5, 47);
-            this.kameraGroup1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kameraGroup1.Margin = new System.Windows.Forms.Padding(2);
             this.kameraGroup1.Name = "kameraGroup1";
-            this.kameraGroup1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kameraGroup1.Padding = new System.Windows.Forms.Padding(2);
             this.kameraGroup1.Size = new System.Drawing.Size(524, 512);
             this.kameraGroup1.TabIndex = 41;
             this.kameraGroup1.TabStop = false;
@@ -201,10 +201,10 @@
             this.kameraGroup2.Controls.Add(this.pictureboxKamera2);
             this.kameraGroup2.Controls.Add(this.pictureBox3);
             this.kameraGroup2.Location = new System.Drawing.Point(572, 47);
-            this.kameraGroup2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kameraGroup2.Margin = new System.Windows.Forms.Padding(2);
             this.kameraGroup2.Name = "kameraGroup2";
-            this.kameraGroup2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.kameraGroup2.Size = new System.Drawing.Size(513, 500);
+            this.kameraGroup2.Padding = new System.Windows.Forms.Padding(2);
+            this.kameraGroup2.Size = new System.Drawing.Size(513, 512);
             this.kameraGroup2.TabIndex = 42;
             this.kameraGroup2.TabStop = false;
             this.kameraGroup2.Text = "KameraGrup2";
@@ -228,10 +228,11 @@
             this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureboxKamera2.Location = new System.Drawing.Point(5, 18);
             this.pictureboxKamera2.Name = "pictureboxKamera2";
-            this.pictureboxKamera2.Size = new System.Drawing.Size(500, 500);
+            this.pictureboxKamera2.Size = new System.Drawing.Size(500, 512);
             this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureboxKamera2.TabIndex = 34;
             this.pictureboxKamera2.TabStop = false;
+            this.pictureboxKamera2.Click += new System.EventHandler(this.pictureboxKamera2_Click);
             // 
             // pictureBox3
             // 
@@ -375,6 +376,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Çıkış";
             // 
+            // button3
+            // 
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(17, 78);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(141, 30);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Çıkış İşlemleri";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // textPlkaCikis
             // 
             this.textPlkaCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -408,21 +424,6 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(17, 78);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 30);
-            this.button3.TabIndex = 48;
-            this.button3.Text = "Çıkış İşlemleri";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // kameraMonitor
             // 

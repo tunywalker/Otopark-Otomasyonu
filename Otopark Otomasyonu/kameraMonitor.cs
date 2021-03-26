@@ -656,6 +656,21 @@ namespace Otopark_Otomasyonu
 
         private void button3_Click(object sender, EventArgs e)
         {
+            AracCikis aracCikisForm = new AracCikis()
+            {
+                AracPlaka = textPlkaCikis.Text,
+           //     plakaResim = (Bitmap)pictureboxKamera2.Image
+
+            };
+            if (aracCikisForm.ShowDialog() == DialogResult.OK)
+            {
+               
+
+            }
+        }
+
+        private void pictureboxKamera2_Click(object sender, EventArgs e)
+        {
 
         }
 

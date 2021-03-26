@@ -15,18 +15,30 @@ namespace Otopark_Otomasyonu
     {
         String arac_plaka, arac_tur, arac_giris, arac_cikis, arac_icerde, arac_parkyeri, arac_sahip, arac_aciklama;
        String arac_plakaresim;
+
         public Arac(string arac_plaka, string arac_tur, string arac_giris, string arac_icerde, Bitmap arac_plakaresim, string arac_parkyeri, string arac_sahip, string arac_aciklama)
         {
-            this.arac_plaka = arac_plaka;
-            this.arac_tur = arac_tur;
-            this.arac_giris = arac_giris;
-            this.arac_icerde = arac_icerde;
-            this.arac_plakaresim = bitmapToBase64(arac_plakaresim);
-            this.arac_parkyeri = arac_parkyeri;
-            this.arac_sahip = arac_sahip;
-            this.arac_aciklama = arac_aciklama;
+            this.Arac_plaka = arac_plaka;
+            this.Arac_tur = arac_tur;
+            this.Arac_giris = arac_giris;
+            this.Arac_icerde = arac_icerde;
+            this.Arac_plakaresim = bitmapToBase64(arac_plakaresim);
+            this.Arac_parkyeri = arac_parkyeri;
+            this.Arac_sahip = arac_sahip;
+            this.Arac_aciklama = arac_aciklama;
         }
         databaseConnection baglanti1 = new databaseConnection();
+
+        public string Arac_plaka { get => arac_plaka; set => arac_plaka = value; }
+        public string Arac_tur { get => arac_tur; set => arac_tur = value; }
+        public string Arac_giris { get => arac_giris; set => arac_giris = value; }
+        public string Arac_cikis { get => arac_cikis; set => arac_cikis = value; }
+        public string Arac_icerde { get => arac_icerde; set => arac_icerde = value; }
+        public string Arac_parkyeri { get => arac_parkyeri; set => arac_parkyeri = value; }
+        public string Arac_sahip { get => arac_sahip; set => arac_sahip = value; }
+        public string Arac_aciklama { get => arac_aciklama; set => arac_aciklama = value; }
+        public string Arac_plakaresim { get => arac_plakaresim; set => arac_plakaresim = value; }
+
         public string bitmapToBase64(Bitmap resim)
         {
             if (resim != null)
@@ -42,20 +54,24 @@ namespace Otopark_Otomasyonu
             
 
         }
-        
+
+        public Arac()
+        {
+        }
+
         public bool aracKaydet(Arac kayitEdilecek)
         {
             try
             {
 
-                String plaka = kayitEdilecek.arac_plaka;
-                String tur = kayitEdilecek.arac_tur;
-                String giris = kayitEdilecek.arac_giris;
-                String icerde = kayitEdilecek.arac_icerde;
-                String plakaResim = kayitEdilecek.arac_plakaresim;
-                String parkYeri = kayitEdilecek.arac_parkyeri;
-                String sahip = kayitEdilecek.arac_sahip;
-                String aciklama = kayitEdilecek.arac_aciklama;
+                String plaka = kayitEdilecek.Arac_plaka.ToUpper();
+                String tur = kayitEdilecek.Arac_tur;
+                String giris = kayitEdilecek.Arac_giris;
+                String icerde = kayitEdilecek.Arac_icerde;
+                String plakaResim = kayitEdilecek.Arac_plakaresim;
+                String parkYeri = kayitEdilecek.Arac_parkyeri;
+                String sahip = kayitEdilecek.Arac_sahip;
+                String aciklama = kayitEdilecek.Arac_aciklama;
                 baglanti1.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
                 MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_parkyeri,arac_sahip,arac_aciklama) values " +
@@ -91,6 +107,65 @@ namespace Otopark_Otomasyonu
 
 
 
+        }
+
+        public Arac aracGetir(string  plaka)
+        {
+            try
+            {
+                plaka = plaka.ToUpper();
+           
+                baglanti1.mysqlbaglan.Close();
+            }
+            catch { }
+            baglanti1.mysqlbaglan.Open();
+            Arac aGetirilen = new Arac();
+            MySqlCommand komut = new MySqlCommand("select * from araclar where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
+
+            MySqlDataReader okuyucu = komut.ExecuteReader();
+
+            while (okuyucu.Read())
+
+            {   // Çoklu veri okumak için
+                aGetirilen.Arac_giris = (okuyucu["arac_giris"].ToString());
+                aGetirilen.Arac_sahip = (okuyucu["arac_sahip"].ToString());
+                switch (okuyucu["arac_tur"].ToString())
+                {
+                    case "HS":
+                        aGetirilen.arac_tur = "Hatchbag/Sedan";
+                        break;
+                    case "M":
+                        aGetirilen.arac_tur = "Motorsiklet";
+                        break;
+
+                    case "MK":
+                        aGetirilen.arac_tur = "Minibüs/Kamyonet";
+                        break;
+
+                    case "O":
+                        aGetirilen.arac_tur = "Otobüs";
+                        break;
+                      
+                }
+
+                
+      
+            
+
+
+
+            }
+            baglanti1.mysqlbaglan.Close();
+            return aGetirilen;
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                baglanti1.mysqlbaglan.Close();
+              
+                return aGetirilen;
+            }
         }
     }
 }

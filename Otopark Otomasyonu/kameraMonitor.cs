@@ -596,7 +596,7 @@ namespace Otopark_Otomasyonu
             picLicensePlate.Image = null;
             lbxPlates.Items.Clear();
             textPlaka.Text = "";
-            groupBox2.Visible = false;
+           // groupBox2.Visible = false;
         }
         public void girisİslemleri(bool kayitDurumu, String plakaNo)
         {
@@ -653,7 +653,32 @@ namespace Otopark_Otomasyonu
             }
             catch { }
         }
+        public void cikisİslemleri(bool[] cikisDurumu,string plakaNo,int ucret)
+        {
 
+            if (cikisDurumu[0] && cikisDurumu[1])
+            {
+                bildirimYazdir("Çıkış", " '" + plakaNo + "' nolu plaka "+ucret.ToString()+"borçlanarak, çıkış  onayı verildi.");
+                girisTemizle();
+            }
+            else if (cikisDurumu[0] && !cikisDurumu[1])
+            {
+                bildirimYazdir("Çıkış", " '" + plakaNo + "' nolu plaka " + ucret.ToString() + "ücret alınıp, çıkış onayı verildi.");
+                girisTemizle();
+            }
+            else
+            {
+                if (plakaNo.Trim() == "")
+                {
+                    bildirimYazdir("Uyarı", "Plaka numarası boş olamaz.");
+                }
+                else
+                    bildirimYazdir("Uyarı", " '" + plakaNo + "' nolu plaka için çıkış başarısız.");
+            }
+
+
+        }
+        
         private void button3_Click(object sender, EventArgs e)
         {
             AracCikis aracCikisForm = new AracCikis()
@@ -664,7 +689,7 @@ namespace Otopark_Otomasyonu
             };
             if (aracCikisForm.ShowDialog() == DialogResult.OK)
             {
-               
+             //   girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
 
             }
         }

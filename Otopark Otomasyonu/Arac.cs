@@ -58,8 +58,122 @@ namespace Otopark_Otomasyonu
         public Arac()
         {
         }
+        public bool logKaydet(String plaka, String islem)
+        {
+            try
+            {
 
+                String log_plaka = plaka.ToUpper();
+                String log_islem = islem;
+                String log_tarih = DateTime.Now.ToString();
+             
+
+                baglanti1.mysqlbaglan.Open();
+                // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
+                MySqlCommand ekle = new MySqlCommand("insert into arac_log (islem_plaka,islem_turu,islem_tarih) values " +
+                    "('"
+                    + log_plaka + "','"
+
+                    + log_islem + "','"
+
+                    + log_tarih
+                    + "')", baglanti1.mysqlbaglan); ;
+
+
+                // sorguyu çalıştırıyorum.
+                object sonuc = null;
+                sonuc = ekle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
+                baglanti1.mysqlbaglan.Close();
+                if (sonuc != null)
+                    return true;
+                else
+                    return false;
+                // bağlantıyı kapatalım
+
+
+            }
+            catch (Exception HataYakala)
+            {
+                return false;
+
+            }
+
+        }
         public bool aracKaydet(Arac kayitEdilecek)
+        {
+            try
+            {
+                object sonuc = null;
+                if (aracGetir(kayitEdilecek.arac_plaka).arac_plaka=="" && kayitEdilecek.arac_plaka.Length >4)
+                {
+                   
+                    String plaka = kayitEdilecek.Arac_plaka.ToUpper();
+                    String tur = kayitEdilecek.Arac_tur;
+                    String giris = kayitEdilecek.Arac_giris;
+                    String icerde = kayitEdilecek.Arac_icerde;
+                    String plakaResim = kayitEdilecek.Arac_plakaresim;
+                    String parkYeri = kayitEdilecek.Arac_parkyeri;
+                    String sahip = kayitEdilecek.Arac_sahip;
+                    String aciklama = kayitEdilecek.Arac_aciklama;
+                    baglanti1.mysqlbaglan.Open();
+                    // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
+                    MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_parkyeri,arac_sahip,arac_aciklama) values " +
+                        "('"
+                        + plaka + "','"
+                        + tur + "','"
+                        + giris + "','"
+                        + "0" + "','"
+                        + plakaResim + "','"
+                        + parkYeri + "','"
+                          + sahip + "','"
+                        + aciklama
+                        + "')", baglanti1.mysqlbaglan);
+
+
+                    // sorguyu çalıştırıyorum.
+                   
+                    sonuc = ekle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
+                    logKaydet(plaka, "giris");
+                    baglanti1.mysqlbaglan.Close();
+                   // aracİceriKaydet(kayitEdilecek);
+                }
+                else
+                {
+                    if (kayitEdilecek.arac_plaka.Length>4)
+                    {
+                        sonuc = aracİceriKaydet(kayitEdilecek);
+                      
+                            logKaydet(kayitEdilecek.arac_plaka, "giris");
+                        
+                  
+                    }
+
+                }
+               
+                if (sonuc != null && (Boolean)sonuc != false)
+                {
+                    
+                   
+                    return true;
+                }
+
+                else
+                    return false;
+            // bağlantıyı kapatalım
+
+            
+
+            }
+            catch (Exception HataYakala)
+            {
+                return false;
+
+            }
+
+
+
+        }
+        public bool aracİceriKaydet(Arac kayitEdilecek)
         {
             try
             {
@@ -67,23 +181,17 @@ namespace Otopark_Otomasyonu
                 String plaka = kayitEdilecek.Arac_plaka.ToUpper();
                 String tur = kayitEdilecek.Arac_tur;
                 String giris = kayitEdilecek.Arac_giris;
-                String icerde = kayitEdilecek.Arac_icerde;
-                String plakaResim = kayitEdilecek.Arac_plakaresim;
                 String parkYeri = kayitEdilecek.Arac_parkyeri;
-                String sahip = kayitEdilecek.Arac_sahip;
-                String aciklama = kayitEdilecek.Arac_aciklama;
+               
                 baglanti1.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
-                MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_parkyeri,arac_sahip,arac_aciklama) values " +
+                MySqlCommand ekle = new MySqlCommand("insert into icerdeki_araclar (arac_plaka,arac_giris,arac_parkyeri) values " +
                     "('"
                     + plaka + "','"
-                    + tur + "','"
+                   
                     + giris + "','"
-                    + icerde + "','"
-                    + plakaResim + "','"
-                    + parkYeri + "','"
-                      + sahip + "','"
-                    + aciklama 
+                    
+                    + parkYeri
                     + "')", baglanti1.mysqlbaglan);
 
 
@@ -95,9 +203,9 @@ namespace Otopark_Otomasyonu
                     return true;
                 else
                     return false;
-            // bağlantıyı kapatalım
+                // bağlantıyı kapatalım
 
-           
+
             }
             catch (Exception HataYakala)
             {
@@ -120,6 +228,7 @@ namespace Otopark_Otomasyonu
             catch { }
             baglanti1.mysqlbaglan.Open();
             Arac aGetirilen = new Arac();
+            aGetirilen.arac_plaka = "";
             MySqlCommand komut = new MySqlCommand("select * from araclar where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
 
             MySqlDataReader okuyucu = komut.ExecuteReader();
@@ -147,10 +256,12 @@ namespace Otopark_Otomasyonu
                         break;
                       
                 }
+                aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
 
-                
-      
-            
+
+
+
+
 
 
 

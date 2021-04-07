@@ -45,12 +45,14 @@ namespace Otopark_Otomasyonu
         }
         public void hataYazdir(String hataMetni)
         {
+            labelHata.Text = "";
             labelHata.ForeColor = Color.Red;
             labelHata.Text = hataMetni;
             timer1.Start();
         }
         public void bildiriYazdir(String bildiri)
         {
+            labelHata.Text = "";
             labelHata.Text = bildiri;
             labelHata.ForeColor = Color.Green;
             timer1.Start();
@@ -67,16 +69,19 @@ namespace Otopark_Otomasyonu
                 listBox2.SelectedIndex = listBox1.SelectedIndex;
                 this.k = k.kameraGetir(Convert.ToInt16( listBox2.Items[listBox1.SelectedIndex]));
                 k.formdoldur(textKadi, comboYontem, textFiligran, comboLokasyon, checkYabanci, checkAktif,textUrl, this.k.k_id);
-                    if (textUrl.Text.Contains(".mjpg") && textUrl.Text != "")
+                    if (textUrl.Text.Contains(".jpg") && textUrl.Text != "")
                     {
+                      /*  while (urlWorker.IsBusy)
+                        {
+                            Application.DoEvents();
+                            System.Threading.Thread.Sleep(1000);
+                        }
+                        urlWorker.RunWorkerAsync(argument: textUrl.Text);
                         
-                        if (k.urlKontrol(textUrl.Text))
-                            bildiriYazdir("Kamera  Çalışıyor");
-                    
+                    */
                     
                     }
-                    else
-                        hataYazdir("Kamera  Çalışmıyor");
+                   
                 buttonEkle.Visible = false;
                 buttonGuncelle.Visible = true;
                 //  MessageBox.Show("Guncelle");
@@ -225,6 +230,15 @@ namespace Otopark_Otomasyonu
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            String url = e.Argument.ToString();
+            MessageBox.Show(k.urlKontrol(url));
+                bildiriYazdir("Kamera  Çalışıyor");
+            
+                hataYazdir("Kamera  Çalışmıyor");
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }

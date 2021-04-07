@@ -83,6 +83,16 @@ namespace Otopark_Otomasyonu.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap connecting {
+            get {
+                object obj = ResourceManager.GetObject("connecting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap newCar {
             get {
                 object obj = ResourceManager.GetObject("newCar", resourceCulture);

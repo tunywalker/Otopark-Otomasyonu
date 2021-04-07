@@ -62,6 +62,7 @@ namespace Otopark_Otomasyonu
         {
             try
             {
+                
 
                 String log_plaka = plaka.ToUpper();
                 String log_islem = islem;
@@ -88,9 +89,9 @@ namespace Otopark_Otomasyonu
                     return true;
                 else
                     return false;
-                // bağlantıyı kapatalım
+            // bağlantıyı kapatalım
 
-
+           
             }
             catch (Exception HataYakala)
             {
@@ -101,9 +102,8 @@ namespace Otopark_Otomasyonu
         }
         public bool aracKaydet(Arac kayitEdilecek)
         {
-            try
-            {
-                object sonuc = null;
+           
+                bool sonuc=false;
                 if (aracGetir(kayitEdilecek.arac_plaka).arac_plaka=="" && kayitEdilecek.arac_plaka.Length >4)
                 {
                    
@@ -130,40 +130,37 @@ namespace Otopark_Otomasyonu
                         + "')", baglanti1.mysqlbaglan);
 
 
-                    // sorguyu çalıştırıyorum.
-                   
-                    sonuc = ekle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
-                    logKaydet(plaka, "giris");
+                // sorguyu çalıştırıyorum.
+                if (ekle.ExecuteNonQuery().ToString()!= null)
+                {
+                    sonuc = true;
+                }
+                     // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
+                    
                     baglanti1.mysqlbaglan.Close();
-                   // aracİceriKaydet(kayitEdilecek);
+                logKaydet(plaka, "giris");
+                aracİceriKaydet(kayitEdilecek);
                 }
                 else
                 {
                     if (kayitEdilecek.arac_plaka.Length>4)
                     {
                         sonuc = aracİceriKaydet(kayitEdilecek);
-                      
-                            logKaydet(kayitEdilecek.arac_plaka, "giris");
+                    baglanti1.mysqlbaglan.Close();
+                    logKaydet(kayitEdilecek.arac_plaka, "giris");
                         
                   
                     }
 
                 }
-               
-                if (sonuc != null && (Boolean)sonuc != false)
-                {
-                    
-                   
-                    return true;
-                }
-
-                else
-                    return false;
+            return sonuc;
             // bağlantıyı kapatalım
 
-            
 
+            try
+            {
             }
+
             catch (Exception HataYakala)
             {
                 return false;
@@ -175,8 +172,7 @@ namespace Otopark_Otomasyonu
         }
         public bool aracİceriKaydet(Arac kayitEdilecek)
         {
-            try
-            {
+           
 
                 String plaka = kayitEdilecek.Arac_plaka.ToUpper();
                 String tur = kayitEdilecek.Arac_tur;
@@ -203,8 +199,9 @@ namespace Otopark_Otomasyonu
                     return true;
                 else
                     return false;
-                // bağlantıyı kapatalım
-
+            // bağlantıyı kapatalım
+            try
+            {
 
             }
             catch (Exception HataYakala)

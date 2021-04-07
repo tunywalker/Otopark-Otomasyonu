@@ -18,7 +18,7 @@ namespace Otopark_Otomasyonu
       public  string k_filigran;
       public  string k_aktif;
         string k_sadeceuye;
-        string k_lokasyon;
+     public   string k_lokasyon;
       public  string k_url;
         databaseConnection baglanti1 = new databaseConnection();
         databaseConnection baglanti2 = new databaseConnection();
@@ -29,23 +29,24 @@ namespace Otopark_Otomasyonu
 
 
         }
-        public bool urlKontrol(String url)
+        public string urlKontrol(String url)
         {
-            /* try
-             {
+            WebRequest request = WebRequest.Create(url);
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                {
+                    return Convert.ToString((int)response.StatusCode);
+                }
 
-                 WebRequest webRequest = WebRequest.Create(url);
-                 WebResponse webResponse;
-                 webRequest.Timeout = 1000;
-                 webResponse = webRequest.GetResponse();
-             }
-             catch //If exception thrown then couldn't get response from address
-             {
-
-                 return false;
-             }
-             return true;*/
-            return true;
+            }
+            catch (WebException ex)
+            {
+                using (HttpWebResponse res = (HttpWebResponse)ex.Response)
+                {
+                    return "-";
+                }
+            }
         }
         Form kameraEkle = new Form();
        public Kamera(string k_adi,  string k_hareketeduyarli,string k_filigran,string k_lokasyon,string k_sadeceuye,string k_aktif, string k_url)

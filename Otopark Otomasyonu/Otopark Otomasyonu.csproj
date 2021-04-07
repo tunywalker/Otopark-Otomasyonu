@@ -232,6 +232,7 @@
     <None Include="Resources\uyari.png" />
     <None Include="Resources\warn.png" />
     <None Include="bin\x64\Debug\resources\warningicon.png" />
+    <None Include="Resources\connecting.gif" />
     <Content Include="Resources\warningicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

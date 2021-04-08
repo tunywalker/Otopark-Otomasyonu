@@ -345,9 +345,9 @@ namespace Otopark_Otomasyonu
 
         }
 
-     
 
-       
+
+        Thread urlCheck;
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -390,18 +390,20 @@ namespace Otopark_Otomasyonu
                     aktifkameralar[1] = tempKamera;
 
                 }
+               
                 if (aktifkameralar[0] != null) { 
                   
                         kamera1 = (Kamera)aktifkameralar[0];
                         kameraGroup1.Text = kamera1.k_adi;
+                   
 
-
-                   kamera1Video = new MJPEGStream(kamera1.k_url.ToString());
+                    kamera1Video = new MJPEGStream(kamera1.k_url.ToString());
                    
                     labelFiligran1.Text = aktifkameralar[0].k_filigran;
                   
                      kamera1Video.NewFrame += kamera1Video_NewFrame;
                     kamera1LoadingLabel.Text = "";
+
                     if (CheckURLValid(aktifkameralar[0].k_url))
                     {
                         labelFiligran1.Visible = true;

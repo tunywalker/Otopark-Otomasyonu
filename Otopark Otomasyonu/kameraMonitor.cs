@@ -10,20 +10,21 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using openalprnet;
-using AForge.Video;  //Referansları ekliyoruz
-using AForge.Video.DirectShow; //Referansları ekliyoruz
+using AForge.Video; 
+using AForge.Video.DirectShow; 
 using System.Drawing.Imaging;
 using System.Threading;
 using AForge.Vision.Motion;
 using Tulpep.NotificationWindow;
 using System.Net;
+using System.Linq;
 
 namespace Otopark_Otomasyonu
 {
     public partial class kameraMonitor : Form
     {
-        MJPEGStream kamera1Video;
-        MJPEGStream kamera2Video;
+        JPEGStream kamera1Video;
+        JPEGStream kamera2Video;
         AsyncVideoSource asenkronKamera1;
         public kameraMonitor()
         {
@@ -359,6 +360,7 @@ namespace Otopark_Otomasyonu
         IVideoSource videoSource;
         private void timerLoad_Tick(object sender, EventArgs e)
         {
+         // MessageBox.Show(otopark1.bosParkyerleri().ElementAt(0));
             toolStripLabel2.Text = otopark1.dolulukOrani(kapasite);
             try
             {
@@ -397,7 +399,7 @@ namespace Otopark_Otomasyonu
                         kameraGroup1.Text = kamera1.k_adi;
                    
 
-                    kamera1Video = new MJPEGStream(kamera1.k_url.ToString());
+                    kamera1Video = new JPEGStream(kamera1.k_url.ToString());
                    
                     labelFiligran1.Text = aktifkameralar[0].k_filigran;
                   
@@ -423,7 +425,7 @@ namespace Otopark_Otomasyonu
                         
                     kamera2 = (Kamera)aktifkameralar[1];
                     kameraGroup2.Text = kamera2.k_adi;
-                    kamera2Video = new MJPEGStream(kamera2.k_url.ToString());
+                    kamera2Video = new JPEGStream(kamera2.k_url.ToString());
                     labelFiligran2.Text = aktifkameralar[1].k_filigran;
                     kamera2Video.NewFrame += kamera2Video_NewFrame;
                     kamera2LoadingLabel.Text = "";
@@ -451,6 +453,7 @@ namespace Otopark_Otomasyonu
 
                 
             }
+            //timerLoad.Stop();
           
         }
      
@@ -673,8 +676,9 @@ namespace Otopark_Otomasyonu
         private void button2_Click(object sender, EventArgs e)
         {
             AracGiris aracGirisForm = new AracGiris() {
-                plaka = textPlaka.Text, plakaResim = (Bitmap)picLicensePlate.Image
-
+                plaka = textPlaka.Text, plakaResim = (Bitmap)picLicensePlate.Image,
+                bosParkyerleri = otopark1.bosParkyerleri()
+                
             };
             if (aracGirisForm.ShowDialog() == DialogResult.OK)
             {
@@ -689,7 +693,9 @@ namespace Otopark_Otomasyonu
 
         private void sonraKaydet_Click(object sender, EventArgs e)
         {
-            Arac A1 = new Arac(textPlaka.Text, "-1", DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,"D2", "Anonim","Üyeliksiz Giriş");
+            
+           
+            Arac A1 = new Arac(textPlaka.Text, "-1", DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,otopark1.randomParkYeriOlustur(), "Üye Değil","Üyeliksiz Giriş");
             girisİslemleri(A1.aracKaydet(A1), textPlaka.Text);
             
         }

@@ -156,6 +156,7 @@
     <Compile Include="AracCikis.Designer.cs">
       <DependentUpon>AracCikis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FiyatTarifesi.cs" />
     <Compile Include="Kamera.cs" />
     <Compile Include="databaseConnection.cs" />
     <Compile Include="kameraEkle.cs">

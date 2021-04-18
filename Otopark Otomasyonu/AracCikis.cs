@@ -17,7 +17,8 @@ namespace Otopark_Otomasyonu
             InitializeComponent();
         }
        private Arac cikacak = new Arac();
-
+        public Boolean cikisDurumu { get { return cikis; } }
+        bool cikis = false;
         private string aracPlaka;
         private Bitmap plakaResim;
 
@@ -29,13 +30,15 @@ namespace Otopark_Otomasyonu
         private void AracCikis_Load(object sender, EventArgs e)
         {
             textPlaka.Text = AracPlaka;
-            labelCikisTarih.Text = DateTime.Now.ToString();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
-            DialogResult = DialogResult. OK;
+            aracPlaka = textPlaka.Text;
+         cikis=   Cikacak.cikisYap(textPlaka.Text);
+            DialogResult = DialogResult.OK;
         }
 
         private void textPlaka_TextChanged(object sender, EventArgs e)
@@ -45,13 +48,36 @@ namespace Otopark_Otomasyonu
 
            
             try
-            {
-              
-                Cikacak = Cikacak.aracGetir(textPlaka.Text);
+                {
+                    int saat = 0;
+                    Cikacak = Cikacak.aracIcerdenGetir(textPlaka.Text);
+                    if (Cikacak.Arac_plaka == null)
+                             labelCikisTarih.Text = "-";
+                   
+                 
+                    
+                      
+                    if (Cikacak.Arac_giris!=null)
+                    {
+                        DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
+                        DateTime cikis = DateTime.Now;
+                        saat = ((cikis - giris).Days * 24 + (cikis - giris).Hours);
+                        labelCikisTarih.Text = DateTime.Now.ToString();
+                    }
+                  
+                   
+                  
                 labelGirisTarihi.Text = Cikacak.Arac_giris;
+                   
                 labelAracSahip.Text = Cikacak.Arac_sahip;
                 labelAractur.Text = Cikacak.Arac_tur;
-            }
+                    if (Cikacak.Arac_tur != null)
+                    {
+                        FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
+                        label5.Text = ft.fiyatHesapla(saat).ToString() + " TL";
+                    }
+                }
+                   
             catch (Exception)
             {
 

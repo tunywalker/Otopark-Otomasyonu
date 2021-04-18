@@ -9,6 +9,11 @@ namespace Otopark_Otomasyonu
 {
     class Otopark
     {
+      
+      
+
+
+
         databaseConnection baglanti1 = new databaseConnection();
 
         public int kapasite = 100;

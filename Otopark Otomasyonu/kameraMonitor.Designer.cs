@@ -101,7 +101,7 @@
             this.lbxPlates.ItemHeight = 17;
             this.lbxPlates.Location = new System.Drawing.Point(387, 19);
             this.lbxPlates.Name = "lbxPlates";
-            this.lbxPlates.Size = new System.Drawing.Size(121, 72);
+            this.lbxPlates.Size = new System.Drawing.Size(121, 55);
             this.lbxPlates.TabIndex = 35;
             this.lbxPlates.SelectedIndexChanged += new System.EventHandler(this.lbxPlates_SelectedIndexChanged);
             // 
@@ -421,6 +421,7 @@
             this.button1.Text = "Tekrar Tanımla";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
@@ -462,7 +463,7 @@
             this.lbxPlatesCikis.ItemHeight = 17;
             this.lbxPlatesCikis.Location = new System.Drawing.Point(379, 19);
             this.lbxPlatesCikis.Name = "lbxPlatesCikis";
-            this.lbxPlatesCikis.Size = new System.Drawing.Size(121, 72);
+            this.lbxPlatesCikis.Size = new System.Drawing.Size(121, 55);
             this.lbxPlatesCikis.TabIndex = 36;
             this.lbxPlatesCikis.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 

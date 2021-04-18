@@ -213,6 +213,38 @@ namespace Otopark_Otomasyonu
 
 
         }
+        public bool cikisYap(string Plaka)
+        {
+           
+                try
+                {
+                    baglanti1.mysqlbaglan.Open();
+                    MySqlCommand komut = new MySqlCommand("DELETE FROM icerdeki_araclar WHERE arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
+                    object sonuc = null;
+                    sonuc = komut.ExecuteNonQuery();
+
+                    baglanti1.mysqlbaglan.Close();
+                if (sonuc != null)
+                {
+                    logKaydet(Plaka, "Çıkış");
+                    return true;
+                    
+                }
+
+                else
+                    return false;
+                    // bağlantıyı kapatalım
+
+                }
+                catch (Exception)
+                {
+                    return false;
+                    throw;
+                }
+            }
+
+
+        
 
         public Arac aracGetir(string  plaka)
         {
@@ -251,7 +283,10 @@ namespace Otopark_Otomasyonu
                     case "O":
                         aGetirilen.arac_tur = "Otobüs";
                         break;
-                      
+                    default:
+                        aGetirilen.arac_tur = "Diğer";
+                        break;
+
                 }
                 aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
 
@@ -275,5 +310,51 @@ namespace Otopark_Otomasyonu
                 return aGetirilen;
             }
         }
+        public Arac aracIcerdenGetir(string plaka)
+        {
+            try
+            {
+                plaka = plaka.ToUpper();
+
+                baglanti1.mysqlbaglan.Close();
+            }
+            catch { }
+            Arac gercekArac = new Arac(); gercekArac=gercekArac.aracGetir(plaka);
+            baglanti1.mysqlbaglan.Open();
+            Arac aGetirilen = new Arac();
+            aGetirilen.arac_plaka = "";
+            MySqlCommand komut = new MySqlCommand("select * from icerdeki_araclar where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
+
+            MySqlDataReader okuyucu = komut.ExecuteReader();
+
+            while (okuyucu.Read())
+
+            {   // Çoklu veri okumak için
+                aGetirilen.Arac_giris = okuyucu["arac_giris"].ToString();
+                aGetirilen.Arac_sahip = gercekArac.arac_sahip;
+                aGetirilen.arac_tur = gercekArac.arac_tur;
+                aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
+
+
+
+
+
+
+
+
+            }
+            baglanti1.mysqlbaglan.Close();
+            return aGetirilen;
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                baglanti1.mysqlbaglan.Close();
+
+                return aGetirilen;
+            }
+        }
+
     }
 }

@@ -414,6 +414,7 @@ namespace Otopark_Otomasyonu
                     }
                     else
                     {
+
                         pictureBoxKamera1.Image = Properties.Resources.connecting;
                         labelFiligran1.Visible = false;
                         kamera1LoadingLabel.Text = "'"+aktifkameralar[0].k_adi+"' isimli kameraya bağlanılıyor.";
@@ -459,6 +460,7 @@ namespace Otopark_Otomasyonu
      
         private void button1_Click(object sender, EventArgs e)
         {
+            picLicensePlate.Image = null;
             kamera1kilit = 0;
             lbxPlates.Items.Clear();
             textPlaka.Text = "";
@@ -470,20 +472,30 @@ namespace Otopark_Otomasyonu
         }
         public static bool CheckURLValid(string source)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(source);
-            request.Timeout = 1000;
-            request.Method = "HEAD"; // As per Lasse's comment
-            try
-            {
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                {
-                    return response.StatusCode == HttpStatusCode.OK;
-                }
-            }
-            catch (WebException)
-            {
-                return false;
-            }
+            bool value=false ; // Used to store the return value
+            var thread = new Thread(
+              () =>
+              {
+                  HttpWebRequest request = (HttpWebRequest)WebRequest.Create(source);
+                  request.Timeout = 100;
+                  request.Method = "HEAD"; // As per Lasse's comment
+                  try
+                  {
+                      using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                      {
+                          value= response.StatusCode == HttpStatusCode.OK;
+                      }
+
+                  }
+                  catch (WebException)
+                  {
+                      value= false;
+                  }
+                  
+              });
+            thread.Start();
+            thread.Join();
+            return value;
         }
         private void timerKamera2_Tick(object sender, EventArgs e)
         {
@@ -673,6 +685,24 @@ namespace Otopark_Otomasyonu
                     bildirimYazdir("Uyarı", " '" + plakaNo + "' nolu plaka için giriş başarısız.");
             }
         }
+        public void cikisİslemleri(bool kayitDurumu, String plakaNo)
+        {
+
+            if (kayitDurumu)
+            {
+                bildirimYazdir("Çıkış", " '" + plakaNo + "' nolu plaka için çıkış onayı verildi.");
+                girisTemizle();
+            }
+            else
+            {
+                if (plakaNo.Trim() == "")
+                {
+                    bildirimYazdir("Uyarı", "Plaka numarası boş olamaz.");
+                }
+                else
+                    bildirimYazdir("Uyarı", " '" + plakaNo + "' nolu plaka için çıkış başarısız.");
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             AracGiris aracGirisForm = new AracGiris() {
@@ -749,7 +779,8 @@ namespace Otopark_Otomasyonu
             };
             if (aracCikisForm.ShowDialog() == DialogResult.OK)
             {
-             //   girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
+                //   girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
+                cikisİslemleri(aracCikisForm.cikisDurumu, aracCikisForm.AracPlaka);
 
             }
         }
@@ -757,6 +788,13 @@ namespace Otopark_Otomasyonu
         private void pictureboxKamera2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            picLicensePlateCikis.Image = null;
+            textPlkaCikis = null;
+            lbxPlatesCikis = null;
         }
 
         private void pictureboxKamera2_Click(object sender, EventArgs e)

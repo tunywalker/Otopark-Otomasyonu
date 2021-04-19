@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Otopark_Otomasyonu
 {
-    public partial class AracGiris : Form
+    public partial class formAracGiris : Form
     {
        public String plaka = "";
         public List<string> bosParkyerleri;
         public Bitmap plakaResim;
-        public AracGiris()
+        public formAracGiris()
         {
             InitializeComponent();
         }

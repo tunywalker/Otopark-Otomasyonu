@@ -10,7 +10,8 @@ namespace Otopark_Otomasyonu
 {
     class databaseConnection
     {
-        public MySqlConnection mysqlbaglan = new MySqlConnection("Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8");// charset ekleyerek Türkçe karakter sorununuda gidermiş olduk.
+        public MySqlConnection mysqlbaglan =
+            new MySqlConnection("Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8");// charset ekleyerek Türkçe karakter sorununuda gidermiş olduk.
 
      
        

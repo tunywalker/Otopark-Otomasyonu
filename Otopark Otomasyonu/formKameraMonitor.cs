@@ -21,12 +21,12 @@ using System.Linq;
 
 namespace Otopark_Otomasyonu
 {
-    public partial class kameraMonitor : Form
+    public partial class formKameraMonitor : Form
     {
         JPEGStream kamera1Video;
         JPEGStream kamera2Video;
         AsyncVideoSource asenkronKamera1;
-        public kameraMonitor()
+        public formKameraMonitor()
         {
 
             CheckForIllegalCrossThreadCalls = false;
@@ -352,7 +352,7 @@ namespace Otopark_Otomasyonu
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            kameraEkle kameraEkleForm = new kameraEkle();
+            formKameraEkle kameraEkleForm = new formKameraEkle();
             kameraEkleForm.Show();
            
         }
@@ -705,7 +705,7 @@ namespace Otopark_Otomasyonu
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            AracGiris aracGirisForm = new AracGiris() {
+            formAracGiris aracGirisForm = new formAracGiris() {
                 plaka = textPlaka.Text, plakaResim = (Bitmap)picLicensePlate.Image,
                 bosParkyerleri = otopark1.bosParkyerleri()
                 
@@ -795,6 +795,19 @@ namespace Otopark_Otomasyonu
             picLicensePlateCikis.Image = null;
             textPlkaCikis = null;
             lbxPlatesCikis = null;
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+
+            kayitlar kayitlarForm = new kayitlar();
+            kayitlarForm.Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            formAboneler aboneForm = new formAboneler();
+            aboneForm.Show();
         }
 
         private void pictureboxKamera2_Click(object sender, EventArgs e)

@@ -15,10 +15,10 @@ using System.Net;
 
 namespace Otopark_Otomasyonu
 {
-    public partial class kameraEkle : Form
+    public partial class formKameraEkle : Form
     {
 
-        public kameraEkle()
+        public formKameraEkle()
         {
             Control.CheckForIllegalCrossThreadCalls = false;
 

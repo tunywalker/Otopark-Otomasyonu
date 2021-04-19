@@ -1,7 +1,7 @@
 ﻿
 namespace Otopark_Otomasyonu
 {
-    partial class AracGiris
+    partial class formAracGiris
     {
         /// <summary>
         /// Required designer variable.

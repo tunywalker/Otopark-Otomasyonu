@@ -80,6 +80,17 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGantt.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -143,49 +154,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AracGiris.cs">
+    <Compile Include="Abone.cs" />
+    <Compile Include="formAboneler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AracGiris.Designer.cs">
-      <DependentUpon>AracGiris.cs</DependentUpon>
+    <Compile Include="formAboneler.Designer.cs">
+      <DependentUpon>formAboneler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAracGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAracGiris.Designer.cs">
+      <DependentUpon>formAracGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="Arac.cs" />
-    <Compile Include="AracCikis.cs">
+    <Compile Include="formAracCikis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AracCikis.Designer.cs">
-      <DependentUpon>AracCikis.cs</DependentUpon>
+    <Compile Include="formAracCikis.Designer.cs">
+      <DependentUpon>formAracCikis.cs</DependentUpon>
     </Compile>
     <Compile Include="FiyatTarifesi.cs" />
+    <Compile Include="formKayitlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formKayitlar.Designer.cs">
+      <DependentUpon>formKayitlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kamera.cs" />
     <Compile Include="databaseConnection.cs" />
-    <Compile Include="kameraEkle.cs">
+    <Compile Include="formKameraEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kameraEkle.Designer.cs">
-      <DependentUpon>kameraEkle.cs</DependentUpon>
+    <Compile Include="formKameraEkle.Designer.cs">
+      <DependentUpon>formKameraEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="kameraMonitor.cs">
+    <Compile Include="formKameraMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kameraMonitor.Designer.cs">
-      <DependentUpon>kameraMonitor.cs</DependentUpon>
+    <Compile Include="formKameraMonitor.Designer.cs">
+      <DependentUpon>formKameraMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Otopark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AracGiris.resx">
-      <DependentUpon>AracGiris.cs</DependentUpon>
+    <EmbeddedResource Include="formAboneler.resx">
+      <DependentUpon>formAboneler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AracCikis.resx">
-      <DependentUpon>AracCikis.cs</DependentUpon>
+    <EmbeddedResource Include="formAracGiris.resx">
+      <DependentUpon>formAracGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kameraEkle.resx">
-      <DependentUpon>kameraEkle.cs</DependentUpon>
+    <EmbeddedResource Include="formAracCikis.resx">
+      <DependentUpon>formAracCikis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kameraMonitor.resx">
-      <DependentUpon>kameraMonitor.cs</DependentUpon>
+    <EmbeddedResource Include="formKayitlar.resx">
+      <DependentUpon>formKayitlar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formKameraEkle.resx">
+      <DependentUpon>formKameraEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formKameraMonitor.resx">
+      <DependentUpon>formKameraMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

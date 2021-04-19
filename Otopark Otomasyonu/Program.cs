@@ -16,7 +16,7 @@ namespace Otopark_Otomasyonu
        {
            // Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new kameraMonitor());
+            Application.Run(new formKameraMonitor());
         }
     }
 }

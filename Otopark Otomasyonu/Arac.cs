@@ -138,7 +138,7 @@ namespace Otopark_Otomasyonu
                      // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
                     
                     baglanti1.mysqlbaglan.Close();
-                logKaydet(plaka, "giris");
+                logKaydet(plaka, "Giriş");
                 aracİceriKaydet(kayitEdilecek);
                 }
                 else
@@ -147,7 +147,7 @@ namespace Otopark_Otomasyonu
                     {
                         sonuc = aracİceriKaydet(kayitEdilecek);
                     baglanti1.mysqlbaglan.Close();
-                    logKaydet(kayitEdilecek.arac_plaka, "giris");
+                    logKaydet(kayitEdilecek.arac_plaka, "Giriş");
                         
                   
                     }

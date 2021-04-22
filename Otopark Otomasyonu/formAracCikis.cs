@@ -51,6 +51,8 @@ namespace Otopark_Otomasyonu
                 {
                     int saat = 0;
                     Cikacak = Cikacak.aracIcerdenGetir(textPlaka.Text);
+                    Abone sahip = new Abone();
+                   
                     if (Cikacak.Arac_plaka == null)
                              labelCikisTarih.Text = "-";
                    
@@ -76,6 +78,11 @@ namespace Otopark_Otomasyonu
                         FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
                         label5.Text = ft.fiyatHesapla(saat).ToString() + " TL";
                     }
+               /*     sahip = sahip.aboneIcerdenGetir(Cikacak.Arac_sahip);
+                    if (sahip.Abone_ozeldurum.ToLower().Contains("personel"))
+                    {
+                        label5.Text=("Personel Ücretsiz");
+                    }*/
                 }
                    
             catch (Exception)

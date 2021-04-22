@@ -31,8 +31,8 @@ namespace Otopark_Otomasyonu
             MySqlDataReader okuyucu = komut.ExecuteReader();
 
             if (okuyucu.Read())
-                return okuyucu["aracSayisi"].ToString()+"/"+Kapasite.ToString();
-            else return "0/"+Kapasite.ToString();
+                return okuyucu["aracSayisi"].ToString();
+            else return "0/" + Kapasite.ToString();
 
              
        

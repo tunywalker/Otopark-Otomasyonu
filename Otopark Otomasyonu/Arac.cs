@@ -58,8 +58,55 @@ namespace Otopark_Otomasyonu
         public Arac()
         {
         }
+        public bool iceriDisari(String plaka,string giriscikis)
+        {
+
+            databaseConnection baglanti2 = new databaseConnection();
+
+                 plaka = plaka.ToUpper();
+                String islem = giriscikis;
+                int gircik=0;
+                if (islem == "Giriş")
+                    gircik = 1;
+                if(islem=="Çıkış")
+                    gircik = 0;
+
+
+
+            databaseConnection baglanti1 = new databaseConnection();
+
+            baglanti1.mysqlbaglan.Open();
+            // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
+            MySqlCommand guncelle = new MySqlCommand("UPDATE araclar SET " +
+            "arac_icerde='" + gircik +
+
+            "' where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
+
+            object sonuc = null;
+            sonuc = guncelle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
+            baglanti1.mysqlbaglan.Close();
+            if (sonuc != null)
+                return true;
+            else
+                return false;
+            // bağlantıyı kapatalım
+
+            try
+            {
+            }
+            catch (Exception HataYakala)
+            {
+                return false;
+
+            }
+
+        }
         public bool logKaydet(String plaka, String islem)
         {
+            Console.WriteLine("deneme");
+            iceriDisari(plaka.Trim().ToUpper(), islem);
+           
+
             try
             {
                 
@@ -67,7 +114,7 @@ namespace Otopark_Otomasyonu
                 String log_plaka = plaka.ToUpper();
                 String log_islem = islem;
                 String log_tarih = DateTime.Now.ToString();
-             
+              
 
                 baglanti1.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
@@ -85,8 +132,17 @@ namespace Otopark_Otomasyonu
                 object sonuc = null;
                 sonuc = ekle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
                 baglanti1.mysqlbaglan.Close();
+               
+
+
+  
+                
                 if (sonuc != null)
+                {
+                    
                     return true;
+                   
+                }
                 else
                     return false;
             // bağlantıyı kapatalım
@@ -117,14 +173,14 @@ namespace Otopark_Otomasyonu
                     String aciklama = kayitEdilecek.Arac_aciklama;
                     baglanti1.mysqlbaglan.Open();
                     // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
-                    MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_parkyeri,arac_sahip,arac_aciklama) values " +
+                    MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_sahip,arac_aciklama) values " +
                         "('"
                         + plaka + "','"
                         + tur + "','"
                         + giris + "','"
                         + "0" + "','"
                         + plakaResim + "','"
-                        + parkYeri + "','"
+                        
                           + sahip + "','"
                         + aciklama
                         + "')", baglanti1.mysqlbaglan);
@@ -138,6 +194,7 @@ namespace Otopark_Otomasyonu
                      // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
                     
                     baglanti1.mysqlbaglan.Close();
+                
                 logKaydet(plaka, "Giriş");
                 aracİceriKaydet(kayitEdilecek);
                 }
@@ -172,8 +229,9 @@ namespace Otopark_Otomasyonu
         }
         public bool aracİceriKaydet(Arac kayitEdilecek)
         {
-           
 
+            try
+            {
                 String plaka = kayitEdilecek.Arac_plaka.ToUpper();
                 String tur = kayitEdilecek.Arac_tur;
                 String giris = kayitEdilecek.Arac_giris;
@@ -200,8 +258,7 @@ namespace Otopark_Otomasyonu
                 else
                     return false;
             // bağlantıyı kapatalım
-            try
-            {
+           
 
             }
             catch (Exception HataYakala)
@@ -215,7 +272,8 @@ namespace Otopark_Otomasyonu
         }
         public bool cikisYap(string Plaka)
         {
-           
+            if (aracIcerdenGetir(Plaka).arac_plaka == Plaka.ToUpper().Trim())
+            {
                 try
                 {
                     baglanti1.mysqlbaglan.Open();
@@ -224,15 +282,15 @@ namespace Otopark_Otomasyonu
                     sonuc = komut.ExecuteNonQuery();
 
                     baglanti1.mysqlbaglan.Close();
-                if (sonuc != null)
-                {
-                    logKaydet(Plaka, "Çıkış");
-                    return true;
-                    
-                }
+                    if (sonuc != null)
+                    {
+                        logKaydet(Plaka, "Çıkış");
+                        return true;
 
-                else
-                    return false;
+                    }
+
+                    else
+                        return false;
                     // bağlantıyı kapatalım
 
                 }
@@ -241,6 +299,8 @@ namespace Otopark_Otomasyonu
                     return false;
                     throw;
                 }
+            }
+            return false;
             }
 
 
@@ -320,6 +380,7 @@ namespace Otopark_Otomasyonu
             }
             catch { }
             Arac gercekArac = new Arac(); gercekArac=gercekArac.aracGetir(plaka);
+            
             baglanti1.mysqlbaglan.Open();
             Arac aGetirilen = new Arac();
             aGetirilen.arac_plaka = "";

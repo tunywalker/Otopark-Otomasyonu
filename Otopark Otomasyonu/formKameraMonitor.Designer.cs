@@ -35,10 +35,10 @@
             this.lbxPlates = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.kameraGroup1 = new System.Windows.Forms.GroupBox();
             this.kamera1LoadingLabel = new System.Windows.Forms.Label();
             this.labelFiligran1 = new System.Windows.Forms.Label();
@@ -62,12 +62,14 @@
             this.buttonTekrarTani = new System.Windows.Forms.Button();
             this.picLicensePlate = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonTekrarTani2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textPlkaCikis = new System.Windows.Forms.TextBox();
             this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
             this.lbxPlatesCikis = new System.Windows.Forms.ListBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
@@ -111,10 +113,12 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolKameraButton,
-            this.toolStripLabel1,
-            this.toolStripLabel2,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4,
             this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripLabel1,
+            this.toolStripLabel2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1092, 43);
@@ -131,6 +135,26 @@
             this.toolKameraButton.Text = "Kamera Ayarları";
             this.toolKameraButton.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(97, 40);
+            this.toolStripButton2.Text = "Aboneler";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(129, 40);
+            this.toolStripButton1.Text = "İndirim Paneli";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -145,26 +169,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(52, 40);
             this.toolStripLabel2.Text = "0/100";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(86, 40);
-            this.toolStripButton1.Text = "Kayıtlar";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(97, 40);
-            this.toolStripButton2.Text = "Aboneler";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // kameraGroup1
             // 
@@ -382,7 +386,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 30);
             this.button2.TabIndex = 44;
-            this.button2.Text = "Üyelik Oluştur";
+            this.button2.Text = "Giriş İşlemleri";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -413,7 +417,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.buttonTekrarTani2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textPlkaCikis);
             this.groupBox1.Controls.Add(this.picLicensePlateCikis);
@@ -424,26 +428,27 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Çıkış";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button1
+            // buttonTekrarTani2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(316, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 30);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Tekrar Tanımla";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonTekrarTani2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonTekrarTani2.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
+            this.buttonTekrarTani2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonTekrarTani2.Location = new System.Drawing.Point(316, 168);
+            this.buttonTekrarTani2.Name = "buttonTekrarTani2";
+            this.buttonTekrarTani2.Size = new System.Drawing.Size(182, 30);
+            this.buttonTekrarTani2.TabIndex = 47;
+            this.buttonTekrarTani2.Text = "Tekrar Tanımla";
+            this.buttonTekrarTani2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonTekrarTani2.UseVisualStyleBackColor = true;
+            this.buttonTekrarTani2.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
+            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.cikis1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.button3.Location = new System.Drawing.Point(6, 95);
             this.button3.Name = "button3";
@@ -487,6 +492,26 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(86, 40);
+            this.toolStripButton3.Text = "Kayıtlar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(169, 40);
+            this.toolStripButton4.Text = "Otoparktaki Araçlar";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // formKameraMonitor
             // 
@@ -561,7 +586,9 @@
         private System.Windows.Forms.Label kamera1LoadingLabel;
         private System.Windows.Forms.PictureBox pictureboxKamera2;
         private System.Windows.Forms.Label kamera2LoadingLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonTekrarTani2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

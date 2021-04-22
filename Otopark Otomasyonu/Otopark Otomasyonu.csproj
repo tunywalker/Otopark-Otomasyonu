@@ -155,6 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abone.cs" />
+    <Compile Include="formAboneAraclar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAboneAraclar.Designer.cs">
+      <DependentUpon>formAboneAraclar.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAboneler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,12 @@
     <Compile Include="formKayitlar.Designer.cs">
       <DependentUpon>formKayitlar.cs</DependentUpon>
     </Compile>
+    <Compile Include="formYeniAbone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formYeniAbone.Designer.cs">
+      <DependentUpon>formYeniAbone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kamera.cs" />
     <Compile Include="databaseConnection.cs" />
     <Compile Include="formKameraEkle.cs">
@@ -198,6 +210,9 @@
     <Compile Include="Otopark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formAboneAraclar.resx">
+      <DependentUpon>formAboneAraclar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAboneler.resx">
       <DependentUpon>formAboneler.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formKameraMonitor.resx">
       <DependentUpon>formKameraMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formYeniAbone.resx">
+      <DependentUpon>formYeniAbone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -265,6 +283,9 @@
     <None Include="Resources\warn.png" />
     <None Include="bin\x64\Debug\resources\warningicon.png" />
     <None Include="Resources\connecting.gif" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\cikis.png" />
+    <None Include="Resources\cikis1.png" />
     <Content Include="Resources\warningicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

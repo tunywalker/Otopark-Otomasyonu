@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace Otopark_Otomasyonu
 {
@@ -21,16 +22,56 @@ namespace Otopark_Otomasyonu
         }
         public Boolean kayitDurumu { get { return kayit; } }
         public String plakaNo { get { return aracPlaka; } }
+
+        public void bildirimYazdir(String Tur, String Metin)
+        {
+            PopupNotifier popup = new PopupNotifier();
+            Bitmap Icon = null;
+            String Baslik = "";
+            switch (Tur)
+            {
+                case "Basarili":
+                    Baslik = "Yeni Abonelik Başarıyla Oluşturuldu";
+                    Icon = Properties.Resources.uyari2; //icon from resources
+
+                    break;
+                case "Basarisiz":
+                    Baslik = "Abonelik Oluşturulamadı";
+                    Icon = Properties.Resources.basari; //icon from resources
+                    break;
+               
+                default:
+                    Baslik = "Bildirim";
+                    break;
+            }
+
+            popup.TitleText = Baslik;
+            popup.Image = Icon;
+            popup.TitleFont = new System.Drawing.Font("Tahoma", 20F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 15F);
+            popup.ContentText = Metin;
+            popup.Popup();// show  
+
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            Arac Girecek = new Arac();
+            Girecek = Girecek.aracIcerdenGetir(plaka);
+            if (Girecek.Arac_plaka!=null)
+            {
+                aboneBilgiDoldur(Girecek.Arac_sahip);
+            }
             try
             {
                 comboBox1.SelectedIndex = 0;
                 comboBox3.SelectedIndex = 0;
                 textPlaka.Text = plaka;
                 labelGirisTarihi.Text = DateTime.Now.ToString();
-                pictureBox1.Image = plakaResim;
+                if (plakaResim!=null)
+                {
+                    pictureBox1.Image = plakaResim;
+                }
+               
 
                 comboBox3.Items.Clear();
                 foreach (string parkYeri in bosParkyerleri)
@@ -73,7 +114,7 @@ namespace Otopark_Otomasyonu
                 default:
                     break;
             }
-            Arac A1 = new Arac(textPlaka.Text, aracturu, DateTime.Now.ToString(), "1", (Bitmap)pictureBox1.Image, comboBox3.Text.Replace("geerg",""), label8.Text, richTextBox1.Text);
+            Arac A1 = new Arac(textPlaka.Text, aracturu, DateTime.Now.ToString(), "1", (Bitmap)pictureBox1.Image, comboBox3.Text.Replace("geerg",""), textAboneKimlik.Text, richTextBox1.Text);
              kayit=   A1.aracKaydet(A1);
             aracPlaka = textPlaka.Text; 
             Close();
@@ -98,6 +139,54 @@ namespace Otopark_Otomasyonu
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+     public void aboneBilgiDoldur(string Kimlik)
+        {
+            Abone GirecekAbone = new Abone();
+            GirecekAbone = GirecekAbone.aboneIcerdenGetir(Kimlik);
+            if (GirecekAbone.Abone_kimlikno != null)
+            {
+                label3.Text = GirecekAbone.Abone_adsoyad + " - " + GirecekAbone.Abone_telefon.ToUpper();
+                button1.Enabled = true;
+            }
+            else
+            {
+                label3.Text = "";
+                button1.Enabled = false;
+            }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            aboneBilgiDoldur(textAboneKimlik.Text);
+           
+          
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            formYeniAbone yeniAbone = new formYeniAbone()
+            {
+               
+
+            };
+            if (yeniAbone.ShowDialog() == DialogResult.OK)
+            {
+                textAboneKimlik.Text = yeniAbone.AboneKimlik;
+                if (yeniAbone.UyelikBasarili)
+                {
+                    aboneBilgiDoldur(yeniAbone.AboneKimlik);
+                    bildirimYazdir("Basarili", "Yeni Abonelik Başarıyla Oluşturuldu.");
+                }
+                else
+                {
+                    bildirimYazdir("Basarisiz", "Böyle bir abonelik olduğu için yeni abone oluşturulamadı. Varolan abone ile devam edilecek.");
+                    aboneBilgiDoldur(yeniAbone.AboneKimlik);
+                }
+               
+
+            }
         }
     }
 }

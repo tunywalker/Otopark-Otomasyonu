@@ -40,10 +40,12 @@ namespace Otopark_Otomasyonu
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textAboneKimlik = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(8, 267);
+            this.label1.Location = new System.Drawing.Point(13, 329);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 24);
             this.label1.TabIndex = 0;
@@ -67,9 +69,9 @@ namespace Otopark_Otomasyonu
             "Motorsiklet",
             "Minibüs - Kamyonet",
             "Otobüs"});
-            this.comboBox1.Location = new System.Drawing.Point(131, 259);
+            this.comboBox1.Location = new System.Drawing.Point(136, 321);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 32);
+            this.comboBox1.Size = new System.Drawing.Size(206, 32);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -77,7 +79,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(8, 168);
+            this.label2.Location = new System.Drawing.Point(13, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 24);
             this.label2.TabIndex = 2;
@@ -87,7 +89,7 @@ namespace Otopark_Otomasyonu
             // 
             this.labelGirisTarihi.AutoSize = true;
             this.labelGirisTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelGirisTarihi.Location = new System.Drawing.Point(127, 168);
+            this.labelGirisTarihi.Location = new System.Drawing.Point(132, 230);
             this.labelGirisTarihi.Name = "labelGirisTarihi";
             this.labelGirisTarihi.Size = new System.Drawing.Size(16, 24);
             this.labelGirisTarihi.TabIndex = 3;
@@ -107,7 +109,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(9, 221);
+            this.label5.Location = new System.Drawing.Point(14, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 24);
             this.label5.TabIndex = 5;
@@ -117,17 +119,17 @@ namespace Otopark_Otomasyonu
             // textPlaka
             // 
             this.textPlaka.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textPlaka.Location = new System.Drawing.Point(131, 216);
+            this.textPlaka.Location = new System.Drawing.Point(136, 278);
             this.textPlaka.Name = "textPlaka";
-            this.textPlaka.Size = new System.Drawing.Size(175, 29);
+            this.textPlaka.Size = new System.Drawing.Size(206, 29);
             this.textPlaka.TabIndex = 6;
             this.textPlaka.TextChanged += new System.EventHandler(this.textPlaka_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(10, 451);
+            this.button1.Location = new System.Drawing.Point(15, 513);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(284, 34);
+            this.button1.Size = new System.Drawing.Size(327, 34);
             this.button1.TabIndex = 8;
             this.button1.Text = "Kaydet ";
             this.button1.UseVisualStyleBackColor = true;
@@ -137,7 +139,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(9, 316);
+            this.label6.Location = new System.Drawing.Point(14, 378);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 24);
             this.label6.TabIndex = 9;
@@ -150,9 +152,9 @@ namespace Otopark_Otomasyonu
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "HATA"});
-            this.comboBox3.Location = new System.Drawing.Point(132, 308);
+            this.comboBox3.Location = new System.Drawing.Point(137, 370);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(120, 32);
+            this.comboBox3.Size = new System.Drawing.Size(205, 32);
             this.comboBox3.TabIndex = 11;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -160,27 +162,17 @@ namespace Otopark_Otomasyonu
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(8, 130);
+            this.label7.Location = new System.Drawing.Point(11, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 24);
             this.label7.TabIndex = 12;
             this.label7.Text = "Araç Sahibi:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(128, 130);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 24);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "TEST";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(105, 343);
+            this.label9.Location = new System.Drawing.Point(110, 405);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 24);
             this.label9.TabIndex = 15;
@@ -188,14 +180,15 @@ namespace Otopark_Otomasyonu
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 370);
+            this.richTextBox1.Location = new System.Drawing.Point(18, 432);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(281, 65);
+            this.richTextBox1.Size = new System.Drawing.Size(324, 65);
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Otopark_Otomasyonu.Properties.Resources.image;
             this.pictureBox1.Location = new System.Drawing.Point(12, 42);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(294, 68);
@@ -203,15 +196,46 @@ namespace Otopark_Otomasyonu
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // AracGiris
+            // textAboneKimlik
+            // 
+            this.textAboneKimlik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textAboneKimlik.Location = new System.Drawing.Point(135, 185);
+            this.textAboneKimlik.Name = "textAboneKimlik";
+            this.textAboneKimlik.Size = new System.Drawing.Size(175, 29);
+            this.textAboneKimlik.TabIndex = 17;
+            this.textAboneKimlik.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(316, 185);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(31, 29);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label3.Location = new System.Drawing.Point(14, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 24);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "-";
+            // 
+            // formAracGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(321, 509);
+            this.ClientSize = new System.Drawing.Size(354, 573);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textAboneKimlik);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label6);
@@ -226,7 +250,7 @@ namespace Otopark_Otomasyonu
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Close;
-            this.Name = "AracGiris";
+            this.Name = "formAracGiris";
             this.ShowInTaskbar = false;
             this.Text = "Yeni Kayıt";
             this.TopMost = true;
@@ -251,8 +275,10 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textAboneKimlik;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }

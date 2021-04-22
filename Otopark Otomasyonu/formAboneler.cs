@@ -74,6 +74,20 @@ namespace Otopark_Otomasyonu
                 }
             }
         }
+        public void tabloFiltrele()
+        {
+
+
+            if (checkBox1.Checked==false)
+            {
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc >= '0' ");
+            }
+            else
+            {
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc > '0' ");
+
+            }
+        }
         private void formAboneler_Load(object sender, EventArgs e)
         {
             gridViewCek();
@@ -81,14 +95,7 @@ namespace Otopark_Otomasyonu
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                dataGridView1.Rows[e.RowIndex].Selected = true;
-            }
-            catch
-            {
-
-            }
+           
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -98,7 +105,7 @@ namespace Otopark_Otomasyonu
 
         private void buttonEkle_Click(object sender, EventArgs e)
         {
-       Abone eklenecek=     new Abone(textAdSoyad.Text, textKimlik.Text, textOzelDurum.Text, textTelefon.Text);
+       Abone eklenecek=     new Abone(textAdSoyad.Text, textKimlik.Text, textOzelDurum.Text+",", textTelefon.Text);
             eklenecek.aboneKaydet(eklenecek);
             gridViewCek();
         }
@@ -106,16 +113,118 @@ namespace Otopark_Otomasyonu
        
         private void button1_Click(object sender, EventArgs e)
         {
+            formTemizle();
+
+
+
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            tabloFiltrele();
+            formTemizle();
+        }
+       public void formTemizle()
+        {
+            try
+            {
+                dataGridView1.Rows[0].Selected = true;
+            }
+            catch
+            {
+
+            }
+            textKimlik.Text = "";
+            textAdSoyad.Text = "";
+            textOzelDurum.Text = "";
+            textTelefon.Text = "";
+           // checkBox1.Checked = false;
+            buttonGuncelle.Visible = false;
+            textKimlik.Enabled = true;
+            buttonEkle.Visible = true;
+            
+
+
+
+
+
+        }
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string ad = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string kimlik = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string telefon = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                string ozeldurum = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                textAdSoyad.Text = ad;
+                textKimlik.Text = kimlik;
+                textTelefon.Text = telefon;
+                textOzelDurum.Text = ozeldurum;
+            }
+            catch
+            {
+               
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+                buttonGuncelle.Visible = true;
+
+                textKimlik.Enabled = false;
+                buttonEkle.Visible = false;
+            }
+            catch
+            {
+                
+
+            }
+        
+    }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             string kimlikno = dataGridView1.CurrentRow.Cells["abone_kimlikno"].Value.ToString();
             Abone silinecek = new Abone(kimlikno);
             if (silinecek.aboneSil())
             {
                 gridViewCek();
+                formTemizle();
             }
+        }
 
+        private void buttonGuncelle_Click(object sender, EventArgs e)
+        {
+            Abone guncellenecek = new Abone(textAdSoyad.Text, textKimlik.Text, textOzelDurum.Text, textTelefon.Text);
+            if (guncellenecek.aboneGuncelle(guncellenecek)) { 
+            gridViewCek();
+            formTemizle();
+        }
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
 
+            formAboneAraclar aboneAracForm = new formAboneAraclar()
+            {
+                Kimlik = textKimlik.Text,
+                //     plakaResim = (Bitmap)pictureboxKamera2.Image
 
+            };
+            aboneAracForm.Show();
+            
+            
         }
     }
 }

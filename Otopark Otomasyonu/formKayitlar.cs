@@ -78,7 +78,14 @@ namespace Otopark_Otomasyonu
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.Rows[e.RowIndex].Selected = true;
+            try
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+            }
+            catch
+            {
+
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

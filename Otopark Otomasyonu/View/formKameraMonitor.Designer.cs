@@ -36,6 +36,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -68,8 +70,6 @@
             this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
             this.lbxPlatesCikis = new System.Windows.Forms.ListBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
@@ -144,6 +144,26 @@
             this.toolStripButton2.Size = new System.Drawing.Size(97, 40);
             this.toolStripButton2.Text = "Aboneler";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(86, 40);
+            this.toolStripButton3.Text = "Kayıtlar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(169, 40);
+            this.toolStripButton4.Text = "Otoparktaki Araçlar";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton1
             // 
@@ -422,12 +442,13 @@
             this.groupBox1.Controls.Add(this.textPlkaCikis);
             this.groupBox1.Controls.Add(this.picLicensePlateCikis);
             this.groupBox1.Controls.Add(this.lbxPlatesCikis);
-            this.groupBox1.Location = new System.Drawing.Point(552, 541);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.groupBox1.Location = new System.Drawing.Point(552, 529);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(557, 229);
+            this.groupBox1.Size = new System.Drawing.Size(557, 241);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Çıkış";
+            this.groupBox1.Text = "Çıkış İşlemleri";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // buttonTekrarTani2
@@ -435,7 +456,7 @@
             this.buttonTekrarTani2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.buttonTekrarTani2.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
             this.buttonTekrarTani2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonTekrarTani2.Location = new System.Drawing.Point(316, 168);
+            this.buttonTekrarTani2.Location = new System.Drawing.Point(318, 205);
             this.buttonTekrarTani2.Name = "buttonTekrarTani2";
             this.buttonTekrarTani2.Size = new System.Drawing.Size(182, 30);
             this.buttonTekrarTani2.TabIndex = 47;
@@ -462,7 +483,7 @@
             // textPlkaCikis
             // 
             this.textPlkaCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.textPlkaCikis.Location = new System.Drawing.Point(318, 132);
+            this.textPlkaCikis.Location = new System.Drawing.Point(320, 169);
             this.textPlkaCikis.Name = "textPlkaCikis";
             this.textPlkaCikis.Size = new System.Drawing.Size(182, 31);
             this.textPlkaCikis.TabIndex = 47;
@@ -482,9 +503,9 @@
             this.lbxPlatesCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxPlatesCikis.FormattingEnabled = true;
             this.lbxPlatesCikis.ItemHeight = 17;
-            this.lbxPlatesCikis.Location = new System.Drawing.Point(379, 19);
+            this.lbxPlatesCikis.Location = new System.Drawing.Point(407, 31);
             this.lbxPlatesCikis.Name = "lbxPlatesCikis";
-            this.lbxPlatesCikis.Size = new System.Drawing.Size(121, 106);
+            this.lbxPlatesCikis.Size = new System.Drawing.Size(121, 89);
             this.lbxPlatesCikis.TabIndex = 36;
             this.lbxPlatesCikis.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -492,26 +513,6 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(86, 40);
-            this.toolStripButton3.Text = "Kayıtlar";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(169, 40);
-            this.toolStripButton4.Text = "Otoparktaki Araçlar";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // formKameraMonitor
             // 
@@ -526,7 +527,7 @@
             this.Controls.Add(this.kameraGroup1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "formKameraMonitor";
-            this.Text = "Otopark Otomasyonu";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.kameraMonitor_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

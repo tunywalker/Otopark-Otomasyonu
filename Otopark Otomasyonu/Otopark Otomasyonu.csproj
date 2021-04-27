@@ -155,83 +155,92 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abone.cs" />
-    <Compile Include="formAboneAraclar.cs">
+    <Compile Include="Controller\FiyatTarifesiController.cs" />
+    <Compile Include="DAO\ArrayList.cs" />
+    <Compile Include="DAO\FiyatTarifesiDAO.cs" />
+    <Compile Include="View\formAboneAraclar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAboneAraclar.Designer.cs">
+    <Compile Include="View\formAboneAraclar.Designer.cs">
       <DependentUpon>formAboneAraclar.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAboneler.cs">
+    <Compile Include="View\formAboneler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAboneler.Designer.cs">
+    <Compile Include="View\formAboneler.Designer.cs">
       <DependentUpon>formAboneler.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAracGiris.cs">
+    <Compile Include="View\formAracGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAracGiris.Designer.cs">
+    <Compile Include="View\formAracGiris.Designer.cs">
       <DependentUpon>formAracGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="Arac.cs" />
-    <Compile Include="formAracCikis.cs">
+    <Compile Include="View\formAracCikis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAracCikis.Designer.cs">
+    <Compile Include="View\formAracCikis.Designer.cs">
       <DependentUpon>formAracCikis.cs</DependentUpon>
     </Compile>
-    <Compile Include="FiyatTarifesi.cs" />
-    <Compile Include="formKayitlar.cs">
+    <Compile Include="Entity\FiyatTarifesi.cs" />
+    <Compile Include="View\formKayitlar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formKayitlar.Designer.cs">
+    <Compile Include="View\formKayitlar.Designer.cs">
       <DependentUpon>formKayitlar.cs</DependentUpon>
     </Compile>
-    <Compile Include="formYeniAbone.cs">
+    <Compile Include="View\formYeniAbone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formYeniAbone.Designer.cs">
+    <Compile Include="View\formYeniAbone.Designer.cs">
       <DependentUpon>formYeniAbone.cs</DependentUpon>
     </Compile>
     <Compile Include="Kamera.cs" />
-    <Compile Include="databaseConnection.cs" />
-    <Compile Include="formKameraEkle.cs">
+    <Compile Include="Util\databaseConnection.cs" />
+    <Compile Include="View\formKameraEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formKameraEkle.Designer.cs">
+    <Compile Include="View\formKameraEkle.Designer.cs">
       <DependentUpon>formKameraEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="formKameraMonitor.cs">
+    <Compile Include="View\formKameraMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formKameraMonitor.Designer.cs">
+    <Compile Include="View\formKameraMonitor.Designer.cs">
       <DependentUpon>formKameraMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Otopark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formAboneAraclar.resx">
+    <Compile Include="View\formYonetimPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\formYonetimPaneli.Designer.cs">
+      <DependentUpon>formYonetimPaneli.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\formAboneAraclar.resx">
       <DependentUpon>formAboneAraclar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAboneler.resx">
+    <EmbeddedResource Include="View\formAboneler.resx">
       <DependentUpon>formAboneler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAracGiris.resx">
+    <EmbeddedResource Include="View\formAracGiris.resx">
       <DependentUpon>formAracGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAracCikis.resx">
+    <EmbeddedResource Include="View\formAracCikis.resx">
       <DependentUpon>formAracCikis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formKayitlar.resx">
+    <EmbeddedResource Include="View\formKayitlar.resx">
       <DependentUpon>formKayitlar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formKameraEkle.resx">
+    <EmbeddedResource Include="View\formKameraEkle.resx">
       <DependentUpon>formKameraEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formKameraMonitor.resx">
+    <EmbeddedResource Include="View\formKameraMonitor.resx">
       <DependentUpon>formKameraMonitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formYeniAbone.resx">
+    <EmbeddedResource Include="View\formYeniAbone.resx">
       <DependentUpon>formYeniAbone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -245,6 +254,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\formYonetimPaneli.resx">
+      <DependentUpon>formYonetimPaneli.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -287,6 +299,9 @@
     <None Include="Resources\cikis.png" />
     <None Include="Resources\cikis1.png" />
     <Content Include="Resources\warningicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,6 +18,7 @@ using AForge.Vision.Motion;
 using Tulpep.NotificationWindow;
 using System.Net;
 using System.Linq;
+using Otopark_Otomasyonu.View;
 
 namespace Otopark_Otomasyonu
 {
@@ -309,7 +310,7 @@ namespace Otopark_Otomasyonu
                 catch (Exception)
                 {
 
-                    throw;
+                  //  throw;
                 }
                 timer++;
                 rastgele = rnd.Next(1, 10000);
@@ -796,13 +797,20 @@ namespace Otopark_Otomasyonu
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
+            formYonetimPaneli YonetimPaneliForm = new formYonetimPaneli()
+            { 
 
-         
+            };
+            YonetimPaneliForm.Show();
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            formAboneler aboneForm = new formAboneler();
+            formAboneler aboneForm = new formAboneler() {
+                Otopark1 = this.otopark1
+
+            };
             aboneForm.Show();
         }
 

@@ -88,9 +88,17 @@ namespace Otopark_Otomasyonu
 
             }
         }
+        Otopark otopark1;
+        Arac aboneArac = new Arac();
         private void formAboneler_Load(object sender, EventArgs e)
         {
+            label10.Text = "";
             gridViewCek();
+            comboParkYer.Items.Clear();
+            foreach (string parkYeri in otopark1.bosParkyerleri())
+                comboParkYer.Items.Add(parkYeri);
+            comboParkYer.SelectedIndex = 0;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -225,6 +233,46 @@ namespace Otopark_Otomasyonu
             aboneAracForm.Show();
             
             
+        }
+        public List<string> bosParkyerleri;
+
+        internal Otopark Otopark1 { get => Otopark11; set => Otopark11 = value; }
+        internal Otopark Otopark11 { get => otopark1; set => otopark1 = value; }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            aboneArac = aboneArac.aracIcerdenGetir(textBox1.Text);
+            
+            if (aboneArac.Arac_plaka.Trim()!="")
+            {
+                MessageBox.Show(aboneArac.Arac_plaka);
+                label10.Text = "(KAYITLI)";
+                comboAracTur.SelectedIndex = comboAracTur.FindString(aboneArac.aracTurGetir());
+                comboAboneTur.Enabled = false;
+                comboAracTur.Enabled = false;
+                comboParkYer.Enabled = false;
+                richTextBox1.Enabled = false;
+                buttonEkle.Enabled = false;
+                
+            }
+            else
+            {
+                label10.Text = "";
+                comboAboneTur.Enabled = true;
+                comboAracTur.Enabled = true;
+                comboParkYer.Enabled = true;
+                richTextBox1.Enabled = true;
+            }
         }
     }
 }

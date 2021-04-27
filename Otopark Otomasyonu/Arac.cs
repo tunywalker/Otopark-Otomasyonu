@@ -370,6 +370,30 @@ namespace Otopark_Otomasyonu
                 return aGetirilen;
             }
         }
+        public string aracTurGetir()
+        {
+
+            switch (this.arac_tur)
+            {
+                case "HS":
+                    return "Hatchbag/Sedan";
+                    break;
+                case "M":
+                    return "Motorsiklet";
+                    break;
+
+                case "MK":
+                    return "Minibüs/Kamyonet";
+                    break;
+
+                case "O":
+                    return "Otobüs";
+                    break;
+                default:
+                    return "Diğer";
+                        break;
+            }
+        }
         public Arac aracIcerdenGetir(string plaka)
         {
             try
@@ -384,7 +408,7 @@ namespace Otopark_Otomasyonu
             baglanti1.mysqlbaglan.Open();
             Arac aGetirilen = new Arac();
             aGetirilen.arac_plaka = "";
-            MySqlCommand komut = new MySqlCommand("select * from icerdeki_araclar where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
+            MySqlCommand komut = new MySqlCommand("select * from araclar where arac_plaka='" + plaka + "'", baglanti1.mysqlbaglan);
 
             MySqlDataReader okuyucu = komut.ExecuteReader();
 
@@ -404,6 +428,7 @@ namespace Otopark_Otomasyonu
 
 
             }
+
             baglanti1.mysqlbaglan.Close();
             return aGetirilen;
             try

@@ -75,8 +75,8 @@ namespace Otopark_Otomasyonu
                 labelAractur.Text = Cikacak.Arac_tur;
                     if (Cikacak.Arac_tur != null)
                     {
-                        FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
-                        label5.Text = ft.fiyatHesapla(saat).ToString() + " TL";
+                     //   FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
+                        //label5.Text = ft.fiyatHesapla(saat).ToString() + " TL";
                     }
                /*     sahip = sahip.aboneIcerdenGetir(Cikacak.Arac_sahip);
                     if (sahip.Abone_ozeldurum.ToLower().Contains("personel"))

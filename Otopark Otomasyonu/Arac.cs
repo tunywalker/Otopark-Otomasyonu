@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Otopark_Otomasyonu.DAO;
 
 namespace Otopark_Otomasyonu
 {
     class Arac
     {
-        String arac_plaka, arac_tur, arac_giris, arac_cikis, arac_icerde, arac_parkyeri, arac_sahip, arac_aciklama;
-       String arac_plakaresim;
+        String arac_plaka,  arac_giris, arac_cikis, arac_icerde, arac_parkyeri, arac_sahip, arac_aciklama;
+        FiyatTarifesi arac_Tur;
+        String arac_plakaresim;
 
-        public Arac(string arac_plaka, string arac_tur, string arac_giris, string arac_icerde, Bitmap arac_plakaresim, string arac_parkyeri, string arac_sahip, string arac_aciklama)
+        public Arac(string arac_plaka, FiyatTarifesi arac_tur, string arac_giris, string arac_icerde, Bitmap arac_plakaresim, string arac_parkyeri, string arac_sahip, string arac_aciklama)
         {
             this.Arac_plaka = arac_plaka;
             this.Arac_tur = arac_tur;
@@ -30,7 +32,7 @@ namespace Otopark_Otomasyonu
         databaseConnection baglanti1 = new databaseConnection();
 
         public string Arac_plaka { get => arac_plaka; set => arac_plaka = value; }
-        public string Arac_tur { get => arac_tur; set => arac_tur = value; }
+        public FiyatTarifesi Arac_tur { get => arac_Tur; set => arac_Tur = value; }
         public string Arac_giris { get => arac_giris; set => arac_giris = value; }
         public string Arac_cikis { get => arac_cikis; set => arac_cikis = value; }
         public string Arac_icerde { get => arac_icerde; set => arac_icerde = value; }
@@ -164,7 +166,7 @@ namespace Otopark_Otomasyonu
                 {
                    
                     String plaka = kayitEdilecek.Arac_plaka.ToUpper();
-                    String tur = kayitEdilecek.Arac_tur;
+                    String tur = kayitEdilecek.Arac_tur.FiyatTarifesi_id.ToString();
                     String giris = kayitEdilecek.Arac_giris;
                     String icerde = kayitEdilecek.Arac_icerde;
                     String plakaResim = kayitEdilecek.Arac_plakaresim;
@@ -233,7 +235,7 @@ namespace Otopark_Otomasyonu
             try
             {
                 String plaka = kayitEdilecek.Arac_plaka.ToUpper();
-                String tur = kayitEdilecek.Arac_tur;
+                String tur = kayitEdilecek.Arac_tur.FiyatTarifesi_id.ToString();
                 String giris = kayitEdilecek.Arac_giris;
                 String parkYeri = kayitEdilecek.Arac_parkyeri;
                
@@ -304,7 +306,7 @@ namespace Otopark_Otomasyonu
             }
 
 
-        
+        FiyatTarifesiDAO ftDao= new FiyatTarifesiDAO();
 
         public Arac aracGetir(string  plaka)
         {
@@ -327,27 +329,8 @@ namespace Otopark_Otomasyonu
             {   // Çoklu veri okumak için
                 aGetirilen.Arac_giris = (okuyucu["arac_giris"].ToString());
                 aGetirilen.Arac_sahip = (okuyucu["arac_sahip"].ToString());
-                switch (okuyucu["arac_tur"].ToString())
-                {
-                    case "HS":
-                        aGetirilen.arac_tur = "Hatchbag/Sedan";
-                        break;
-                    case "M":
-                        aGetirilen.arac_tur = "Motorsiklet";
-                        break;
-
-                    case "MK":
-                        aGetirilen.arac_tur = "Minibüs/Kamyonet";
-                        break;
-
-                    case "O":
-                        aGetirilen.arac_tur = "Otobüs";
-                        break;
-                    default:
-                        aGetirilen.arac_tur = "Diğer";
-                        break;
-
-                }
+                aGetirilen.Arac_tur = ftDao.GetFiyatTarifesiById(1);
+               
                 aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
 
 
@@ -370,30 +353,7 @@ namespace Otopark_Otomasyonu
                 return aGetirilen;
             }
         }
-        public string aracTurGetir()
-        {
-
-            switch (this.arac_tur)
-            {
-                case "HS":
-                    return "Hatchbag/Sedan";
-                    break;
-                case "M":
-                    return "Motorsiklet";
-                    break;
-
-                case "MK":
-                    return "Minibüs/Kamyonet";
-                    break;
-
-                case "O":
-                    return "Otobüs";
-                    break;
-                default:
-                    return "Diğer";
-                        break;
-            }
-        }
+       
         public Arac aracIcerdenGetir(string plaka)
         {
             try
@@ -417,8 +377,9 @@ namespace Otopark_Otomasyonu
             {   // Çoklu veri okumak için
                 aGetirilen.Arac_giris = okuyucu["arac_giris"].ToString();
                 aGetirilen.Arac_sahip = gercekArac.arac_sahip;
-                aGetirilen.arac_tur = gercekArac.arac_tur;
+                aGetirilen.Arac_tur = gercekArac.ftDao.GetFiyatTarifesiById(Convert.ToInt32(okuyucu["arac_tur"]));
                 aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
+                aGetirilen.arac_icerde = okuyucu["arac_icerde"].ToString();
 
 
 

@@ -158,6 +158,7 @@
     <Compile Include="Controller\FiyatTarifesiController.cs" />
     <Compile Include="DAO\ArrayList.cs" />
     <Compile Include="DAO\FiyatTarifesiDAO.cs" />
+    <Compile Include="Entity\ComboboxItem.cs" />
     <Compile Include="View\formAboneAraclar.cs">
       <SubType>Form</SubType>
     </Compile>

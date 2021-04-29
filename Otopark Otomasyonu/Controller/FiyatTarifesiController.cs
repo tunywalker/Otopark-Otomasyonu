@@ -1,4 +1,5 @@
 ﻿using Otopark_Otomasyonu.DAO;
+using Otopark_Otomasyonu.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace Otopark_Otomasyonu.Controller
         private List<FiyatTarifesi> _fiyatTarifesiList = null;
         private FiyatTarifesiDAO _fiyatTarifesiDao;
         private FiyatTarifesi _fiyatTarifesi;
-        private DataGridView dataGridViewFiyatTarifesi;
+        private DataGridView _dataGridViewFiyatTarifesi;
+        
 
 
         internal List<FiyatTarifesi> FiyatTarifesiList {
@@ -38,7 +40,26 @@ namespace Otopark_Otomasyonu.Controller
             }
 
         }
+        public int fiyatHesapla(int saat)
+        {
+            if (saat <= 1)
+                return this._fiyatTarifesi.FiyatTarifesi_fiyat;
+            else if (saat >= 1 && saat <= 2)
+                return (this._fiyatTarifesi.FiyatTarifesi_fiyat / 3) * 4;
+            else if (saat >= 2 && saat <= 4)
+                return (this._fiyatTarifesi.FiyatTarifesi_fiyat / 3) * 5;
+            else if (saat >= 4 && saat <= 8)
+                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) * 2;
+            else if (saat >= 8 && saat <= 12)
+                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) / 2 * 3;
+            else if (saat >= 12 && saat <= 24)
+                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) / 2 * 8;
+            else if (saat > 24)
+                return saat / 24 * fiyatHesapla(24);
+            else
+                return 99;
 
+        }
         internal FiyatTarifesi FiyatTarifesi { 
             get { if (this._fiyatTarifesi == null)
                     this._fiyatTarifesi = new FiyatTarifesi();
@@ -46,7 +67,10 @@ namespace Otopark_Otomasyonu.Controller
             }
             set { _fiyatTarifesi = value; } }
 
-        public DataGridView DataGridViewFiyatTarifesi { get => dataGridViewFiyatTarifesi; set => dataGridViewFiyatTarifesi = value; }
+        public DataGridView DataGridViewFiyatTarifesi { get => _dataGridViewFiyatTarifesi; set => _dataGridViewFiyatTarifesi = value; }
+     
+
+          
 
         public void sil()
         {
@@ -68,6 +92,22 @@ namespace Otopark_Otomasyonu.Controller
             this.FiyatTarifesiDao.Insert(this.FiyatTarifesi);
             this.FiyatTarifesi = new FiyatTarifesi();
 
+        }
+        public Object comboDataSource()
+        {
+            ComboBox comboTemp=new ComboBox();
+            Dictionary<string, string> test = new Dictionary<string, string>();
+          
+            
+            foreach (var ft in FiyatTarifesiList)
+            {
+                test.Add(ft.FiyatTarifesi_id.ToString(), ft.FiyatTarifesi_uzunAd);
+                
+            }
+          
+       
+         
+            return test;
         }
         public FiyatTarifesi fiyatTarifesiById(int id)
         {

@@ -19,6 +19,7 @@ using Tulpep.NotificationWindow;
 using System.Net;
 using System.Linq;
 using Otopark_Otomasyonu.View;
+using Otopark_Otomasyonu.Controller;
 
 namespace Otopark_Otomasyonu
 {
@@ -256,8 +257,9 @@ namespace Otopark_Otomasyonu
 
         {
             kapasite   = 100;
-          
-            
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+
             label1.Text = "";
 
             /* IMotionDetector motionDetector =  new TwoFramesDifferenceDetector() ;
@@ -739,7 +741,7 @@ namespace Otopark_Otomasyonu
 
 
         }
-
+        FiyatTarifesiController ftController = new FiyatTarifesiController();
         private void sonraKaydet_Click(object sender, EventArgs e)
         {
             if (picLicensePlate.Image==null)
@@ -747,7 +749,7 @@ namespace Otopark_Otomasyonu
                 picLicensePlate.Image = Properties.Resources.image;
             }
            
-            Arac A1 = new Arac(textPlaka.Text, "-1", DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,otopark1.randomParkYeriOlustur(), "-1","Üyeliksiz Giriş");
+            Arac A1 = new Arac(textPlaka.Text,ftController.fiyatTarifesiById(-1), DateTime.Now.ToString(), "1", (Bitmap)picLicensePlate.Image,otopark1.randomParkYeriOlustur(), "-1","Üyeliksiz Giriş");
             girisİslemleri(A1.aracKaydet(A1), textPlaka.Text);
             
         }

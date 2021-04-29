@@ -257,7 +257,7 @@ namespace Otopark_Otomasyonu
             {
                 MessageBox.Show(aboneArac.Arac_plaka);
                 label10.Text = "(KAYITLI)";
-                comboAracTur.SelectedIndex = comboAracTur.FindString(aboneArac.aracTurGetir());
+                //comboAracTur.SelectedIndex = comboAracTur.FindString(aboneArac.aracTurGetir());
                 comboAboneTur.Enabled = false;
                 comboAracTur.Enabled = false;
                 comboParkYer.Enabled = false;

@@ -42,6 +42,7 @@ namespace Otopark_Otomasyonu
             this.textPlaka = new System.Windows.Forms.TextBox();
             this.labelCikisTarih = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelAracSahip
@@ -175,12 +176,23 @@ namespace Otopark_Otomasyonu
             this.label10.TabIndex = 29;
             this.label10.Text = "Araç Türü:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(128, 379);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "label1";
+            // 
             // AracCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(324, 463);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelCikisTarih);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textPlaka);
@@ -219,5 +231,6 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.TextBox textPlaka;
         private System.Windows.Forms.Label labelCikisTarih;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
     }
 }

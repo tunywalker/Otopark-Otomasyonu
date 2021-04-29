@@ -30,8 +30,9 @@ namespace Otopark_Otomasyonu.View
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonFtGuncelle = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonFtSil = new System.Windows.Forms.Button();
+            this.buttonFtGuncelle = new System.Windows.Forms.Button();
             this.buttonFtEkle = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace Otopark_Otomasyonu.View
             this.textKisaltma = new System.Windows.Forms.TextBox();
             this.textUzunAd = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -66,16 +66,16 @@ namespace Otopark_Otomasyonu.View
             this.groupBox1.Text = "Fiyat Tarifeleri";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // buttonFtGuncelle
+            // button1
             // 
-            this.buttonFtGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonFtGuncelle.Location = new System.Drawing.Point(204, 203);
-            this.buttonFtGuncelle.Name = "buttonFtGuncelle";
-            this.buttonFtGuncelle.Size = new System.Drawing.Size(89, 23);
-            this.buttonFtGuncelle.TabIndex = 7;
-            this.buttonFtGuncelle.Text = "Güncelle";
-            this.buttonFtGuncelle.UseVisualStyleBackColor = true;
-            this.buttonFtGuncelle.Click += new System.EventHandler(this.buttonFtGuncelle_Click);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(356, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 38);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonFtSil
             // 
@@ -87,6 +87,17 @@ namespace Otopark_Otomasyonu.View
             this.buttonFtSil.Text = "-";
             this.buttonFtSil.UseVisualStyleBackColor = true;
             this.buttonFtSil.Click += new System.EventHandler(this.buttonFtSil_Click);
+            // 
+            // buttonFtGuncelle
+            // 
+            this.buttonFtGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonFtGuncelle.Location = new System.Drawing.Point(204, 203);
+            this.buttonFtGuncelle.Name = "buttonFtGuncelle";
+            this.buttonFtGuncelle.Size = new System.Drawing.Size(89, 23);
+            this.buttonFtGuncelle.TabIndex = 7;
+            this.buttonFtGuncelle.Text = "Güncelle";
+            this.buttonFtGuncelle.UseVisualStyleBackColor = true;
+            this.buttonFtGuncelle.Click += new System.EventHandler(this.buttonFtGuncelle_Click);
             // 
             // buttonFtEkle
             // 
@@ -164,17 +175,6 @@ namespace Otopark_Otomasyonu.View
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(356, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formYonetimPaneli
             // 

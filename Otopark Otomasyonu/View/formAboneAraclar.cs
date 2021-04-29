@@ -41,6 +41,7 @@ namespace Otopark_Otomasyonu
             // Convert byte[] to Image
             ms.Write(imageBytes, 0, imageBytes.Length);
             Image image = Image.FromStream(ms, true);
+            image = ScaleImage(image, 200, 100);
             return imageToByteArray(image);
         } 
     public byte[] imageToByteArray(System.Drawing.Image imageIn)
@@ -54,6 +55,36 @@ namespace Otopark_Otomasyonu
         {
             var proposedSize = grid.GetPreferredSize(new Size(0, 0));
             grid.Height = proposedSize.Height;
+        }
+        public static Image ScaleImage(Image image, int maxWidth, int maxHeight)
+        {
+            var ratioX = (double)maxWidth / image.Width;
+            var ratioY = (double)maxHeight / image.Height;
+            var ratio = Math.Min(ratioX, ratioY);
+
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+
+            var newImage = new Bitmap(newWidth, newHeight);
+            Graphics.FromImage(newImage).DrawImage(image, 0, 0, newWidth, newHeight);
+            return newImage;
+        }
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            Image returnImage = null;
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                returnImage = Image.FromStream(ms);
+            }
+            return returnImage;
+        }
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
         }
         public void gridViewCek()
             {
@@ -109,7 +140,7 @@ namespace Otopark_Otomasyonu
 
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.AllowUserToAddRows = false;
-
+                    dataGridView1.RowHeadersVisible = false;
                 }
             }
             }

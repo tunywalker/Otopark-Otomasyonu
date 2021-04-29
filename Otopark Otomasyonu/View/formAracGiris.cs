@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Otopark_Otomasyonu.Controller;
+using Otopark_Otomasyonu.DAO;
+using Otopark_Otomasyonu.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,8 +56,18 @@ namespace Otopark_Otomasyonu
             popup.Popup();// show  
 
         }
+        FiyatTarifesiController ftController = new FiyatTarifesiController();
         private void Form2_Load(object sender, EventArgs e)
         {
+            List<FiyatTarifesi> ftList = ftController.FiyatTarifesiList;
+            
+            comboBox1.DataSource= new BindingSource(ftController.comboDataSource(), null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
+            //   comboBox1.SelectedIndex = null;
+
+
+            //      MessageBox.Show((comboBox1.Items[0].ToString);
             Arac Girecek = new Arac();
             Girecek = Girecek.aracIcerdenGetir(plaka);
             if (Girecek.Arac_plaka!=null)
@@ -63,7 +76,7 @@ namespace Otopark_Otomasyonu
             }
             try
             {
-                comboBox1.SelectedIndex = 0;
+                //comboBox1.SelectedIndex = 0;
                 comboBox3.SelectedIndex = 0;
                 textPlaka.Text = plaka;
                 labelGirisTarihi.Text = DateTime.Now.ToString();
@@ -96,25 +109,14 @@ namespace Otopark_Otomasyonu
         Boolean kayit;
         private void button1_Click(object sender, EventArgs e)
         {
-            string aracturu="";
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
-                    aracturu = "HS";
-                    break;
-                case 1:
-                    aracturu= "M";
-                    break;
-                case 2: 
-                    aracturu="MK";
-                    break;
-                case 3:
-                    aracturu = "O";
-                    break;
-                default:
-                    break;
-            }
-            Arac A1 = new Arac(textPlaka.Text, aracturu, DateTime.Now.ToString(), "1", (Bitmap)pictureBox1.Image, comboBox3.Text.Replace("geerg",""), textAboneKimlik.Text, richTextBox1.Text);
+          
+            Arac A1 = new Arac(textPlaka.Text, 
+                ftController.fiyatTarifesiById(Convert.ToInt32(((KeyValuePair<string, string>)comboBox1.SelectedItem).Key))
+                , DateTime.Now.ToString(),
+                "1", (Bitmap)pictureBox1.Image,
+                comboBox3.Text.Replace("geerg",""), 
+                textAboneKimlik.Text, 
+                richTextBox1.Text);
              kayit=   A1.aracKaydet(A1);
             aracPlaka = textPlaka.Text; 
             Close();
@@ -138,7 +140,7 @@ namespace Otopark_Otomasyonu
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
      public void aboneBilgiDoldur(string Kimlik)
         {
@@ -166,6 +168,7 @@ namespace Otopark_Otomasyonu
 
         private void button2_Click(object sender, EventArgs e)
         {
+            checkBox3.Enabled = true;
             formYeniAbone yeniAbone = new formYeniAbone()
             {
                
@@ -186,6 +189,15 @@ namespace Otopark_Otomasyonu
                 }
                
 
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                textAboneKimlik.Text = "-1";
+                textAboneKimlik.Enabled = false;
             }
         }
     }

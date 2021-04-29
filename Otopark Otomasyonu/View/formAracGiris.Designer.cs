@@ -46,6 +46,7 @@ namespace Otopark_Otomasyonu
             this.textAboneKimlik = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,6 @@ namespace Otopark_Otomasyonu
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Hatchbag - Sedan",
-            "Motorsiklet",
-            "Minibüs - Kamyonet",
-            "Otobüs"});
             this.comboBox1.Location = new System.Drawing.Point(136, 321);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(206, 32);
@@ -79,7 +75,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(13, 230);
+            this.label2.Location = new System.Drawing.Point(13, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 24);
             this.label2.TabIndex = 2;
@@ -89,7 +85,7 @@ namespace Otopark_Otomasyonu
             // 
             this.labelGirisTarihi.AutoSize = true;
             this.labelGirisTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelGirisTarihi.Location = new System.Drawing.Point(132, 230);
+            this.labelGirisTarihi.Location = new System.Drawing.Point(147, 234);
             this.labelGirisTarihi.Name = "labelGirisTarihi";
             this.labelGirisTarihi.Size = new System.Drawing.Size(16, 24);
             this.labelGirisTarihi.TabIndex = 3;
@@ -127,7 +123,7 @@ namespace Otopark_Otomasyonu
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 513);
+            this.button1.Location = new System.Drawing.Point(5, 536);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(327, 34);
             this.button1.TabIndex = 8;
@@ -172,7 +168,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(110, 405);
+            this.label9.Location = new System.Drawing.Point(127, 417);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 24);
             this.label9.TabIndex = 15;
@@ -180,7 +176,7 @@ namespace Otopark_Otomasyonu
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(18, 432);
+            this.richTextBox1.Location = new System.Drawing.Point(8, 455);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(324, 65);
             this.richTextBox1.TabIndex = 16;
@@ -191,7 +187,7 @@ namespace Otopark_Otomasyonu
             this.pictureBox1.Image = global::Otopark_Otomasyonu.Properties.Resources.image;
             this.pictureBox1.Location = new System.Drawing.Point(12, 42);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(294, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(335, 68);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -219,18 +215,31 @@ namespace Otopark_Otomasyonu
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label3.Location = new System.Drawing.Point(14, 129);
+            this.label3.Location = new System.Drawing.Point(14, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 24);
             this.label3.TabIndex = 19;
             this.label3.Text = "-";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.checkBox3.Location = new System.Drawing.Point(82, 151);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(208, 28);
+            this.checkBox3.TabIndex = 22;
+            this.checkBox3.Text = "Abone olmadan giriş ";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // formAracGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(354, 573);
+            this.ClientSize = new System.Drawing.Size(347, 573);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textAboneKimlik);
@@ -280,5 +289,6 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.TextBox textAboneKimlik;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

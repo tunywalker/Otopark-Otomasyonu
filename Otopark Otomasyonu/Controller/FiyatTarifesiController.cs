@@ -74,23 +74,34 @@ namespace Otopark_Otomasyonu.Controller
 
         public void sil()
         {
-            //   Console.WriteLine("aa");
-            Debug.WriteLine("Controller Sil" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-            this.FiyatTarifesiDao.Delete(this.FiyatTarifesi);
-            this.FiyatTarifesi = new FiyatTarifesi();
+            try
+            {
+                //   Console.WriteLine("aa");
+                Debug.WriteLine("Controller Sil" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
+                this.FiyatTarifesiDao.Delete(this.FiyatTarifesi);
+                this.FiyatTarifesi = new FiyatTarifesi();
+            }
+            catch { }
         }
         public void guncelle()
         {
-            Debug.WriteLine("Controller Update" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-            this.FiyatTarifesiDao.Update(this.FiyatTarifesi);
-            this.FiyatTarifesi = new FiyatTarifesi();
-
+            try
+            {
+                Debug.WriteLine("Controller Update" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
+                this.FiyatTarifesiDao.Update(this.FiyatTarifesi);
+                this.FiyatTarifesi = new FiyatTarifesi();
+            }
+            catch { }
         }
         public void olustur()
         {
-            Debug.WriteLine("Controller Create" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-            this.FiyatTarifesiDao.Insert(this.FiyatTarifesi);
-            this.FiyatTarifesi = new FiyatTarifesi();
+            try
+            {
+                Debug.WriteLine("Controller Create" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
+                this.FiyatTarifesiDao.Insert(this.FiyatTarifesi);
+                this.FiyatTarifesi = new FiyatTarifesi();
+            }
+            catch { }
 
         }
         public Object comboDataSource()

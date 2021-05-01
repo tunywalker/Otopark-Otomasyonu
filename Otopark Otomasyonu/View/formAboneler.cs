@@ -80,27 +80,22 @@ namespace Otopark_Otomasyonu
 
             if (checkBox1.Checked==false)
             {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc >= '0' ");
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc >= '0' AND abone_kimlikno LIKE '%{0}%' AND abone_adsoyad LIKE '{1}%'", textBox2.Text, textBox1.Text); ;
             }
             else
             {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc > '0' ");
-
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = String.Format("abone_borc > '0' AND abone_kimlikno LIKE '%{0}%' AND abone_adsoyad LIKE '{1}%'", textBox2.Text, textBox1.Text);
+     
             }
         }
         Otopark otopark1;
         Arac aboneArac = new Arac();
         private void formAboneler_Load(object sender, EventArgs e)
         {
-            label10.Text = "";
             gridViewCek();
-            comboParkYer.Items.Clear();
-            foreach (string parkYeri in otopark1.bosParkyerleri())
-                comboParkYer.Items.Add(parkYeri);
-            comboParkYer.SelectedIndex = 0;
             
         }
-
+    
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -251,28 +246,43 @@ namespace Otopark_Otomasyonu
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            aboneArac = aboneArac.aracIcerdenGetir(textBox1.Text);
-            
-            if (aboneArac.Arac_plaka.Trim()!="")
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            formAboneAracEkle aboneAracForm = new formAboneAracEkle()
             {
-                MessageBox.Show(aboneArac.Arac_plaka);
-                label10.Text = "(KAYITLI)";
-                //comboAracTur.SelectedIndex = comboAracTur.FindString(aboneArac.aracTurGetir());
-                comboAboneTur.Enabled = false;
-                comboAracTur.Enabled = false;
-                comboParkYer.Enabled = false;
-                richTextBox1.Enabled = false;
-                buttonEkle.Enabled = false;
-                
-            }
-            else
+                Kimlik = textKimlik.Text,
+                //     plakaResim = (Bitmap)pictureboxKamera2.Image
+
+            };
+            if (textKimlik.Text.Length>=1)
             {
-                label10.Text = "";
-                comboAboneTur.Enabled = true;
-                comboAracTur.Enabled = true;
-                comboParkYer.Enabled = true;
-                richTextBox1.Enabled = true;
-            }
+                aboneAracForm.Show();
+            } 
+        }
+
+      
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            tabloFiltrele();
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+            tabloFiltrele();
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            tabloFiltrele();
+        }
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

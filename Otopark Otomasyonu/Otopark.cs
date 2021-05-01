@@ -26,7 +26,7 @@ namespace Otopark_Otomasyonu
             catch { }
             baglanti1.mysqlbaglan.Open();
             Kamera kGetirilen = new Kamera();
-            MySqlCommand komut = new MySqlCommand("select count(*) AS aracSayisi from icerdeki_araclar", baglanti1.mysqlbaglan);
+            MySqlCommand komut = new MySqlCommand("select count(*) AS aracSayisi from icerdeki_araclarr", baglanti1.mysqlbaglan);
 
             MySqlDataReader okuyucu = komut.ExecuteReader();
 
@@ -71,7 +71,7 @@ namespace Otopark_Otomasyonu
             catch { }
             baglanti1.mysqlbaglan.Open();
             Kamera kGetirilen = new Kamera();
-            MySqlCommand komut = new MySqlCommand("select arac_parkyeri from icerdeki_araclar", baglanti1.mysqlbaglan);
+            MySqlCommand komut = new MySqlCommand("select arac_parkyeri from araclar", baglanti1.mysqlbaglan);
 
             MySqlDataReader okuyucu = komut.ExecuteReader();
 

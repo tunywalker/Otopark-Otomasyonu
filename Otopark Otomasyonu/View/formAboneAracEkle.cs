@@ -51,12 +51,20 @@ namespace Otopark_Otomasyonu
             }
         }
         public string Kimlik;
+        private Otopark otopark1;
         Abone aracSahibi = new Abone();
+
+        internal Otopark Otopark1 { get => otopark1; set => otopark1 = value; }
+        
         private void formAboneAracEkle_Load(object sender, EventArgs e)
         {
+            comboParkYer.Items.Clear();
+
             try
             {
-
+                 
+                foreach (string parkYeri in otopark1.bosParkyerleri())
+                    comboParkYer.Items.Add(parkYeri);
                 aracSahibi = aracSahibi.aboneIcerdenGetir(Kimlik);
                 label1.Text = aracSahibi.Abone_adsoyad;
             }

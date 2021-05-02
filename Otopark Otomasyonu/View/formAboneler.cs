@@ -92,6 +92,7 @@ namespace Otopark_Otomasyonu
         Arac aboneArac = new Arac();
         private void formAboneler_Load(object sender, EventArgs e)
         {
+
             gridViewCek();
             
         }
@@ -254,6 +255,7 @@ namespace Otopark_Otomasyonu
             formAboneAracEkle aboneAracForm = new formAboneAracEkle()
             {
                 Kimlik = textKimlik.Text,
+                Otopark1 = this.otopark1
                 //     plakaResim = (Bitmap)pictureboxKamera2.Image
 
             };

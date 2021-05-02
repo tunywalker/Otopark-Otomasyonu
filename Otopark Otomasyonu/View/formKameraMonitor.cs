@@ -43,36 +43,12 @@ namespace Otopark_Otomasyonu
         
         void kamera1Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            /*
-             float motion = detector.ProcessFrame(bmp); // running on worker thread
-
-             float motion2 = motion * 100;
-             this.Invoke((MethodInvoker)delegate
-             {
-                 label1.Text = motion2.ToString(); // runs on UI thread
-
-                 if (motion2 > 0.80)
-                 {
-                     label1.Text = "0";
-                 }
-                 else
-                 {
-                     label1.Text = "1";
-                 }
-             });*/
+          
             try {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
                 pictureBoxKamera1.Image = bmp;
             }
             catch { }
-
-
-
-
-               
-
-                // ring alarm or do somethng else
-
 
 
           
@@ -335,13 +311,7 @@ namespace Otopark_Otomasyonu
                         varBmp.Dispose();
                         varBmp = null;
                         String dosyayolu = "C:/plaka/" + rastgele + ".png";
-                        /* while (backgroundWorker1.IsBusy)
-                         {
-                             Application.DoEvents();
-                             System.Threading.Thread.Sleep(1000);
-                         }
-                         backgroundWorker1.RunWorkerAsync(argument: dosyayolu);*/
-                        //processImageFile("C:/plaka/" + rastgele + ".png");
+                      
                         kamera1Thread = new Thread(() => processImageFileGiris(dosyayolu));
                         kamera1Thread.IsBackground = true;
                         kamera1Thread.Start();
@@ -362,7 +332,7 @@ namespace Otopark_Otomasyonu
            
         }
         Kamera[] aktifkameralar = new Kamera[2];
-        IVideoSource videoSource;
+        
         private void timerLoad_Tick(object sender, EventArgs e)
         {
          
@@ -456,8 +426,7 @@ namespace Otopark_Otomasyonu
                         labelFiligran2.Visible = false;
                         kamera2LoadingLabel.Text = "'" + aktifkameralar[1].k_adi + "' isimli kameraya bağlanılıyor.";
                     }
-                    /* 
-                   */
+                 
                 }
 
 
@@ -467,7 +436,7 @@ namespace Otopark_Otomasyonu
 
                 
             }
-            //timerLoad.Stop();
+          
           
         }
      

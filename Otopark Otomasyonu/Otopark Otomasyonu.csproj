@@ -155,7 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abone.cs" />
-    <Compile Include="Entity\ParkYerleri.cs" />
+    <Compile Include="Controller\AboneTurleriController.cs" />
+    <Compile Include="DAO\AboneTurleriDAO.cs" />
+    <Compile Include="Entity\AboneTurleri.cs" />
     <Compile Include="View\formAboneAracEkle.cs">
       <SubType>Form</SubType>
     </Compile>

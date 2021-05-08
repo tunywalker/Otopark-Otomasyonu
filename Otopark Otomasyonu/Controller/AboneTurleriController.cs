@@ -3,6 +3,7 @@ using Otopark_Otomasyonu.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,64 +15,45 @@ namespace Otopark_Otomasyonu.Controller
     {
         private List<AboneTurleri> _aboneTurleriList = null;
         private AboneTurleriDAO _aboneTurleriDao;
-        private FiyatTarifesi _fiyatTarifesi;
+        private AboneTurleri _aboneTurleri;
         private DataGridView _dataGridViewAboneTurleri;
 
 
 
-        internal List<FiyatTarifesi> FiyatTarifesiList
+        internal List<AboneTurleri> AboneTurleriList
         {
             get
             {
-                if (_aboneTurleriList == null) this._aboneTurleriList = new List<FiyatTarifesi>();
-                this._aboneTurleriList = this.FiyatTarifesiDao.getFiyatTarifesi();
+                if (_aboneTurleriList == null) this._aboneTurleriList = new List<AboneTurleri>();
+                this._aboneTurleriList = this.AboneTurleriDAO.getAboneTurleri();
                 return _aboneTurleriList;
             }
 
         }
 
-        internal FiyatTarifesiDAO FiyatTarifesiDao
+        internal AboneTurleriDAO AboneTurleriDAO
         {
             get
             {
-                if (_aboneTurleriDao == null) this._aboneTurleriDao = new FiyatTarifesiDAO();
+                if (_aboneTurleriDao == null) this._aboneTurleriDao = new AboneTurleriDAO();
 
                 return _aboneTurleriDao;
             }
 
         }
-        public int fiyatHesapla(int saat)
-        {
-            if (saat <= 1)
-                return this._fiyatTarifesi.FiyatTarifesi_fiyat;
-            else if (saat >= 1 && saat <= 2)
-                return (this._fiyatTarifesi.FiyatTarifesi_fiyat / 3) * 4;
-            else if (saat >= 2 && saat <= 4)
-                return (this._fiyatTarifesi.FiyatTarifesi_fiyat / 3) * 5;
-            else if (saat >= 4 && saat <= 8)
-                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) * 2;
-            else if (saat >= 8 && saat <= 12)
-                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) / 2 * 3;
-            else if (saat >= 12 && saat <= 24)
-                return (this._fiyatTarifesi.FiyatTarifesi_fiyat) / 2 * 8;
-            else if (saat > 24)
-                return saat / 24 * fiyatHesapla(24);
-            else
-                return 99;
-
-        }
-        internal FiyatTarifesi FiyatTarifesi
+  
+        internal AboneTurleri AboneTurleri
         {
             get
             {
-                if (this._fiyatTarifesi == null)
-                    this._fiyatTarifesi = new FiyatTarifesi();
-                return _fiyatTarifesi;
+                if (this._aboneTurleri == null)
+                    this._aboneTurleri = new AboneTurleri();
+                return _aboneTurleri;
             }
-            set { _fiyatTarifesi = value; }
+            set { _aboneTurleri = value; }
         }
 
-        public DataGridView DataGridViewFiyatTarifesi { get => _dataGridViewAboneTurleri; set => _dataGridViewAboneTurleri = value; }
+        public DataGridView DataGridViewAboneTurleri { get => _dataGridViewAboneTurleri; set => _dataGridViewAboneTurleri = value; }
 
 
 
@@ -80,10 +62,9 @@ namespace Otopark_Otomasyonu.Controller
         {
             try
             {
-                //   Console.WriteLine("aa");
-             //   Debug.WriteLine("Controller Sil" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-                this.FiyatTarifesiDao.Delete(this.FiyatTarifesi);
-                this.FiyatTarifesi = new FiyatTarifesi();
+             
+                this.AboneTurleriDAO.Delete(this.AboneTurleri);
+                this.AboneTurleri = new AboneTurleri();
             }
             catch { }
         }
@@ -91,19 +72,20 @@ namespace Otopark_Otomasyonu.Controller
         {
             try
             {
-                Debug.WriteLine("Controller Update" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-                this.FiyatTarifesiDao.Update(this.FiyatTarifesi);
-                this.FiyatTarifesi = new FiyatTarifesi();
+                Debug.WriteLine("Controller Update" + this._aboneTurleri.AboneTurleri_ad);
+                this.AboneTurleriDAO.Update(this.AboneTurleri);
+                this.AboneTurleri = new AboneTurleri();
             }
             catch { }
         }
         public void olustur()
         {
+         
+                Debug.WriteLine("Controller Create" + this._aboneTurleri.AboneTurleri_ad);
+                this.AboneTurleriDAO.Insert(this.AboneTurleri);
+                this.AboneTurleri = new AboneTurleri();
             try
             {
-                Debug.WriteLine("Controller Create" + this._fiyatTarifesi.FiyatTarifesi_uzunAd);
-                this.FiyatTarifesiDao.Insert(this.FiyatTarifesi);
-                this.FiyatTarifesi = new FiyatTarifesi();
             }
             catch { }
 
@@ -114,9 +96,9 @@ namespace Otopark_Otomasyonu.Controller
             Dictionary<string, string> test = new Dictionary<string, string>();
 
 
-            foreach (var ft in FiyatTarifesiList)
+            foreach (var ft in AboneTurleriList)
             {
-                test.Add(ft.FiyatTarifesi_id.ToString(), ft.FiyatTarifesi_uzunAd);
+                test.Add(ft.AboneTurleri_id.ToString(), ft.AboneTurleri_ad);
 
             }
 
@@ -124,51 +106,60 @@ namespace Otopark_Otomasyonu.Controller
 
             return test;
         }
-        public FiyatTarifesi fiyatTarifesiById(int id)
+        public AboneTurleri aboneTurleriById(int id)
         {
-            this.FiyatTarifesi = this.FiyatTarifesiDao.GetFiyatTarifesiById(id);
-            return this.FiyatTarifesi;
+            this.AboneTurleri = this.AboneTurleriDAO.GetAboneTurleriById(id);
+            return this.AboneTurleri;
         }
-        public void formDoldur(TextBox kisaltma, TextBox uzunAd, TextBox Fiyat)
+        public void formDoldur(TextBox ad, TextBox Fiyat, TextBox Sure)
         {
-            kisaltma.Text = this.FiyatTarifesi.FiyatTarifesi_kisaltma;
-            uzunAd.Text = this.FiyatTarifesi.FiyatTarifesi_uzunAd;
-            Fiyat.Text = (this.FiyatTarifesi.FiyatTarifesi_fiyat.ToString() == "0") ? "" : this.FiyatTarifesi.FiyatTarifesi_fiyat.ToString();
+            try
+            {
+                ad.Text = this.AboneTurleri.AboneTurleri_ad;
+                Fiyat.Text = this.AboneTurleri.AboneTurleri_fiyat;
+                Sure.Text = this.AboneTurleri.AboneTurleri_sure;
+                
+            }
+            catch
+            {
+
+            }
         }
         public void gridViewDoldur()
         {
-            var atList = this.;
+            var atList = this.AboneTurleriList;
 
 
-            var aboneTurleriList = new BindingList<AboneTurleri>(ftList);
+            var aboneTurleriList = new BindingList<AboneTurleri>(atList);
             var source = new BindingSource(aboneTurleriList, null);
-            this.DataGridViewFiyatTarifesi.DataSource = source;
-            this.DataGridViewFiyatTarifesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            this.DataGridViewAboneTurleri.DataSource = source;
+            this.DataGridViewAboneTurleri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             //Fit the contain
-            this.DataGridViewFiyatTarifesi.AutoResizeColumns();
-            this.DataGridViewFiyatTarifesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DataGridViewFiyatTarifesi.Columns["fiyatTarifesi_id"].HeaderText = "ID";
-            this.DataGridViewFiyatTarifesi.Columns["fiyatTarifesi_kisaltma"].HeaderText = "Kısaltma";
-            this.DataGridViewFiyatTarifesi.Columns["fiyatTarifesi_uzunAd"].HeaderText = "Tam Ad";
-            this.DataGridViewFiyatTarifesi.Columns["fiyatTarifesi_fiyat"].HeaderText = "Fiyat";
+            this.DataGridViewAboneTurleri.AutoResizeColumns();
+            this.DataGridViewAboneTurleri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DataGridViewAboneTurleri.Columns["aboneTurleri_id"].HeaderText = "ID";
+            this.DataGridViewAboneTurleri.Columns["aboneTurleri_ad"].HeaderText = "Ad";
+            this.DataGridViewAboneTurleri.Columns["aboneTurleri_fiyat"].HeaderText = "Fiyat";
+            this.DataGridViewAboneTurleri.Columns["aboneTurleri_sure"].HeaderText = "Süre";
+            this.DataGridViewAboneTurleri.Columns["aboneTurleri_id"].DisplayIndex = 0;
 
-            this.DataGridViewFiyatTarifesi.RowHeadersVisible = false;
-            for (int i = 0; i < this.DataGridViewFiyatTarifesi.Columns.Count; i++)
+            this.DataGridViewAboneTurleri.RowHeadersVisible = false;
+            for (int i = 0; i < this.DataGridViewAboneTurleri.Columns.Count; i++)
             {
-                this.DataGridViewFiyatTarifesi.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                int colw = this.DataGridViewFiyatTarifesi.Columns[i].Width;
-                this.DataGridViewFiyatTarifesi.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                this.DataGridViewFiyatTarifesi.Columns[i].Width = colw;
+                this.DataGridViewAboneTurleri.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                int colw = this.DataGridViewAboneTurleri.Columns[i].Width;
+                this.DataGridViewAboneTurleri.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                this.DataGridViewAboneTurleri.Columns[i].Width = colw;
             }
 
-            this.DataGridViewFiyatTarifesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewAboneTurleri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            var lastColIndex = this.DataGridViewFiyatTarifesi.Columns.Count - 1;
-            var lastCol = this.DataGridViewFiyatTarifesi.Columns[lastColIndex];
+            var lastColIndex = this.DataGridViewAboneTurleri.Columns.Count - 1;
+            var lastCol = this.DataGridViewAboneTurleri.Columns[lastColIndex];
             lastCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.DataGridViewFiyatTarifesi.ReadOnly = true;
-            this.DataGridViewFiyatTarifesi.AllowUserToAddRows = false;
-            this.DataGridViewFiyatTarifesi.ClearSelection();
+            this.DataGridViewAboneTurleri.ReadOnly = true;
+            this.DataGridViewAboneTurleri.AllowUserToAddRows = false;
+            this.DataGridViewAboneTurleri.ClearSelection();
 
 
 
@@ -176,5 +167,5 @@ namespace Otopark_Otomasyonu.Controller
         }
 
     }
-}
+
 }

@@ -26,11 +26,11 @@ namespace Otopark_Otomasyonu.DAO
             while (okuyucu.Read())
 
             {
-                AboneTurleri temp = new AboneTurleri(
-                    Convert.ToInt16(okuyucu["aboneTurleri_id"]),
-                    
-                    okuyucu["aboneTurleri_ad"].ToString(),
-                    okuyucu["abontTurleri_fiyat"].ToString());
+              AboneTurleri  temp = new AboneTurleri(
+                          Convert.ToInt16(okuyucu["aboneTurleri_id"]),
+                           okuyucu["aboneTurleri_ad"].ToString(),
+                          okuyucu["aboneTurleri_fiyat"].ToString(),
+                         okuyucu["aboneTurleri_sure"].ToString());
                 atList.Add(temp);
 
             }
@@ -60,9 +60,9 @@ namespace Otopark_Otomasyonu.DAO
             {
                  temp = new AboneTurleri(
                     Convert.ToInt16(okuyucu["aboneTurleri_id"]),
-
-                    okuyucu["aboneTurleri_ad"].ToString(),
-                    okuyucu["abontTurleri_fiyat"].ToString());
+                     okuyucu["aboneTurleri_ad"].ToString(),
+                    okuyucu["aboneTurleri_fiyat"].ToString(),
+                   okuyucu["aboneTurleri_sure"].ToString());
                 
 
 
@@ -83,17 +83,17 @@ namespace Otopark_Otomasyonu.DAO
         public void Insert(AboneTurleri aboneTur)
         {
 
-            try
-            {
+          
 
 
                 dbConnection.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
-                MySqlCommand ekle = new MySqlCommand("insert into abone_turleri (aboneTurleri_ad,abontTurleri_fiyat) values " +
+                MySqlCommand ekle = new MySqlCommand("insert into abone_turleri (aboneTurleri_ad,aboneTurleri_fiyat,aboneTurleri_sure) values " +
                     "('"
                     + aboneTur.AboneTurleri_ad + "','"
-
                     + aboneTur.AboneTurleri_fiyat + "','"
+                     + aboneTur.AboneTurleri_sure 
+                     + "''"
 
                     
                     + "')", dbConnection.mysqlbaglan);
@@ -105,7 +105,8 @@ namespace Otopark_Otomasyonu.DAO
                 dbConnection.mysqlbaglan.Close();
 
 
-
+            try
+            {
 
             }
             catch (Exception HataYakala)
@@ -117,12 +118,12 @@ namespace Otopark_Otomasyonu.DAO
 
 
         }
-        public bool Delete(FiyatTarifesi fiyatTarife)
+        public bool Delete(AboneTurleri AboneTurlerii)
         {
 
 
             dbConnection.mysqlbaglan.Open();
-            MySqlCommand komut = new MySqlCommand("DELETE FROM abone_turleri WHERE aboneTurleri_id=" + fiyatTarife.FiyatTarifesi_id, dbConnection.mysqlbaglan);
+            MySqlCommand komut = new MySqlCommand("DELETE FROM abone_turleri WHERE aboneTurleri_id=" + AboneTurlerii.AboneTurleri_id, dbConnection.mysqlbaglan);
             object sonuc = null;
             sonuc = komut.ExecuteNonQuery();
 

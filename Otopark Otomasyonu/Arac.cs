@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Otopark_Otomasyonu.DAO;
+using Otopark_Otomasyonu.Entity;
 
 namespace Otopark_Otomasyonu
 {
@@ -16,6 +17,7 @@ namespace Otopark_Otomasyonu
     {
         String arac_plaka,  arac_giris, arac_cikis, arac_icerde, arac_parkyeri, arac_sahip, arac_aciklama;
         FiyatTarifesi arac_Tur;
+        AboneTurleri abone_Tur;
         String arac_plakaresim;
 
         public Arac(string arac_plaka, FiyatTarifesi arac_tur, string arac_giris, string arac_icerde, Bitmap arac_plakaresim, string arac_parkyeri, string arac_sahip, string arac_aciklama)
@@ -40,6 +42,7 @@ namespace Otopark_Otomasyonu
         public string Arac_sahip { get => arac_sahip; set => arac_sahip = value; }
         public string Arac_aciklama { get => arac_aciklama; set => arac_aciklama = value; }
         public string Arac_plakaresim { get => arac_plakaresim; set => arac_plakaresim = value; }
+        internal AboneTurleri Abone_Tur { get => abone_Tur; set => abone_Tur = value; }
 
         public string bitmapToBase64(Bitmap resim)
         {
@@ -59,6 +62,18 @@ namespace Otopark_Otomasyonu
 
         public Arac()
         {
+        }
+        public Arac(string arac_plaka, FiyatTarifesi arac_tur, string arac_giris,string arac_icerde , AboneTurleri AboneTur, string arac_parkyeri, string arac_sahip, string arac_aciklama, Bitmap arac_plakaresim)
+        {
+            this.Arac_plaka = arac_plaka;
+            this.Arac_tur = arac_tur;
+            this.Arac_giris = arac_giris;
+            this.Arac_icerde = arac_icerde;
+            this.Abone_Tur = AboneTur;
+            this.Arac_parkyeri = arac_parkyeri;
+            this.Arac_sahip = arac_sahip;
+            this.Arac_aciklama = arac_aciklama;
+            this.Arac_plakaresim = bitmapToBase64( arac_plakaresim);
         }
         public bool iceriDisari(String plaka,string giriscikis)
         {
@@ -173,19 +188,22 @@ namespace Otopark_Otomasyonu
                     String parkYeri = kayitEdilecek.Arac_parkyeri;
                     String sahip = kayitEdilecek.Arac_sahip;
                     String aciklama = kayitEdilecek.Arac_aciklama;
+                String aboneTurId = kayitEdilecek.Abone_Tur.AboneTurleri_id.ToString(); 
                     baglanti1.mysqlbaglan.Open();
-                    // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
-                    MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_sahip,arac_aciklama) values " +
-                        "('"
-                        + plaka + "','"
-                        + tur + "','"
-                        + giris + "','"
-                        + "0" + "','"
-                        + plakaResim + "','"
-                        
-                          + sahip + "','"
-                        + aciklama
-                        + "')", baglanti1.mysqlbaglan);
+                // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
+                MySqlCommand ekle = new MySqlCommand("insert into araclar (arac_plaka,arac_tur,arac_giris,arac_icerde,arac_plakaresim,arac_sahip,arac_aciklama,arac_abonetur_id,arac_parkyeri) values " +
+                    "('"
+                    + plaka + "','"
+                    + tur + "','"
+                    + giris + "','"
+                    + "0" + "','"
+                    + plakaResim + "','"
+
+                      + sahip + "','"
+                    + aciklama + "','"
+                    + aboneTurId + "','"
+                    + parkYeri
+                    + "')", baglanti1.mysqlbaglan) ; 
 
 
                 // sorguyu çalıştırıyorum.

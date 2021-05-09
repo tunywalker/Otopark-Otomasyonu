@@ -124,6 +124,7 @@ namespace Otopark_Otomasyonu
                     }
                     ds.Tables[0].Columns.Remove("arac_plakaresim");
                     ds.Tables[0].Columns.Remove("arac_cikis");
+
                  //   this.dataGridView1.Columns["arac_tur"].HeaderText = "Araç Türü";
                    
                     dataGridView1.DataSource = ds.Tables[0];

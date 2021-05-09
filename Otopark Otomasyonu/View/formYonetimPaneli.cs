@@ -234,5 +234,10 @@ namespace Otopark_Otomasyonu.View
                 textAtSure.Text = textAtSure.Text.Remove(textAtSure.Text.Length - 1);
             }
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Otopark_Otomasyonu.Controller;
+using Otopark_Otomasyonu.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,9 +57,23 @@ namespace Otopark_Otomasyonu
         Abone aracSahibi = new Abone();
 
         internal Otopark Otopark1 { get => otopark1; set => otopark1 = value; }
-        
+        FiyatTarifesiController ftController = new FiyatTarifesiController();
+        AboneTurleriController atController = new AboneTurleriController();
         private void formAboneAracEkle_Load(object sender, EventArgs e)
         {
+            List<AboneTurleri> atList = atController.AboneTurleriList;
+
+            comboAboneTur.DataSource = new BindingSource(atController.comboDataSource(), null);
+            comboAboneTur.DisplayMember = "Value";
+            comboAboneTur.ValueMember = "Key";
+
+
+            List<FiyatTarifesi> ftList = ftController.FiyatTarifesiList;
+
+            comboAracTur.DataSource = new BindingSource(ftController.comboDataSource(), null);
+            comboAracTur.DisplayMember = "Value";
+            comboAracTur.ValueMember = "Key";
+
             comboParkYer.Items.Clear();
 
             try
@@ -67,6 +83,7 @@ namespace Otopark_Otomasyonu
                     comboParkYer.Items.Add(parkYeri);
                 aracSahibi = aracSahibi.aboneIcerdenGetir(Kimlik);
                 label1.Text = aracSahibi.Abone_adsoyad;
+                comboParkYer.SelectedIndex = 0;
             }
             catch
             {
@@ -79,6 +96,22 @@ namespace Otopark_Otomasyonu
         private void groupBox2_Enter(object sender, EventArgs e)
         {
             label10.Text = "-";
+        }
+
+        private void buttonEkle_Click(object sender, EventArgs e)
+        {
+            Arac KaydolacakArac = new Arac(textBox1.Text,
+               ftController.fiyatTarifesiById(Convert.ToInt32(((KeyValuePair<string, string>)comboAracTur.SelectedItem).Key)),
+                DateTime.Now.ToString(),
+                "0",
+                atController.aboneTurleriById(Convert.ToInt32(((KeyValuePair<string, string>)comboAboneTur.SelectedItem).Key)),
+                comboParkYer.Text,
+                this.Kimlik,
+                richTextBox1.Text,
+                Properties.Resources.image
+                );
+            KaydolacakArac.aracKaydet(KaydolacakArac);
+            // public Arac(string arac_plaka, FiyatTarifesi arac_tur, string arac_giris,string arac_icerde , AboneTurleri AboneTur, string arac_parkyeri, string arac_sahip, string arac_aciklama)
         }
     }
 }

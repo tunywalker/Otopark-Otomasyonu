@@ -105,7 +105,7 @@ namespace Otopark_Otomasyonu
             this.textTelefon.Location = new System.Drawing.Point(171, 100);
             this.textTelefon.Margin = new System.Windows.Forms.Padding(4);
             this.textTelefon.Name = "textTelefon";
-            this.textTelefon.Size = new System.Drawing.Size(185, 24);
+            this.textTelefon.Size = new System.Drawing.Size(185, 29);
             this.textTelefon.TabIndex = 22;
             // 
             // textKimlik
@@ -114,7 +114,7 @@ namespace Otopark_Otomasyonu
             this.textKimlik.Location = new System.Drawing.Point(171, 23);
             this.textKimlik.Margin = new System.Windows.Forms.Padding(4);
             this.textKimlik.Name = "textKimlik";
-            this.textKimlik.Size = new System.Drawing.Size(185, 24);
+            this.textKimlik.Size = new System.Drawing.Size(185, 29);
             this.textKimlik.TabIndex = 21;
             // 
             // label4
@@ -124,7 +124,7 @@ namespace Otopark_Otomasyonu
             this.label4.Location = new System.Drawing.Point(8, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 18);
+            this.label4.Size = new System.Drawing.Size(92, 24);
             this.label4.TabIndex = 14;
             this.label4.Text = "Ad Soyad";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -162,7 +162,7 @@ namespace Otopark_Otomasyonu
             this.label3.Location = new System.Drawing.Point(8, 142);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 18);
+            this.label3.Size = new System.Drawing.Size(154, 24);
             this.label3.TabIndex = 13;
             this.label3.Text = "Özel Durum Tag:";
             // 
@@ -173,7 +173,7 @@ namespace Otopark_Otomasyonu
             this.textOzelDurum.Location = new System.Drawing.Point(171, 138);
             this.textOzelDurum.Margin = new System.Windows.Forms.Padding(4);
             this.textOzelDurum.Name = "textOzelDurum";
-            this.textOzelDurum.Size = new System.Drawing.Size(185, 24);
+            this.textOzelDurum.Size = new System.Drawing.Size(185, 29);
             this.textOzelDurum.TabIndex = 12;
             // 
             // label2
@@ -183,7 +183,7 @@ namespace Otopark_Otomasyonu
             this.label2.Location = new System.Drawing.Point(8, 103);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.Size = new System.Drawing.Size(79, 24);
             this.label2.TabIndex = 11;
             this.label2.Text = "Telefon:";
             // 
@@ -194,7 +194,7 @@ namespace Otopark_Otomasyonu
             this.label1.Location = new System.Drawing.Point(8, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 18);
+            this.label1.Size = new System.Drawing.Size(144, 24);
             this.label1.TabIndex = 10;
             this.label1.Text = "Kimlik Numarası";
             // 
@@ -204,7 +204,7 @@ namespace Otopark_Otomasyonu
             this.textAdSoyad.Location = new System.Drawing.Point(171, 63);
             this.textAdSoyad.Margin = new System.Windows.Forms.Padding(4);
             this.textAdSoyad.Name = "textAdSoyad";
-            this.textAdSoyad.Size = new System.Drawing.Size(185, 24);
+            this.textAdSoyad.Size = new System.Drawing.Size(185, 29);
             this.textAdSoyad.TabIndex = 9;
             // 
             // button1
@@ -237,10 +237,10 @@ namespace Otopark_Otomasyonu
             // 
             this.button3.BackColor = System.Drawing.Color.LightCyan;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(729, 514);
+            this.button3.Location = new System.Drawing.Point(729, 509);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 42);
+            this.button3.Size = new System.Drawing.Size(204, 53);
             this.button3.TabIndex = 24;
             this.button3.Text = "Abonenin Araçlarını Bul";
             this.button3.UseVisualStyleBackColor = false;
@@ -250,10 +250,10 @@ namespace Otopark_Otomasyonu
             // 
             this.button4.BackColor = System.Drawing.Color.LightCyan;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(517, 514);
+            this.button4.Location = new System.Drawing.Point(517, 509);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(204, 42);
+            this.button4.Size = new System.Drawing.Size(204, 53);
             this.button4.TabIndex = 25;
             this.button4.Text = "Aboneye Araç Ekle";
             this.button4.UseVisualStyleBackColor = false;
@@ -281,7 +281,7 @@ namespace Otopark_Otomasyonu
             this.label6.Location = new System.Drawing.Point(7, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 18);
+            this.label6.Size = new System.Drawing.Size(159, 24);
             this.label6.TabIndex = 33;
             this.label6.Text = "Kimlik Numarası";
             // 
@@ -292,7 +292,7 @@ namespace Otopark_Otomasyonu
             this.textBox2.Location = new System.Drawing.Point(147, 37);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 24);
+            this.textBox2.Size = new System.Drawing.Size(209, 29);
             this.textBox2.TabIndex = 32;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
@@ -303,7 +303,7 @@ namespace Otopark_Otomasyonu
             this.label5.Location = new System.Drawing.Point(7, 88);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 18);
+            this.label5.Size = new System.Drawing.Size(106, 24);
             this.label5.TabIndex = 31;
             this.label5.Text = "Ad Soyad:";
             // 
@@ -314,7 +314,7 @@ namespace Otopark_Otomasyonu
             this.textBox1.Location = new System.Drawing.Point(147, 85);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 24);
+            this.textBox1.Size = new System.Drawing.Size(207, 29);
             this.textBox1.TabIndex = 30;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
@@ -326,7 +326,7 @@ namespace Otopark_Otomasyonu
             this.checkBox1.Location = new System.Drawing.Point(10, 130);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(172, 20);
+            this.checkBox1.Size = new System.Drawing.Size(214, 24);
             this.checkBox1.TabIndex = 29;
             this.checkBox1.Text = "Borçlu Kişileri Göster";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -334,7 +334,7 @@ namespace Otopark_Otomasyonu
             // 
             // formAboneler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1321, 569);

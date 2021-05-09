@@ -30,6 +30,7 @@ namespace Otopark_Otomasyonu
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboParkYer = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonEkle = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace Otopark_Otomasyonu
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboParkYer = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,18 @@ namespace Otopark_Otomasyonu
             this.groupBox2.Text = "Araç Bilgileri";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // comboParkYer
+            // 
+            this.comboParkYer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboParkYer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboParkYer.FormattingEnabled = true;
+            this.comboParkYer.Items.AddRange(new object[] {
+            "HATA"});
+            this.comboParkYer.Location = new System.Drawing.Point(172, 178);
+            this.comboParkYer.Name = "comboParkYer";
+            this.comboParkYer.Size = new System.Drawing.Size(179, 32);
+            this.comboParkYer.TabIndex = 35;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -90,6 +102,7 @@ namespace Otopark_Otomasyonu
             this.buttonEkle.TabIndex = 33;
             this.buttonEkle.Text = "Kaydet";
             this.buttonEkle.UseVisualStyleBackColor = false;
+            this.buttonEkle.Click += new System.EventHandler(this.buttonEkle_Click);
             // 
             // label10
             // 
@@ -158,11 +171,7 @@ namespace Otopark_Otomasyonu
             this.comboAracTur.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboAracTur.FormattingEnabled = true;
             this.comboAracTur.Items.AddRange(new object[] {
-            "Hatchbag/Sedan",
-            "Motorsiklet",
-            "Minibüs/Kamyonet",
-            "Otobüs",
-            "Diğer"});
+            "-"});
             this.comboAracTur.Location = new System.Drawing.Point(172, 131);
             this.comboAracTur.Name = "comboAracTur";
             this.comboAracTur.Size = new System.Drawing.Size(178, 26);
@@ -172,7 +181,7 @@ namespace Otopark_Otomasyonu
             // 
             this.richTextBox1.Location = new System.Drawing.Point(14, 294);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(317, 76);
+            this.richTextBox1.Size = new System.Drawing.Size(336, 76);
             this.richTextBox1.TabIndex = 26;
             this.richTextBox1.Text = "";
             // 
@@ -207,18 +216,6 @@ namespace Otopark_Otomasyonu
             this.label6.Size = new System.Drawing.Size(49, 18);
             this.label6.TabIndex = 23;
             this.label6.Text = "Plaka:";
-            // 
-            // comboParkYer
-            // 
-            this.comboParkYer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboParkYer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboParkYer.FormattingEnabled = true;
-            this.comboParkYer.Items.AddRange(new object[] {
-            "HATA"});
-            this.comboParkYer.Location = new System.Drawing.Point(172, 178);
-            this.comboParkYer.Name = "comboParkYer";
-            this.comboParkYer.Size = new System.Drawing.Size(179, 32);
-            this.comboParkYer.TabIndex = 35;
             // 
             // formAboneAracEkle
             // 

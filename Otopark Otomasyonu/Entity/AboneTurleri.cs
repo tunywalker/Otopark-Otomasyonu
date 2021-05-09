@@ -10,7 +10,7 @@ namespace Otopark_Otomasyonu.Entity
     {
         int aboneTurleri_id;
         string aboneTurleri_ad, aboneTurleri_fiyat, aboneTurleri_sure;
-
+        //Yoruym satısı
         public string AboneTurleri_ad { get => aboneTurleri_ad; set => aboneTurleri_ad = value; }
         public string AboneTurleri_fiyat { get => aboneTurleri_fiyat; set => aboneTurleri_fiyat = value; }
         public int AboneTurleri_id { get => aboneTurleri_id; set => aboneTurleri_id = value; }

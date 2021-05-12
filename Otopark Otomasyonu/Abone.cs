@@ -36,6 +36,7 @@ namespace Otopark_Otomasyonu
             this.abone_telefon = abone_telefon;
             this.abone_borc = 0;
         }
+
         databaseConnection baglanti1 = new databaseConnection();
         public bool aboneKaydet(Abone kayitEdilecek)
         {

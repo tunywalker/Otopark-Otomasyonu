@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Otopark_Otomasyonu.Controller;
 
 namespace Otopark_Otomasyonu
 {
@@ -23,14 +24,14 @@ namespace Otopark_Otomasyonu
             var lastCol = dataGridView.Columns[lastColIndex];
             lastCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
+        AboneTurleriController atController = new AboneTurleriController();
         public void gridViewCek()
         {
 
             string connectionString = "Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8";
             this.dataGridView1.DefaultCellStyle.Font = new Font("Tahoma", 11);
             this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
-
+             
             string query = "select * from aboneler"; // set query to fetch data "Select * from  tabelname"; 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -38,6 +39,7 @@ namespace Otopark_Otomasyonu
                 {
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
+                    
                     dataGridView1.DataSource = ds.Tables[0];
                     StretchLastColumn(dataGridView1);
                     dataGridView1.BackgroundColor = Color.White;

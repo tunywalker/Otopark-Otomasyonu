@@ -108,6 +108,10 @@ namespace Otopark_Otomasyonu.Controller
         }
         public AboneTurleri aboneTurleriById(int id)
         {
+            if (this.AboneTurleri==null)
+            {
+                this.AboneTurleri = new AboneTurleri();
+            }
             this.AboneTurleri = this.AboneTurleriDAO.GetAboneTurleriById(id);
             return this.AboneTurleri;
         }

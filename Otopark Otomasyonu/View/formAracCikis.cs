@@ -35,18 +35,39 @@ namespace Otopark_Otomasyonu
             label1.Text = "";
         }
 
+
+        public int CikisHesabi()
+        {
+           
+                if (cikacak.Abone_Tur.AboneTurleri_id == -1)
+            {
+                MessageBox.Show("Durum1");
+                //Çıkış Yap Park Yerini Boşalt 
+            }
+            else
+            {
+                //Abonelik Süresi Bittiyse Çıkış Yap Fiyat Hesapla park yerini boşalt
+                //Abonelik Süresi Devam ediyorsa Çıkış Yap Fiyat Hesapla park yerini boşaltma
+
+            }
+            return 0;
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
             aracPlaka = textPlaka.Text;
-         cikis=   Cikacak.cikisYap(textPlaka.Text);
+         cikis=   Cikacak.cikisYap(textPlaka.Text,1);
             DialogResult = DialogResult.OK;
+          //  Cikacak.CikisHesabi(Cikacak, this);
         }
         FiyatTarifesiController ftController = new FiyatTarifesiController();
+        AboneTurleriController atController = new AboneTurleriController();
         private void textPlaka_TextChanged(object sender, EventArgs e)
         {
-
+            label9.Text = "-";
             label1.Text = "";
+            label8.Text = "-";
             if (textPlaka.Text.Length>=5)
             {
                 labelAractur.Text = "-";
@@ -72,10 +93,12 @@ namespace Otopark_Otomasyonu
                         label1.Text = "Araç Otopark Dışarısında";
                         button1.Enabled = false;
                         label5.Text = "0 TL";
+                        label9.Text = "-";
                     }
                     else
                     {
-
+                        label9.Text = cikacak.Arac_parkyeri;
+                        label8.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_ad;
                         label1.Text = "";
                         button1.Enabled = true;
                         DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
@@ -99,7 +122,14 @@ namespace Otopark_Otomasyonu
                 }
                 if (Cikacak.Arac_sahip != "")
                 {
-                    labelAracSahip.Text = Cikacak.Arac_sahip;
+                    if (Cikacak.Arac_sahip!="-1")
+                    {
+                        labelAracSahip.Text = Cikacak.Arac_sahip;
+                    }
+                    else
+                    {
+                        labelAracSahip.Text = "Kayıtlı Değil";
+                    }
                 }
 
               

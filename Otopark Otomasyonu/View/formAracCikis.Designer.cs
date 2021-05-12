@@ -43,13 +43,17 @@ namespace Otopark_Otomasyonu
             this.labelCikisTarih = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelAracSahip
             // 
             this.labelAracSahip.AutoSize = true;
             this.labelAracSahip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelAracSahip.Location = new System.Drawing.Point(128, 75);
+            this.labelAracSahip.Location = new System.Drawing.Point(162, 75);
             this.labelAracSahip.Name = "labelAracSahip";
             this.labelAracSahip.Size = new System.Drawing.Size(16, 24);
             this.labelAracSahip.TabIndex = 19;
@@ -69,7 +73,7 @@ namespace Otopark_Otomasyonu
             // 
             this.labelGirisTarihi.AutoSize = true;
             this.labelGirisTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelGirisTarihi.Location = new System.Drawing.Point(127, 119);
+            this.labelGirisTarihi.Location = new System.Drawing.Point(162, 119);
             this.labelGirisTarihi.Name = "labelGirisTarihi";
             this.labelGirisTarihi.Size = new System.Drawing.Size(16, 24);
             this.labelGirisTarihi.TabIndex = 15;
@@ -89,7 +93,7 @@ namespace Otopark_Otomasyonu
             // 
             this.labelAractur.AutoSize = true;
             this.labelAractur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelAractur.Location = new System.Drawing.Point(128, 213);
+            this.labelAractur.Location = new System.Drawing.Point(162, 213);
             this.labelAractur.Name = "labelAractur";
             this.labelAractur.Size = new System.Drawing.Size(16, 24);
             this.labelAractur.TabIndex = 21;
@@ -109,7 +113,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(8, 335);
+            this.label6.Location = new System.Drawing.Point(26, 479);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(152, 24);
             this.label6.TabIndex = 22;
@@ -119,7 +123,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(181, 335);
+            this.label5.Location = new System.Drawing.Point(199, 479);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 24);
             this.label5.TabIndex = 23;
@@ -128,7 +132,7 @@ namespace Otopark_Otomasyonu
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(97, 419);
+            this.button1.Location = new System.Drawing.Point(115, 563);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 40);
             this.button1.TabIndex = 25;
@@ -140,7 +144,7 @@ namespace Otopark_Otomasyonu
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.checkBox1.Location = new System.Drawing.Point(12, 281);
+            this.checkBox1.Location = new System.Drawing.Point(54, 411);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(233, 28);
             this.checkBox1.TabIndex = 26;
@@ -160,7 +164,7 @@ namespace Otopark_Otomasyonu
             // 
             this.labelCikisTarih.AutoSize = true;
             this.labelCikisTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelCikisTarih.Location = new System.Drawing.Point(128, 165);
+            this.labelCikisTarih.Location = new System.Drawing.Point(162, 165);
             this.labelCikisTarih.Name = "labelCikisTarih";
             this.labelCikisTarih.Size = new System.Drawing.Size(16, 24);
             this.labelCikisTarih.TabIndex = 30;
@@ -180,18 +184,62 @@ namespace Otopark_Otomasyonu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 379);
+            this.label1.Location = new System.Drawing.Point(146, 523);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 31;
             this.label1.Text = "label1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(8, 261);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 24);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Abonelik Türü:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(162, 261);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(16, 24);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(162, 306);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 24);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(8, 306);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 24);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Park Yeri:";
             // 
             // AracCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(324, 463);
+            this.ClientSize = new System.Drawing.Size(368, 615);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelCikisTarih);
             this.Controls.Add(this.label10);
@@ -232,5 +280,9 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.Label labelCikisTarih;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
     }
 }

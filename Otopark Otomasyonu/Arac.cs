@@ -6,8 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Otopark_Otomasyonu.Controller;
 using Otopark_Otomasyonu.DAO;
 using Otopark_Otomasyonu.Entity;
 
@@ -247,6 +249,7 @@ namespace Otopark_Otomasyonu
 
 
         }
+        
         public bool aracİceriKaydet(Arac kayitEdilecek)
         {
 
@@ -290,16 +293,45 @@ namespace Otopark_Otomasyonu
 
 
         }
-        public bool cikisYap(string Plaka)
+        MySqlCommand guncelle = new MySqlCommand();
+        public bool cikisYap(string Plaka,int Durum)
         {
             if (aracIcerdenGetir(Plaka).arac_plaka == Plaka.ToUpper().Trim())
             {
-                try
-                {
+               
                     baglanti1.mysqlbaglan.Open();
-                    MySqlCommand komut = new MySqlCommand("DELETE FROM icerdeki_araclar WHERE arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
+                    switch (Durum)
+                    {
+                        case 0:
+                         guncelle = new MySqlCommand("UPDATE araclar SET " +
+            "arac_icerde='" + "0" + "' , " +
+            "arac_parkyeri='" + "" +
+           
+
+            "' where arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
+                        break;
+                        case 1:
+                        guncelle = new MySqlCommand("UPDATE araclar SET " +
+         "arac_icerde='" + "0" + "' , " +
+         "arac_parkyeri='" + "" + "' , " +
+         "arac_abonetur_id='" + "-1" +
+
+
+         "' where arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
+                        break;
+                        guncelle = new MySqlCommand("UPDATE araclar SET " +
+        "arac_icerde='" + "0" + "" +
+      
+        
+
+
+           "' where arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
+                        break;
+                       
+                    }
+                   
                     object sonuc = null;
-                    sonuc = komut.ExecuteNonQuery();
+                    sonuc = guncelle.ExecuteNonQuery();
 
                     baglanti1.mysqlbaglan.Close();
                     if (sonuc != null)
@@ -311,8 +343,9 @@ namespace Otopark_Otomasyonu
 
                     else
                         return false;
-                    // bağlantıyı kapatalım
-
+                // bağlantıyı kapatalım
+                try
+                {
                 }
                 catch (Exception)
                 {
@@ -371,7 +404,7 @@ namespace Otopark_Otomasyonu
                 return aGetirilen;
             }
         }
-       
+        AboneTurleriController atController = new AboneTurleriController();
         public Arac aracIcerdenGetir(string plaka)
         {
             try
@@ -398,6 +431,8 @@ namespace Otopark_Otomasyonu
                 aGetirilen.Arac_tur = gercekArac.ftDao.GetFiyatTarifesiById(Convert.ToInt32(okuyucu["arac_tur"]));
                 aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
                 aGetirilen.arac_icerde = okuyucu["arac_icerde"].ToString();
+                aGetirilen.arac_parkyeri = okuyucu["arac_parkyeri"].ToString();
+                aGetirilen.abone_Tur = atController.aboneTurleriById(Convert.ToInt32(okuyucu["arac_abonetur_id"]));
 
 
 

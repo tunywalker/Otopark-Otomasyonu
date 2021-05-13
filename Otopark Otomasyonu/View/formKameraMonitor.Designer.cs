@@ -526,6 +526,7 @@
             this.Controls.Add(this.kameraGroup2);
             this.Controls.Add(this.kameraGroup1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "formKameraMonitor";
             this.Text = " ";
             this.Load += new System.EventHandler(this.kameraMonitor_Load);

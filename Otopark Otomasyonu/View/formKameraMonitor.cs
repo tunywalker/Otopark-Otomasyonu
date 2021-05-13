@@ -233,7 +233,7 @@ namespace Otopark_Otomasyonu
 
         {
             kapasite   = 100;
-            FormBorderStyle = FormBorderStyle.None;
+           // FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
 
             label1.Text = "";

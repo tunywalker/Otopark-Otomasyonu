@@ -157,5 +157,10 @@ namespace Otopark_Otomasyonu
             }
             }
         }
+
+        private void labelAracSahip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

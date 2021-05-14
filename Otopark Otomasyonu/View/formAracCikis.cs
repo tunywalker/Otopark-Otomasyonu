@@ -1,4 +1,5 @@
 ﻿using Otopark_Otomasyonu.Controller;
+using Otopark_Otomasyonu.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,18 +36,55 @@ namespace Otopark_Otomasyonu
             label1.Text = "";
         }
 
+        public int sureHesapla(int gunSayisi, string GirisTarihi)
+        {
+
+            DateTime giris = Convert.ToDateTime(GirisTarihi);
+            DateTime simdi = Convert.ToDateTime(DateTime.Now);
+            TimeSpan sonuc = simdi-giris;
+            int sure = gunSayisi * 60*24;
+            int gecensure = sonuc.Days * 24 * 60+sonuc.Hours+60+sonuc.Minutes;
+            int sonucc = sure - gecensure;
+            MessageBox.Show("Kalan"+ (sure-gecensure).ToString());
+            if (sonucc>1)
+            {
+                return sonucc;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
 
         public int CikisHesabi()
         {
            
-                if (cikacak.Abone_Tur.AboneTurleri_id == -1)
+            if (cikacak.Abone_Tur.AboneTurleri_id == -1)
             {
                 MessageBox.Show("Durum1");
                 //Çıkış Yap Park Yerini Boşalt 
             }
             else
             {
-                //Abonelik Süresi Bittiyse Çıkış Yap Fiyat Hesapla park yerini boşalt
+            int sonuc=    sureHesapla(Convert.ToInt32(atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_sure), cikacak.Arac_giris);
+                if (sonuc==0)
+                {
+                    labelKalanSure.Text = "Abonelik Süresi Doldu";
+                }
+                else
+                {
+                    sonuc = 62000;
+                 int   Gun = (sonuc/60) / 24;
+                    if(Gun>=1)
+                    sonuc = sonuc - (Gun * 24*60);
+                    int saat = sonuc / 60;
+                    if(saat>=1)
+                    sonuc = sonuc - (saat * 60);
+                    int dakika = sonuc;
+                  labelKalanSure.Text= Gun.ToString() +" Gün "+ saat.ToString() +" Saat "+ dakika.ToString() +" Dakika";
+                 //   MessageBox.Show(((sonuc/60)/24) .ToString()+ "Gün" + (sonuc/60 % 24).ToString()+"Saat" + (sonuc / 60 % 60) +"Dakika");
+                }    
                 //Abonelik Süresi Devam ediyorsa Çıkış Yap Fiyat Hesapla park yerini boşaltma
 
             }
@@ -97,7 +135,9 @@ namespace Otopark_Otomasyonu
                     }
                     else
                     {
+                       
                         label9.Text = cikacak.Arac_parkyeri;
+                        CikisHesabi();
                         label8.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_ad;
                         label1.Text = "";
                         button1.Enabled = true;
@@ -159,6 +199,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void labelAracSahip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelKalanSure_Click(object sender, EventArgs e)
         {
 
         }

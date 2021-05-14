@@ -128,7 +128,7 @@ namespace Otopark_Otomasyonu
                 String abone_telefon = kayitEdilecek.abone_telefon;
                 String abone_ozeldurum = kayitEdilecek.abone_ozeldurum;
                 int abone_borc = 0;
-                
+                //
                 baglanti1.mysqlbaglan.Open();
                 // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
                 MySqlCommand ekle = new MySqlCommand("UPDATE aboneler SET " +

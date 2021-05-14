@@ -285,7 +285,7 @@
             // 
             this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureboxKamera2.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
-            this.pictureboxKamera2.Location = new System.Drawing.Point(1, 17);
+            this.pictureboxKamera2.Location = new System.Drawing.Point(5, 17);
             this.pictureboxKamera2.Name = "pictureboxKamera2";
             this.pictureboxKamera2.Size = new System.Drawing.Size(514, 449);
             this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

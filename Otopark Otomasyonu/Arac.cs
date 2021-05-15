@@ -120,6 +120,37 @@ namespace Otopark_Otomasyonu
             }
 
         }
+        public bool aracGuncelle(Arac Guncellenecek)
+        {
+
+            databaseConnection baglanti1 = new databaseConnection();
+           /* MySqlCommand guncelle = new MySqlCommand("UPDATE abone_turleri SET " +
+               "aboneTurleri_ad='" + aboneTur.AboneTurleri_ad + "' , " +
+               "aboneTurleri_fiyat='" + aboneTur.AboneTurleri_fiyat +
+
+
+               "' where aboneTurleri_id='" + aboneTur.AboneTurleri_id + "'", dbConnection.mysqlbaglan);*/
+            baglanti1.mysqlbaglan.Open();
+            // ekleme komutunu tanımladım ve insert sorgusunu yazdım.
+            MySqlCommand guncelle = new MySqlCommand("UPDATE araclar SET " +
+            "arac_tur='" + Guncellenecek.arac_Tur.FiyatTarifesi_id + "' , " +
+            "arac_giris='" + Guncellenecek.arac_giris + "' , " +
+             "arac_aciklama='" + Guncellenecek.Arac_aciklama + "' , " +
+
+               "arac_abonetur_id='" + Guncellenecek.abone_Tur.AboneTurleri_id + "' , " +
+                "arac_icerde='" + "1 "+
+
+            "' where arac_plaka='" + Guncellenecek.arac_plaka + "'", baglanti1.mysqlbaglan);
+            object sonuc = null;
+            sonuc = guncelle.ExecuteNonQuery(); // sorgu çalıştı ve dönen değer objec türünden değişkene geçti eğer değişken boş değilse eklendi boşşsa eklenmedi.
+            baglanti1.mysqlbaglan.Close();
+            if (sonuc != null)
+                return true;
+            else
+                return false;
+
+
+        }
         public bool logKaydet(String plaka, String islem)
         {
             Console.WriteLine("deneme");

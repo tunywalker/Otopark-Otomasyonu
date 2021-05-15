@@ -43,16 +43,16 @@ namespace Otopark_Otomasyonu
             DateTime simdi = Convert.ToDateTime(DateTime.Now);
             TimeSpan sonuc = simdi-giris;
             int sure = gunSayisi * 60*24;
-            int gecensure = sonuc.Days * 24 * 60+sonuc.Hours+60+sonuc.Minutes;
-            int sonucc = sure - gecensure;
-            MessageBox.Show("Kalan"+ (sure-gecensure).ToString());
+            int gecensure = sonuc.Days * 24 * 60+sonuc.Hours*60+sonuc.Minutes;
+            int sonucc = sure - gecensure+1;
+           labelAracSahip.Text="Kalan"+ (sure-gecensure).ToString();
             if (sonucc>1)
             {
-                return sonucc;
+                return sonucc-1;
             }
             else
             {
-                return 0;
+                return sonucc;
             }
             
         }
@@ -68,13 +68,35 @@ namespace Otopark_Otomasyonu
             else
             {
             int sonuc=    sureHesapla(Convert.ToInt32(atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_sure), cikacak.Arac_giris);
-                if (sonuc==0)
+                if (sonuc<0)
                 {
+                    sonuc = Math.Abs(sonuc);
+                    DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
+                    DateTime cikis = DateTime.Now;
                     labelKalanSure.Text = "Abonelik Süresi Doldu";
+                //  int  saat = ((cikis - giris).Days * 24 + (cikis - giris).Hours);
+                    if (ftController.fiyatTarifesiById(cikacak.Arac_tur.FiyatTarifesi_id) != null)
+                    {
+                        labelAractur.Text = cikacak.Arac_tur.FiyatTarifesi_uzunAd;
+                        // FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
+                        label14.Text = ftController.fiyatHesapla(sonuc/60).ToString() + " TL";
+                        asim = Convert.ToInt32(ftController.fiyatHesapla(sonuc / 60).ToString());
+                    }
+                   
+                  
+                    MessageBox.Show(sonuc.ToString());
+                    int Gun = (sonuc / 60) / 24;
+                    if (Gun >= 1)
+                        sonuc = sonuc - (Gun * 24 * 60);
+                    int saat2 = sonuc / 60;
+                    if (saat2 >= 1)
+                        sonuc = sonuc - (saat2 * 60);
+                    int dakika = sonuc;
+                    label18.Text = Gun.ToString() + " Gün " + saat2.ToString() + " Saat " + dakika.ToString() + " Dakika";
                 }
                 else
                 {
-                    sonuc = 62000;
+                    asim = 0;
                  int   Gun = (sonuc/60) / 24;
                     if(Gun>=1)
                     sonuc = sonuc - (Gun * 24*60);
@@ -91,6 +113,7 @@ namespace Otopark_Otomasyonu
             return 0;
 
         }
+        int asim;
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
@@ -106,6 +129,8 @@ namespace Otopark_Otomasyonu
             label9.Text = "-";
             label1.Text = "";
             label8.Text = "-";
+           // label17.Text = "-";
+            label18.Text = "-";
             if (textPlaka.Text.Length>=5)
             {
                 labelAractur.Text = "-";
@@ -131,35 +156,39 @@ namespace Otopark_Otomasyonu
                         label1.Text = "Araç Otopark Dışarısında";
                         button1.Enabled = false;
                         label5.Text = "0 TL";
+                        labelGirisTarihi.Text = "-";
                         label9.Text = "-";
                     }
                     else
                     {
-                       
+                        if (Cikacak.Arac_giris != "")
+                        {
+                            labelGirisTarihi.Text = Cikacak.Arac_giris;
+                        }
                         label9.Text = cikacak.Arac_parkyeri;
                         CikisHesabi();
-                        label8.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_ad;
+                        label8.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_ad+" - " + atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_sure +" Gün";
+                        label15.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat +" TL";
+                        
+                        label5.Text = (Convert.ToInt32( atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat)+asim).ToString()+ "TL";
                         label1.Text = "";
                         button1.Enabled = true;
                         DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
                         DateTime cikis = DateTime.Now;
-                        saat = ((cikis - giris).Days * 24 + (cikis - giris).Hours);
+                        MessageBox.Show(asim.ToString());
                         labelCikisTarih.Text = DateTime.Now.ToString();
                         Debug.WriteLine(Cikacak.Arac_tur);
                         if (ftController.fiyatTarifesiById(cikacak.Arac_tur.FiyatTarifesi_id) != null)
                         {
                             labelAractur.Text = cikacak.Arac_tur.FiyatTarifesi_uzunAd;
                             // FiyatTarifesi ft = new FiyatTarifesi(Cikacak.Arac_tur.Trim());
-                            label5.Text = ftController.fiyatHesapla(saat).ToString() + " TL";
+                           
                         }
                     }
                 }
 
 
-                if (Cikacak.Arac_giris!="")
-                {
-                    labelGirisTarihi.Text = Cikacak.Arac_giris;
-                }
+               
                 if (Cikacak.Arac_sahip != "")
                 {
                     if (Cikacak.Arac_sahip!="-1")
@@ -204,6 +233,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void labelKalanSure_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

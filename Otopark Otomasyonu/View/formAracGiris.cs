@@ -57,13 +57,41 @@ namespace Otopark_Otomasyonu
 
         }
         FiyatTarifesiController ftController = new FiyatTarifesiController();
+        AboneTurleriController atController = new AboneTurleriController();
+     
+         public void   ComboSec(ComboBox comboSecilecek,int id)
+        {
+            int sayac = 0;
+            foreach (KeyValuePair<string, string> kvp in comboSecilecek.Items)
+            {
+                
+                if (id.ToString() == kvp.Key)
+                {
+                    comboSecilecek.SelectedIndex= sayac;
+                   
+                }
+                sayac++;
+            }
+          
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
             List<FiyatTarifesi> ftList = ftController.FiyatTarifesiList;
             
-            comboBox1.DataSource= new BindingSource(ftController.comboDataSource(), null);
-            comboBox1.DisplayMember = "Value";
-            comboBox1.ValueMember = "Key";
+            comboAracTur.DataSource= new BindingSource(ftController.comboDataSource(), null);
+            comboAracTur.DisplayMember = "Value";
+            comboAracTur.ValueMember = "Key";
+            // comboAracTur.SelectedIndex = 
+            //   MessageBox.Show(atController.comboDataSource().ToString());
+            //    (KeyValuePair<string, string>)comboAracTur.SelectedItem).Key)
+            
+
+
+            List<AboneTurleri> atList = atController.AboneTurleriList;
+
+            comboAboneTur.DataSource = new BindingSource(atController.comboDataSource(), null);
+            comboAboneTur.DisplayMember = "Value";
+            comboAboneTur.ValueMember = "Key";
             //   comboBox1.SelectedIndex = null;
 
 
@@ -77,7 +105,7 @@ namespace Otopark_Otomasyonu
             try
             {
                 //comboBox1.SelectedIndex = 0;
-                comboBox3.SelectedIndex = 0;
+                comboParkYer.SelectedIndex = 0;
                 textPlaka.Text = plaka;
                 labelGirisTarihi.Text = DateTime.Now.ToString();
                 if (plakaResim!=null)
@@ -86,11 +114,11 @@ namespace Otopark_Otomasyonu
                 }
                
 
-                comboBox3.Items.Clear();
+                comboParkYer.Items.Clear();
                 foreach (string parkYeri in bosParkyerleri)
-                 comboBox3.Items.Add(parkYeri);
+                 comboParkYer.Items.Add(parkYeri);
                 
-                comboBox3.SelectedIndex = 0;
+                comboParkYer.SelectedIndex = 0;
                 
             }
             catch (Exception)
@@ -109,23 +137,99 @@ namespace Otopark_Otomasyonu
         Boolean kayit;
         private void button1_Click(object sender, EventArgs e)
         {
+            Arac KaydolacakArac = new Arac(textPlaka.Text,
+           ftController.fiyatTarifesiById(Convert.ToInt32(((KeyValuePair<string, string>)comboAracTur.SelectedItem).Key)),
+            DateTime.Now.ToString(),
+            "1",
+            atController.aboneTurleriById(Convert.ToInt32(((KeyValuePair<string, string>)comboAboneTur.SelectedItem).Key)),
+            comboParkYer.Text,
+            textAboneKimlik.Text,
+            richTextBox1.Text,
+            (Bitmap)pictureBox1.Image
+            );
+            if (guncelle==0)
+            {
+              
+                KaydolacakArac.aracKaydet(KaydolacakArac);
+            }
+            else
+            {
+                KaydolacakArac.aracGuncelle(KaydolacakArac);
+            }
+         
           
-            Arac A1 = new Arac(textPlaka.Text, 
-                ftController.fiyatTarifesiById(Convert.ToInt32(((KeyValuePair<string, string>)comboBox1.SelectedItem).Key))
-                , DateTime.Now.ToString(),
-                "1", (Bitmap)pictureBox1.Image,
-                comboBox3.Text.Replace("geerg",""), 
-                textAboneKimlik.Text, 
-                richTextBox1.Text);
-             kayit=   A1.aracKaydet(A1);
             aracPlaka = textPlaka.Text; 
             Close();
             DialogResult = DialogResult.OK;
         }
-
+        Arac aboneArac = new Arac();
+        int guncelle = 0;
         private void textPlaka_TextChanged(object sender, EventArgs e)
         {
-           
+            try
+            {
+                aboneArac = aboneArac.aracIcerdenGetir(textPlaka.Text);
+
+                if (aboneArac.Arac_plaka.Trim() != "")
+                {
+                    textAboneKimlik.Text = aboneArac.Arac_sahip;
+                    //    MessageBox.Show(aboneArac.Abone_Tur.AboneTurleri_id.ToString());
+
+                    //    ComboSec(comboAracTur, aboneArac.Arac_tur.FiyatTarifesi_id);
+                   // MessageBox.Show(aboneArac.Abone_Tur.AboneTurleri_id.ToString());
+                  ComboSec(comboAboneTur, aboneArac.Abone_Tur.AboneTurleri_id);
+                    ComboSec(comboAracTur, aboneArac.Arac_tur.FiyatTarifesi_id);
+                    // MessageBox.Show(aboneArac.Arac_plaka);
+                    //label10.Text = "(KAYITLI)";
+                    //comboAracTur.SelectedIndex = comboAracTur.FindString(aboneArac.aracTurGetir());
+                    if (aboneArac.Arac_icerde=="1")
+                    {
+                        comboAboneTur.Enabled = false;
+                        
+                        comboAracTur.Enabled = false;
+                       
+                        comboParkYer.Enabled = false;
+                        richTextBox1.Enabled = false;
+                        button1.Enabled = false;
+
+                    }
+                    else
+                    {
+                        if (aboneArac.Abone_Tur.AboneTurleri_id == -1)
+                        {
+                            comboAboneTur.Enabled = true;
+                            comboAracTur.Enabled = true;
+                            comboParkYer.Enabled = true;
+
+                            guncelle = 1;
+
+                        }
+                        else
+                            guncelle = 0;
+
+                    }
+                   
+                   // buttonEkle.Enabled = false;
+
+                }
+                else
+                {
+                    textAboneKimlik.Text = "";
+                    comboAboneTur.SelectedIndex = 0;
+                    comboAracTur.SelectedIndex = 0;
+                    richTextBox1.Text = "";
+                   // label10.Text = "";
+                    comboAboneTur.Enabled = true;
+                    comboAracTur.Enabled = true;
+                    comboParkYer.Enabled = true;
+                    richTextBox1.Enabled = true;
+                  //  buttonEkle.Enabled = true;
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -168,7 +272,7 @@ namespace Otopark_Otomasyonu
 
         private void button2_Click(object sender, EventArgs e)
         {
-            checkBox3.Enabled = true;
+           
             formYeniAbone yeniAbone = new formYeniAbone()
             {
                
@@ -192,13 +296,6 @@ namespace Otopark_Otomasyonu
             }
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox3.Checked)
-            {
-                textAboneKimlik.Text = "-1";
-                textAboneKimlik.Enabled = false;
-            }
-        }
+       
     }
 }

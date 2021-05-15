@@ -44,7 +44,7 @@ namespace Otopark_Otomasyonu
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textAboneKimlik = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.yeniAboneOlustur = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboAboneTur = new System.Windows.Forms.ComboBox();
@@ -202,15 +202,15 @@ namespace Otopark_Otomasyonu
             this.textAboneKimlik.TabIndex = 17;
             this.textAboneKimlik.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
-            // button2
+            // yeniAboneOlustur
             // 
-            this.button2.Location = new System.Drawing.Point(311, 199);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(31, 29);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.yeniAboneOlustur.Location = new System.Drawing.Point(311, 199);
+            this.yeniAboneOlustur.Name = "yeniAboneOlustur";
+            this.yeniAboneOlustur.Size = new System.Drawing.Size(31, 29);
+            this.yeniAboneOlustur.TabIndex = 18;
+            this.yeniAboneOlustur.Text = "+";
+            this.yeniAboneOlustur.UseVisualStyleBackColor = true;
+            this.yeniAboneOlustur.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -258,7 +258,7 @@ namespace Otopark_Otomasyonu
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboAboneTur);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.yeniAboneOlustur);
             this.Controls.Add(this.textAboneKimlik);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label9);
@@ -304,7 +304,7 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox textAboneKimlik;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button yeniAboneOlustur;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboAboneTur;

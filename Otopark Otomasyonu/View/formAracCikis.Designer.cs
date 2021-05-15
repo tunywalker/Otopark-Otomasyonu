@@ -47,12 +47,12 @@ namespace Otopark_Otomasyonu
             this.label12 = new System.Windows.Forms.Label();
             this.labelKalanSure = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -250,46 +250,6 @@ namespace Otopark_Otomasyonu
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fiyatlandırma";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label6.Location = new System.Drawing.Point(6, 113);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 24);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Ödenecek Tutar:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label5.Location = new System.Drawing.Point(291, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 24);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "0 TL";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label13.Location = new System.Drawing.Point(8, 73);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(154, 24);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Süre Aşım Tutarı:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label14.Location = new System.Drawing.Point(293, 73);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 24);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "0 TL";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -310,6 +270,46 @@ namespace Otopark_Otomasyonu
             this.label16.TabIndex = 26;
             this.label16.Text = "Abonelik Tutarı:";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label14.Location = new System.Drawing.Point(293, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 24);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "0 TL";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label13.Location = new System.Drawing.Point(8, 73);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(154, 24);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Süre Aşım Tutarı:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label6.Location = new System.Drawing.Point(6, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(152, 24);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Ödenecek Tutar:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label5.Location = new System.Drawing.Point(291, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 24);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "0 TL";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label17);
@@ -325,7 +325,7 @@ namespace Otopark_Otomasyonu
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.groupBox2.Location = new System.Drawing.Point(5, 208);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 257);
+            this.groupBox2.Size = new System.Drawing.Size(368, 257);
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Abonelik";
@@ -363,7 +363,7 @@ namespace Otopark_Otomasyonu
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.groupBox3.Location = new System.Drawing.Point(5, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 190);
+            this.groupBox3.Size = new System.Drawing.Size(368, 190);
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Abone Bilgileri";
@@ -373,7 +373,7 @@ namespace Otopark_Otomasyonu
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(368, 716);
+            this.ClientSize = new System.Drawing.Size(377, 716);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

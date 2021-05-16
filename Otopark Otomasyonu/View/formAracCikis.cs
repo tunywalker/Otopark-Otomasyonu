@@ -84,7 +84,7 @@ namespace Otopark_Otomasyonu
                     }
                    
                   
-                    MessageBox.Show(sonuc.ToString());
+                    //MessageBox.Show(sonuc.ToString());
                     int Gun = (sonuc / 60) / 24;
                     if (Gun >= 1)
                         sonuc = sonuc - (Gun * 24 * 60);
@@ -194,7 +194,7 @@ namespace Otopark_Otomasyonu
                         button1.Enabled = true;
                         DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
                         DateTime cikis = DateTime.Now;
-                        MessageBox.Show(asim.ToString());
+                      //  MessageBox.Show(asim.ToString());
                         labelCikisTarih.Text = DateTime.Now.ToString();
                         Debug.WriteLine(Cikacak.Arac_tur);
                         if (ftController.fiyatTarifesiById(cikacak.Arac_tur.FiyatTarifesi_id) != null)
@@ -257,6 +257,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }

@@ -370,6 +370,7 @@ namespace Otopark_Otomasyonu
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Abone Bilgileri";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // AracCikis
             // 

@@ -807,6 +807,11 @@ namespace Otopark_Otomasyonu
             kayitlarForm.Show();
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void pictureboxKamera2_Click(object sender, EventArgs e)
         {
 

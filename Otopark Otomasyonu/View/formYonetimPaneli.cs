@@ -140,6 +140,7 @@ namespace Otopark_Otomasyonu.View
         private void buttonAtGuncelle_Click(object sender, EventArgs e)
         {
             atControl.AboneTurleri = new AboneTurleri((int)dataGridView2.SelectedRows[0].Cells[2].Value, textAtAd.Text,(textAtFiyat.Text), textAtSure.Text);
+           
             this.atControl.guncelle();
             atControl.gridViewDoldur();
             buttonAtGuncelle.Visible = false;
@@ -165,8 +166,8 @@ namespace Otopark_Otomasyonu.View
             try
             {
                 dataGridView2.Rows[e.RowIndex].Selected = true;
-                int rowindex = dataGridView1.CurrentCell.RowIndex;
-                int columnindex = dataGridView1.CurrentCell.ColumnIndex;
+                int rowindex = dataGridView2.CurrentCell.RowIndex;
+                int columnindex = dataGridView2.CurrentCell.ColumnIndex;
               int id = (int)dataGridView2.Rows[e.RowIndex].Cells[2].Value;
 
               //  int id = 1;

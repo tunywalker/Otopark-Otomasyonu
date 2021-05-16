@@ -136,7 +136,7 @@ namespace Otopark_Otomasyonu
             "arac_tur='" + Guncellenecek.arac_Tur.FiyatTarifesi_id + "' , " +
             "arac_giris='" + Guncellenecek.arac_giris + "' , " +
              "arac_aciklama='" + Guncellenecek.Arac_aciklama + "' , " +
-
+             "arac_parkyeri='" + Guncellenecek.arac_parkyeri + "' , " +
                "arac_abonetur_id='" + Guncellenecek.abone_Tur.AboneTurleri_id + "' , " +
                 "arac_icerde='" + "1 "+
 
@@ -350,6 +350,7 @@ namespace Otopark_Otomasyonu
 
          "' where arac_plaka='" + Plaka + "'", baglanti1.mysqlbaglan);
                         break;
+                    case 2:
                         guncelle = new MySqlCommand("UPDATE araclar SET " +
         "arac_icerde='" + "0" + "" +
       

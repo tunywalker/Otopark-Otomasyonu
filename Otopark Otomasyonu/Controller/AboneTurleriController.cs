@@ -75,6 +75,7 @@ namespace Otopark_Otomasyonu.Controller
                 Debug.WriteLine("Controller Update" + this._aboneTurleri.AboneTurleri_ad);
                 this.AboneTurleriDAO.Update(this.AboneTurleri);
                 this.AboneTurleri = new AboneTurleri();
+            
             }
             catch { }
         }

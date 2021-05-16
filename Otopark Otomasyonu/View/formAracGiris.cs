@@ -150,11 +150,11 @@ namespace Otopark_Otomasyonu
             if (guncelle==0)
             {
               
-                KaydolacakArac.aracKaydet(KaydolacakArac);
+               kayit= KaydolacakArac.aracKaydet(KaydolacakArac);
             }
             else
             {
-                KaydolacakArac.aracGuncelle(KaydolacakArac);
+               kayit= KaydolacakArac.aracGuncelle(KaydolacakArac);
             }
          
           
@@ -178,17 +178,24 @@ namespace Otopark_Otomasyonu
                 if (aboneArac.Arac_plaka.Trim() != "")
                 {
                     textAboneKimlik.Text = aboneArac.Arac_sahip;
-                   
-                  ComboSec(comboAboneTur, aboneArac.Abone_Tur.AboneTurleri_id);
+
+                    ComboSec(comboAboneTur, aboneArac.Abone_Tur.AboneTurleri_id);
                     ComboSec(comboAracTur, aboneArac.Arac_tur.FiyatTarifesi_id);
-                    comboParkYer.Items.Add(aboneArac.Arac_parkyeri);
-                    comboParkYer.SelectedIndex=(comboParkYer.Items.Count - 1);
-                    if (aboneArac.Arac_icerde=="1")
+                    if (aboneArac.Arac_parkyeri.Trim() != "")
                     {
+                        comboParkYer.Items.Add(aboneArac.Arac_parkyeri);
+                        comboParkYer.SelectedIndex = (comboParkYer.Items.Count - 1);
+                    }
+
+                    //  MessageBox.Show(aboneArac.Arac_icerde.ToString());
+                    //MessageBox.Show(aboneArac.Abone_Tur.AboneTurleri_id.ToString());
+                    if (aboneArac.Arac_icerde.Trim() == "1")
+                    {
+
                         comboAboneTur.Enabled = false;
-                        
+
                         comboAracTur.Enabled = false;
-                       
+
                         comboParkYer.Enabled = false;
                         richTextBox1.Enabled = false;
                         button1.Enabled = false;
@@ -197,6 +204,7 @@ namespace Otopark_Otomasyonu
                     }
                     else
                     {
+
                         yeniAboneOlustur.Enabled = true;
                         textAboneKimlik.Enabled = true;
                         if (aboneArac.Abone_Tur.AboneTurleri_id == -1)
@@ -209,13 +217,24 @@ namespace Otopark_Otomasyonu
                             guncelle = 1;
 
                         }
-                        else
+
+                        else if (aboneArac.Abone_Tur.AboneTurleri_id == null) 
                         {
                             yeniAboneOlustur.Enabled = true;
                             textAboneKimlik.Enabled = true;
                             guncelle = 0;
 
                         }
+                        else if (aboneArac.Abone_Tur.AboneTurleri_id != null)
+                        {
+                            comboAboneTur.Enabled = false;
+                            comboAracTur.Enabled = false;
+                            comboParkYer.Enabled = false;
+                            yeniAboneOlustur.Enabled = false;
+                            textAboneKimlik.Enabled = false;
+                            guncelle = 1;
+                        }
+                    
 
                     }
                    

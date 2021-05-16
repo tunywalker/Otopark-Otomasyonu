@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace Otopark_Otomasyonu
 {
@@ -203,15 +204,92 @@ namespace Otopark_Otomasyonu
         {
             try
             {
-                dataGridView1.Rows[e.RowIndex].Selected = true;
-               
-
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridView1.Rows[e.RowIndex].Selected = true;
+                    int rowindex = dataGridView1.CurrentCell.RowIndex;
+                    int columnindex = dataGridView1.CurrentCell.ColumnIndex;
+                    plaka = dataGridView1.Rows[e.RowIndex].Cells["arac_plaka"].Value.ToString();
+                }
             }
             catch
             {
 
 
             }
+        }
+        public void bildirimYazdir(String Tur, String Metin)
+        {
+            PopupNotifier popup = new PopupNotifier();
+            Bitmap Icon = null;
+            String Baslik = "";
+            switch (Tur)
+            {
+                case "Uyarı":
+                    Baslik = "Hata Bildirimi";
+                    Icon = Properties.Resources.uyari2; //icon from resources
+
+                    break;
+                case "Giriş":
+                    Baslik = "Giriş Bildirimi";
+                    Icon = Properties.Resources.basari; //icon from resources
+                    break;
+                case "Çıkış":
+                    Baslik = "Çıkış Bildirimi";
+                    Icon = Properties.Resources.basarisiz; //icon from resources
+                    break;
+                default:
+                    Baslik = "Bildirim";
+                    break;
+            }
+
+            popup.TitleText = Baslik;
+            popup.Image = Icon;
+            popup.TitleFont = new System.Drawing.Font("Tahoma", 20F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 15F);
+            popup.ContentText = Metin;
+            popup.Popup();// show  
+
+        }
+        public void cikisİslemleri(bool kayitDurumu, String plakaNo)
+        {
+
+         
+            if (kayitDurumu)
+            {
+                bildirimYazdir("Çıkış", " '" + plakaNo + "' nolu plaka için çıkış onayı verildi.");
+                
+            }
+            else
+            {
+                if (plakaNo.Trim() == "")
+                {
+                    bildirimYazdir("Uyarı", "Plaka numarası boş olamaz.");
+                }
+                else
+                    bildirimYazdir("Uyarı", " '" + plakaNo + "' nolu plaka için çıkış başarısız.");
+            }
+        }
+        string plaka;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AracCikis aracCikisForm = new AracCikis()
+            {
+                AracPlaka = plaka,
+                //     plakaResim = (Bitmap)pictureboxKamera2.Image
+
+            };
+            if (aracCikisForm.ShowDialog() == DialogResult.OK)
+            {
+                //   girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
+                cikisİslemleri(aracCikisForm.cikisDurumu, aracCikisForm.AracPlaka);
+
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     

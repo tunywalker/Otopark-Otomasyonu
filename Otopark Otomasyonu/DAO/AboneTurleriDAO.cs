@@ -93,7 +93,7 @@ namespace Otopark_Otomasyonu.DAO
                     + aboneTur.AboneTurleri_ad + "','"
                     + aboneTur.AboneTurleri_fiyat + "','"
                      + aboneTur.AboneTurleri_sure 
-                     + "''"
+                     + "'"
 
                     
                     + "')", dbConnection.mysqlbaglan);
@@ -149,11 +149,13 @@ namespace Otopark_Otomasyonu.DAO
         }
         public bool Update(AboneTurleri aboneTur)
         {
-         
 
-            dbConnection.mysqlbaglan.Open();
+            try
+            {
+                dbConnection.mysqlbaglan.Open();
             MySqlCommand guncelle = new MySqlCommand("UPDATE abone_turleri SET " +
                 "aboneTurleri_ad='" + aboneTur.AboneTurleri_ad + "' , " +
+                 "aboneTurleri_sure='" + aboneTur.AboneTurleri_sure + "' , " +
                 "aboneTurleri_fiyat='" + aboneTur.AboneTurleri_fiyat +
                 
 
@@ -169,8 +171,7 @@ namespace Otopark_Otomasyonu.DAO
                 return false;
             // bağlantıyı kapatalım
 
-            try
-            {
+         
             }
             catch (Exception HataYakala)
             {

@@ -166,10 +166,11 @@ namespace Otopark_Otomasyonu
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 645);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label1.ForeColor = System.Drawing.Color.Olive;
+            this.label1.Location = new System.Drawing.Point(7, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.Size = new System.Drawing.Size(60, 24);
             this.label1.TabIndex = 31;
             this.label1.Text = "label1";
             // 
@@ -187,7 +188,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label8.Location = new System.Drawing.Point(204, 40);
+            this.label8.Location = new System.Drawing.Point(193, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(16, 24);
             this.label8.TabIndex = 32;
@@ -239,16 +240,18 @@ namespace Otopark_Otomasyonu
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(5, 471);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 171);
+            this.groupBox1.Size = new System.Drawing.Size(360, 197);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fiyatlandırma";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label15
             // 
@@ -274,7 +277,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label14.Location = new System.Drawing.Point(293, 73);
+            this.label14.Location = new System.Drawing.Point(291, 73);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 24);
             this.label14.TabIndex = 25;
@@ -377,7 +380,6 @@ namespace Otopark_Otomasyonu
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Gigi", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -391,7 +393,6 @@ namespace Otopark_Otomasyonu
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

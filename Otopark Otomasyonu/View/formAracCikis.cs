@@ -32,8 +32,9 @@ namespace Otopark_Otomasyonu
 
         private void AracCikis_Load(object sender, EventArgs e)
         {
-            textPlaka.Text = AracPlaka;
             label1.Text = "";
+            textPlaka.Text = AracPlaka;
+            
         }
 
         public int sureHesapla(int gunSayisi, string GirisTarihi)
@@ -62,8 +63,7 @@ namespace Otopark_Otomasyonu
            
             if (cikacak.Abone_Tur.AboneTurleri_id == -1)
             {
-                MessageBox.Show("Durum1");
-                //Çıkış Yap Park Yerini Boşalt 
+                cikisdurum = 0; 
             }
             else
             {
@@ -93,9 +93,11 @@ namespace Otopark_Otomasyonu
                         sonuc = sonuc - (saat2 * 60);
                     int dakika = sonuc;
                     label18.Text = Gun.ToString() + " Gün " + saat2.ToString() + " Saat " + dakika.ToString() + " Dakika";
+                    cikisdurum = 1;
                 }
                 else
                 {
+                    cikisdurum = 2;
                     asim = 0;
                  int   Gun = (sonuc/60) / 24;
                     if(Gun>=1)
@@ -113,12 +115,12 @@ namespace Otopark_Otomasyonu
             return 0;
 
         }
-        int asim;
+        int asim,cikisdurum=0;
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
             aracPlaka = textPlaka.Text;
-         cikis=   Cikacak.cikisYap(textPlaka.Text,1);
+         cikis=   Cikacak.cikisYap(textPlaka.Text,cikisdurum);
             DialogResult = DialogResult.OK;
           //  Cikacak.CikisHesabi(Cikacak, this);
         }
@@ -129,6 +131,17 @@ namespace Otopark_Otomasyonu
             label9.Text = "-";
             label1.Text = "";
             label8.Text = "-";
+            labelAracSahip.Text = "-";
+            labelAractur.Text = "-";
+            label9.Text = "-";
+            label8.Text = "-";
+            labelGirisTarihi.Text = "-";
+            labelCikisTarih.Text = "-";
+            labelKalanSure.Text = "-";
+            label15.Text = "-";
+            label14.Text = "-";
+            label5.Text = "-";
+            
            // label17.Text = "-";
             label18.Text = "-";
             if (textPlaka.Text.Length>=5)
@@ -172,6 +185,12 @@ namespace Otopark_Otomasyonu
                         
                         label5.Text = (Convert.ToInt32( atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat)+asim).ToString()+ "TL";
                         label1.Text = "";
+                        if (asim==0)
+                        {
+                            label5.Text = "0 TL";
+                            label1.Text = "Abonelik Devam Ediyor";
+
+                        }
                         button1.Enabled = true;
                         DateTime giris = DateTime.Parse(Cikacak.Arac_giris);
                         DateTime cikis = DateTime.Now;
@@ -233,6 +252,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void labelKalanSure_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

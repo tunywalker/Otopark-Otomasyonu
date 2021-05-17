@@ -23,6 +23,10 @@ namespace Otopark_Otomasyonu
             var lastCol = dataGridView.Columns[lastColIndex];
             lastCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+        private String plaka;
+
+        public string Plaka { get => plaka; set => plaka = value; }
+
         private void Kayıtlar_Load(object sender, EventArgs e)
         {
             string connectionString="Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8";
@@ -51,6 +55,7 @@ namespace Otopark_Otomasyonu
 
                 }
             }
+            textBox1.Text = Plaka;
         }
         public void tabloFiltrele()
         {

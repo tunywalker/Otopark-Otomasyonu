@@ -34,6 +34,7 @@ namespace Otopark_Otomasyonu
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(201, 432);
+            this.label1.Location = new System.Drawing.Point(538, 433);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 2;
@@ -78,7 +79,7 @@ namespace Otopark_Otomasyonu
             "İçerdeki",
             "Dışardaki",
             "Tümü"});
-            this.comboBox1.Location = new System.Drawing.Point(286, 428);
+            this.comboBox1.Location = new System.Drawing.Point(623, 429);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(137, 26);
             this.comboBox1.TabIndex = 3;
@@ -94,12 +95,24 @@ namespace Otopark_Otomasyonu
             this.label2.TabIndex = 4;
             this.label2.Text = "-";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Location = new System.Drawing.Point(201, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 37);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Araca Ait Kayıtları Bul";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // formAboneAraclar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(189)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(1159, 473);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -122,5 +135,6 @@ namespace Otopark_Otomasyonu
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

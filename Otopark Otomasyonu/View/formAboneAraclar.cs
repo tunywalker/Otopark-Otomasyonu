@@ -368,5 +368,15 @@ namespace Otopark_Otomasyonu
         {
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            kayitlar kayitlarForm = new kayitlar() {
+                Plaka = plaka
+            
+            };
+            kayitlarForm.Show();
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace Otopark_Otomasyonu
         }
 
         databaseConnection baglanti1 = new databaseConnection();
+
         public bool aboneKaydet(Abone kayitEdilecek)
         {
 

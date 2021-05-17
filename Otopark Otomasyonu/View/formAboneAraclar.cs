@@ -25,7 +25,7 @@ namespace Otopark_Otomasyonu
         private void formAboneAraclar_Load(object sender, EventArgs e)
         {
             String kimlikTemp = Kimlik;
-            if (Kimlik.Trim()!= "icerdeki")
+            if (Kimlik.Trim() != "icerdeki")
             {
                 comboBox1.Visible = false;
                 label1.Visible = false;
@@ -34,9 +34,9 @@ namespace Otopark_Otomasyonu
             comboBox1.SelectedIndex = 0;
             Kimlik = kimlikTemp;
             gridViewCek();
-           
-            
-    }
+
+
+        }
         public void StretchLastColumn(DataGridView dataGridView)
         {
             var lastColIndex = dataGridView.Columns.Count - 1;
@@ -54,14 +54,14 @@ namespace Otopark_Otomasyonu
             Image image = Image.FromStream(ms, true);
             image = ScaleImage(image, 200, 100);
             return imageToByteArray(image);
-        } 
-    public byte[] imageToByteArray(System.Drawing.Image imageIn)
-    {
+        }
+        public byte[] imageToByteArray(System.Drawing.Image imageIn)
+        {
 
-        MemoryStream ms = new MemoryStream();
-        imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-        return ms.ToArray();
-    }
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
+        }
         void AutoHeightGrid(DataGridView grid)
         {
             var proposedSize = grid.GetPreferredSize(new Size(0, 0));
@@ -101,42 +101,45 @@ namespace Otopark_Otomasyonu
         FiyatTarifesiController ftController = new FiyatTarifesiController();
         string query;
         public void gridViewCek()
-            {
+        {
 
-                string connectionString = "Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8";
-                this.dataGridView1.DefaultCellStyle.Font = new Font("Tahoma", 11);
-                this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
-          
-          query = "select * from araclar where arac_sahip= "+Kimlik; // set query to fetch data "Select * from  tabelname"; 
-            if (Kimlik == "İçerdeki" || Kimlik== "icerdeki")
+            string connectionString = "Server=localhost;Database=otopark;Uid=yonetici;Pwd='123456Mm.';AllowUserVariables=True;UseCompression=True;charset=utf8";
+            this.dataGridView1.DefaultCellStyle.Font = new Font("Tahoma", 11);
+            this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
+            int uydu = 1;
+            query = "select * from araclar where arac_sahip= " + Kimlik; // set query to fetch data "Select * from  tabelname"; 
+            if (Kimlik == "İçerdeki" || Kimlik == "icerdeki")
             {
+                uydu = 0;
                 this.Text = "İçerdeki Araçlar";
-                 query = "select * from araclar where arac_icerde=1 "; // set query to fetch data "Select * from  tabelname"; 
+                query = "select * from araclar where arac_icerde=1 "; // set query to fetch data "Select * from  tabelname"; 
             }
             if (Kimlik == "Tümü")
             {
+                uydu = 0;
                 this.Text = "İçerdeki Araçlar";
                 query = "select * from araclar  "; // set query to fetch data "Select * from  tabelname"; 
             }
             if (Kimlik == "Dışardaki")
             {
+                uydu = 0;
                 this.Text = "İçerdeki Araçlar";
                 query = "select * from araclar where arac_icerde=0  "; // set query to fetch data "Select * from  tabelname"; 
             }
             using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
                 {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                 
-                    
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+
+
                     DataColumn column = ds.Tables[0].Columns.Add("Plaka Resim", typeof(byte[]));
                     foreach (DataRow row in ds.Tables[0].Rows)
                     {
                         try
                         {
-                          //  MessageBox.Show(row["arac_plakaresim"].ToString());
+                            //  MessageBox.Show(row["arac_plakaresim"].ToString());
                             row[column] = Base64ToImage(row["arac_plakaresim"].ToString());
                         }
                         catch
@@ -152,7 +155,7 @@ namespace Otopark_Otomasyonu
                         try
                         {
                             //  MessageBox.Show(row["arac_plakaresim"].ToString());
-                            row[column2] = atController.aboneTurleriById(Convert.ToInt32( row["arac_abonetur_id"].ToString())).AboneTurleri_ad;
+                            row[column2] = atController.aboneTurleriById(Convert.ToInt32(row["arac_abonetur_id"].ToString())).AboneTurleri_ad;
                         }
                         catch
                         {
@@ -176,13 +179,34 @@ namespace Otopark_Otomasyonu
                             row[column3] = null;
                         }
                     }
+                    DataColumn column4 = ds.Tables[0].Columns.Add("İçerde", typeof(String));
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            if (row["arac_icerde"].ToString().Trim() == "1")
+                            {
+                                row[column4] = "Evet";
+                            }
+                            else
+                                row[column4] = "Hayır";
+
+                        }
+                        catch
+                        {
+
+
+                            row[column4] = null;
+                        }
+                    }
+
                     ds.Tables[0].Columns.Remove("arac_abonetur_id");
                     ds.Tables[0].Columns.Remove("arac_tur");
                     ds.Tables[0].Columns.Remove("arac_plakaresim");
                     ds.Tables[0].Columns.Remove("arac_cikis");
 
-                 //   this.dataGridView1.Columns["arac_tur"].HeaderText = "Araç Türü";
-                   
+                    //   this.dataGridView1.Columns["arac_tur"].HeaderText = "Araç Türü";
+
                     dataGridView1.DataSource = ds.Tables[0];
 
 
@@ -190,21 +214,27 @@ namespace Otopark_Otomasyonu
                     dataGridView1.Columns["arac_sahip"].HeaderText = "Araç Sahibi";
                     dataGridView1.Columns["arac_icerde"].HeaderText = "İçerde Mi";
                     dataGridView1.Columns["arac_aciklama"].HeaderText = "Açıklama";
-                    
+
                     dataGridView1.Columns["arac_plaka"].HeaderText = "Araç Plaka";
                     dataGridView1.Columns["arac_parkyeri"].HeaderText = "Park Yeri";
                     //       dataGridView1.Columns["arac_giris"].DisplayIndex = "İlk Giriş Tarihi";
                     dataGridView1.Columns["Plaka Resim"].DisplayIndex = 0;
                     dataGridView1.Columns["arac_plaka"].DisplayIndex = 1;
-                   
+
                     dataGridView1.Columns["arac_sahip"].DisplayIndex = 5;
                     dataGridView1.Columns["Araç Türü"].DisplayIndex = 3;
                     dataGridView1.Columns["arac_giris"].DisplayIndex = 6;
                     dataGridView1.Columns["arac_parkyeri"].DisplayIndex = 2;
                     dataGridView1.Columns["Abonelik Türü"].DisplayIndex = 4;
+                    dataGridView1.Columns["İçerde"].DisplayIndex = 7;
+                    dataGridView1.Columns["arac_aciklama"].DisplayIndex = 8;
                     dataGridView1.Columns["arac_icerde"].Visible = false;
+                    dataGridView1.Columns["İçerde"].Visible = false;
+                    if (uydu == 1)
+                    {
+                        dataGridView1.Columns["İçerde"].Visible = true;
+                    }
 
-                    StretchLastColumn(dataGridView1);
 
                     //  dataGridView1.Columns["arac_aciklama"].DisplayIndex = "Açıklama";
 
@@ -214,12 +244,17 @@ namespace Otopark_Otomasyonu
                     dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    StretchLastColumn(dataGridView1);
                     dataGridView1.AllowUserToAddRows = false;
                     dataGridView1.RowHeadersVisible = false;
-                    label2.Text = dataGridView1.RowCount.ToString() + " Kayıt Gösteriliyor";
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None).AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
+                
+                label2.Text = dataGridView1.RowCount.ToString() + " Kayıt Gösteriliyor";
                 }
             }
-            }
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -231,6 +266,15 @@ namespace Otopark_Otomasyonu
                     int rowindex = dataGridView1.CurrentCell.RowIndex;
                     int columnindex = dataGridView1.CurrentCell.ColumnIndex;
                     plaka = dataGridView1.Rows[e.RowIndex].Cells["arac_plaka"].Value.ToString();
+                    string iceri = dataGridView1.Rows[e.RowIndex].Cells["arac_icerde"].Value.ToString();
+                    if (iceri.Trim()=="0")
+                    {
+                        button1.Enabled = false;
+                    }
+                    else
+                        button1.Enabled = true;
+
+
                 }
             }
             catch
@@ -275,11 +319,11 @@ namespace Otopark_Otomasyonu
         public void cikisİslemleri(bool kayitDurumu, String plakaNo)
         {
 
-         
+
             if (kayitDurumu)
             {
                 bildirimYazdir("Çıkış", " '" + plakaNo + "' nolu plaka için çıkış onayı verildi.");
-                
+
             }
             else
             {
@@ -315,10 +359,14 @@ namespace Otopark_Otomasyonu
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  MessageBox.Show(comboBox1.Text);
+            //  MessageBox.Show(comboBox1.Text);
             Kimlik = comboBox1.Text.Trim();
             gridViewCek();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    
 }

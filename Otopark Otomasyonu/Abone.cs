@@ -117,6 +117,7 @@ namespace Otopark_Otomasyonu
                 return girisYapan;
             }
         }
+        
         public bool aboneGuncelle(Abone kayitEdilecek)
         {
 

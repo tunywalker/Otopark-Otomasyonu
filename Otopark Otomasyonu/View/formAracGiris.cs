@@ -154,7 +154,12 @@ namespace Otopark_Otomasyonu
             }
             else
             {
+                if(KaydolacakArac.Abone_Tur.AboneTurleri_id==-1)
                kayit= KaydolacakArac.aracGuncelle(KaydolacakArac);
+                else
+                {
+                    kayit = KaydolacakArac.aracGuncelleTarihsiz(KaydolacakArac);
+                }
             }
          
           
@@ -198,6 +203,7 @@ namespace Otopark_Otomasyonu
 
                         comboParkYer.Enabled = false;
                         richTextBox1.Enabled = false;
+                     //   MessageBox.Show("3");
                         button1.Enabled = false;
                         yeniAboneOlustur.Enabled = false;
 
@@ -281,11 +287,13 @@ namespace Otopark_Otomasyonu
             GirecekAbone = GirecekAbone.aboneIcerdenGetir(Kimlik);
             if (GirecekAbone.Abone_kimlikno != null)
             {
+                //MessageBox.Show("1");
                 label3.Text = GirecekAbone.Abone_adsoyad + " - " + GirecekAbone.Abone_telefon.ToUpper();
                 button1.Enabled = true;
             }
             else
             {
+              //  MessageBox.Show("2");
                 label3.Text = "";
                 button1.Enabled = false;
             }

@@ -229,9 +229,18 @@ namespace Otopark_Otomasyonu
         }
         int kapasite;
         Otopark otopark1 = new Otopark();
+        public void istatistikGuncelle()
+        {
+
+            istatistik istatistikler = new istatistik();
+            label19.Text = istatistikler.aboneSayisi();
+            label20.Text = istatistikler.icerdekiAracSayisi();
+            label21.Text = istatistikler.aracSayisi();
+        }
         private void kameraMonitor_Load(object sender, EventArgs e)
 
         {
+            istatistikGuncelle();
             kapasite   = 100;
            // FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;

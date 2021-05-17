@@ -158,6 +158,7 @@
     <Compile Include="Controller\AboneTurleriController.cs" />
     <Compile Include="DAO\AboneTurleriDAO.cs" />
     <Compile Include="Entity\AboneTurleri.cs" />
+    <Compile Include="istatistik.cs" />
     <Compile Include="View\formAboneAracEkle.cs">
       <SubType>Form</SubType>
     </Compile>

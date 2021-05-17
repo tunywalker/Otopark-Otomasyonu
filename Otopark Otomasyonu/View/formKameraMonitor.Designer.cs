@@ -104,7 +104,7 @@
             this.lbxPlates.FormattingEnabled = true;
             this.lbxPlates.ItemHeight = 22;
             this.lbxPlates.Location = new System.Drawing.Point(513, 38);
-            this.lbxPlates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbxPlates.Margin = new System.Windows.Forms.Padding(4);
             this.lbxPlates.Name = "lbxPlates";
             this.lbxPlates.Size = new System.Drawing.Size(160, 92);
             this.lbxPlates.TabIndex = 35;
@@ -236,7 +236,7 @@
             this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxKamera1.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
             this.pictureBoxKamera1.Location = new System.Drawing.Point(7, 21);
-            this.pictureBoxKamera1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxKamera1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxKamera1.Name = "pictureBoxKamera1";
             this.pictureBoxKamera1.Size = new System.Drawing.Size(685, 552);
             this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,7 +247,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(160, 34);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -287,7 +287,7 @@
             this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureboxKamera2.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
             this.pictureboxKamera2.Location = new System.Drawing.Point(7, 21);
-            this.pictureboxKamera2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureboxKamera2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureboxKamera2.Name = "pictureboxKamera2";
             this.pictureboxKamera2.Size = new System.Drawing.Size(685, 552);
             this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -310,7 +310,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(167, 47);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -356,9 +356,9 @@
             this.groupBox2.Controls.Add(this.picLicensePlate);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(16, 651);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(689, 297);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
@@ -371,7 +371,7 @@
             this.butonGirisReddet.Image = global::Otopark_Otomasyonu.Properties.Resources.reddet;
             this.butonGirisReddet.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.butonGirisReddet.Location = new System.Drawing.Point(8, 209);
-            this.butonGirisReddet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butonGirisReddet.Margin = new System.Windows.Forms.Padding(4);
             this.butonGirisReddet.Name = "butonGirisReddet";
             this.butonGirisReddet.Size = new System.Drawing.Size(183, 37);
             this.butonGirisReddet.TabIndex = 46;
@@ -383,7 +383,7 @@
             // textPlaka
             // 
             this.textPlaka.Location = new System.Drawing.Point(440, 207);
-            this.textPlaka.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPlaka.Margin = new System.Windows.Forms.Padding(4);
             this.textPlaka.Name = "textPlaka";
             this.textPlaka.Size = new System.Drawing.Size(241, 37);
             this.textPlaka.TabIndex = 45;
@@ -394,7 +394,7 @@
             this.sonraKaydet.Image = global::Otopark_Otomasyonu.Properties.Resources.sonra;
             this.sonraKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sonraKaydet.Location = new System.Drawing.Point(8, 164);
-            this.sonraKaydet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sonraKaydet.Margin = new System.Windows.Forms.Padding(4);
             this.sonraKaydet.Name = "sonraKaydet";
             this.sonraKaydet.Size = new System.Drawing.Size(217, 37);
             this.sonraKaydet.TabIndex = 40;
@@ -410,7 +410,7 @@
             this.button2.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.button2.Location = new System.Drawing.Point(8, 113);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 37);
             this.button2.TabIndex = 44;
@@ -425,7 +425,7 @@
             this.buttonTekrarTani.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
             this.buttonTekrarTani.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonTekrarTani.Location = new System.Drawing.Point(440, 252);
-            this.buttonTekrarTani.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTekrarTani.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTekrarTani.Name = "buttonTekrarTani";
             this.buttonTekrarTani.Size = new System.Drawing.Size(243, 37);
             this.buttonTekrarTani.TabIndex = 43;
@@ -438,7 +438,7 @@
             // 
             this.picLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picLicensePlate.Location = new System.Drawing.Point(8, 38);
-            this.picLicensePlate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLicensePlate.Margin = new System.Windows.Forms.Padding(4);
             this.picLicensePlate.Name = "picLicensePlate";
             this.picLicensePlate.Size = new System.Drawing.Size(485, 73);
             this.picLicensePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -453,11 +453,11 @@
             this.groupBox1.Controls.Add(this.picLicensePlateCikis);
             this.groupBox1.Controls.Add(this.lbxPlatesCikis);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.groupBox1.Location = new System.Drawing.Point(736, 651);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(732, 651);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(743, 297);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(772, 297);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Çıkış İşlemleri";
@@ -469,7 +469,7 @@
             this.buttonTekrarTani2.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
             this.buttonTekrarTani2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonTekrarTani2.Location = new System.Drawing.Point(424, 252);
-            this.buttonTekrarTani2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTekrarTani2.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTekrarTani2.Name = "buttonTekrarTani2";
             this.buttonTekrarTani2.Size = new System.Drawing.Size(243, 37);
             this.buttonTekrarTani2.TabIndex = 47;
@@ -485,7 +485,7 @@
             this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.cikis1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.button3.Location = new System.Drawing.Point(8, 117);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(188, 37);
             this.button3.TabIndex = 48;
@@ -498,7 +498,7 @@
             // 
             this.textPlkaCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.textPlkaCikis.Location = new System.Drawing.Point(427, 208);
-            this.textPlkaCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPlkaCikis.Margin = new System.Windows.Forms.Padding(4);
             this.textPlkaCikis.Name = "textPlkaCikis";
             this.textPlkaCikis.Size = new System.Drawing.Size(241, 37);
             this.textPlkaCikis.TabIndex = 47;
@@ -507,7 +507,7 @@
             // 
             this.picLicensePlateCikis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picLicensePlateCikis.Location = new System.Drawing.Point(8, 34);
-            this.picLicensePlateCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLicensePlateCikis.Margin = new System.Windows.Forms.Padding(4);
             this.picLicensePlateCikis.Name = "picLicensePlateCikis";
             this.picLicensePlateCikis.Size = new System.Drawing.Size(474, 65);
             this.picLicensePlateCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -520,7 +520,7 @@
             this.lbxPlatesCikis.FormattingEnabled = true;
             this.lbxPlatesCikis.ItemHeight = 22;
             this.lbxPlatesCikis.Location = new System.Drawing.Point(543, 38);
-            this.lbxPlatesCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbxPlatesCikis.Margin = new System.Windows.Forms.Padding(4);
             this.lbxPlatesCikis.Name = "lbxPlatesCikis";
             this.lbxPlatesCikis.Size = new System.Drawing.Size(160, 92);
             this.lbxPlatesCikis.TabIndex = 36;
@@ -544,7 +544,7 @@
             this.Controls.Add(this.kameraGroup1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formKameraMonitor";
             this.Text = " ";
             this.Load += new System.EventHandler(this.kameraMonitor_Load);

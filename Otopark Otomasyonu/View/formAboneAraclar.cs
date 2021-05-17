@@ -24,8 +24,17 @@ namespace Otopark_Otomasyonu
 
         private void formAboneAraclar_Load(object sender, EventArgs e)
         {
-           // MessageBox.Show(Kimlik);
+            String kimlikTemp = Kimlik;
+            if (Kimlik.Trim()!= "icerdeki")
+            {
+                comboBox1.Visible = false;
+                label1.Visible = false;
+            }
+            // MessageBox.Show(Kimlik);
+            comboBox1.SelectedIndex = 0;
+            Kimlik = kimlikTemp;
             gridViewCek();
+           
             
     }
         public void StretchLastColumn(DataGridView dataGridView)
@@ -90,6 +99,7 @@ namespace Otopark_Otomasyonu
         }
         AboneTurleriController atController = new AboneTurleriController();
         FiyatTarifesiController ftController = new FiyatTarifesiController();
+        string query;
         public void gridViewCek()
             {
 
@@ -97,11 +107,21 @@ namespace Otopark_Otomasyonu
                 this.dataGridView1.DefaultCellStyle.Font = new Font("Tahoma", 11);
                 this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
           
-                string query = "select * from araclar where arac_sahip= "+Kimlik; // set query to fetch data "Select * from  tabelname"; 
-            if (Kimlik == "icerdeki")
+          query = "select * from araclar where arac_sahip= "+Kimlik; // set query to fetch data "Select * from  tabelname"; 
+            if (Kimlik == "İçerdeki" || Kimlik== "icerdeki")
             {
                 this.Text = "İçerdeki Araçlar";
                  query = "select * from araclar where arac_icerde=1 "; // set query to fetch data "Select * from  tabelname"; 
+            }
+            if (Kimlik == "Tümü")
+            {
+                this.Text = "İçerdeki Araçlar";
+                query = "select * from araclar  "; // set query to fetch data "Select * from  tabelname"; 
+            }
+            if (Kimlik == "Dışardaki")
+            {
+                this.Text = "İçerdeki Araçlar";
+                query = "select * from araclar where arac_icerde=0  "; // set query to fetch data "Select * from  tabelname"; 
             }
             using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -196,6 +216,7 @@ namespace Otopark_Otomasyonu
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.AllowUserToAddRows = false;
                     dataGridView1.RowHeadersVisible = false;
+                    label2.Text = dataGridView1.RowCount.ToString() + " Kayıt Gösteriliyor";
                 }
             }
             }
@@ -283,13 +304,20 @@ namespace Otopark_Otomasyonu
             {
                 //   girisİslemleri(aracGirisForm.kayitDurumu, aracGirisForm.plakaNo);
                 cikisİslemleri(aracCikisForm.cikisDurumu, aracCikisForm.AracPlaka);
-
+                gridViewCek();
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  MessageBox.Show(comboBox1.Text);
+            Kimlik = comboBox1.Text.Trim();
+            gridViewCek();
         }
     }
     

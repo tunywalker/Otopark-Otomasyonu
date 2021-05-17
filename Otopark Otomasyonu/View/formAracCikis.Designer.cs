@@ -71,7 +71,6 @@ namespace Otopark_Otomasyonu
             this.labelAracSahip.Size = new System.Drawing.Size(16, 24);
             this.labelAracSahip.TabIndex = 19;
             this.labelAracSahip.Text = "-";
-            this.labelAracSahip.Click += new System.EventHandler(this.labelAracSahip_Click);
             // 
             // label7
             // 
@@ -157,7 +156,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(3, 123);
+            this.label10.Location = new System.Drawing.Point(5, 123);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 24);
             this.label10.TabIndex = 29;
@@ -208,7 +207,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(2, 157);
+            this.label11.Location = new System.Drawing.Point(5, 163);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 24);
             this.label11.TabIndex = 35;
@@ -228,12 +227,11 @@ namespace Otopark_Otomasyonu
             // 
             this.labelKalanSure.AutoSize = true;
             this.labelKalanSure.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.labelKalanSure.Location = new System.Drawing.Point(146, 178);
+            this.labelKalanSure.Location = new System.Drawing.Point(132, 178);
             this.labelKalanSure.Name = "labelKalanSure";
             this.labelKalanSure.Size = new System.Drawing.Size(16, 24);
             this.labelKalanSure.TabIndex = 36;
             this.labelKalanSure.Text = "-";
-            this.labelKalanSure.Click += new System.EventHandler(this.labelKalanSure_Click);
             // 
             // groupBox1
             // 
@@ -251,7 +249,6 @@ namespace Otopark_Otomasyonu
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fiyatlandırma";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label15
             // 
@@ -332,7 +329,6 @@ namespace Otopark_Otomasyonu
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Abonelik";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label17
             // 
@@ -348,7 +344,7 @@ namespace Otopark_Otomasyonu
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label18.Location = new System.Drawing.Point(146, 219);
+            this.label18.Location = new System.Drawing.Point(132, 219);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(16, 24);
             this.label18.TabIndex = 38;
@@ -370,7 +366,6 @@ namespace Otopark_Otomasyonu
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Abone Bilgileri";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // AracCikis
             // 

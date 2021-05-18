@@ -233,6 +233,12 @@ namespace Otopark_Otomasyonu
         {
 
             istatistik istatistikler = new istatistik();
+            Dictionary<String, int> Gise = istatistikler.giseIslemleri();
+            label15.Text = Gise["Bugün"].ToString();
+            label16.Text = Gise["Haftalık"].ToString();
+            label17.Text = Gise["Aylık"].ToString();
+            label18.Text = Gise["Yıllık"].ToString();
+
             label19.Text = istatistikler.aboneSayisi();
             label20.Text = istatistikler.icerdekiAracSayisi();
             label21.Text = istatistikler.aracSayisi();
@@ -344,9 +350,9 @@ namespace Otopark_Otomasyonu
         
         private void timerLoad_Tick(object sender, EventArgs e)
         {
-         
-            
-            
+            istatistikGuncelle();
+
+
             // MessageBox.Show(otopark1.bosParkyerleri().ElementAt(0));
             toolStripLabel2.Text = otopark1.dolulukOrani(kapasite)+"/"+kapasite;
             if (Convert.ToInt16(otopark1.dolulukOrani(kapasite)) >= kapasite)

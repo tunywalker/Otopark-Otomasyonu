@@ -112,6 +112,67 @@ namespace Otopark_Otomasyonu
                 return aracSayi;
             }
         }
+        public Dictionary<String ,int>  giseIslemleri()
+        {
+            string aracSayi = "";
+            baglanti1.mysqlbaglan.Open();
+            int bugun=0;
+            int haftalik = 0;
+            int aylik = 0;
+            int yillik = 0;
+            Dictionary<String, int> GiseIslemler = new Dictionary<String, int>();
+
+            MySqlCommand komut = new MySqlCommand("select * from arac_log", baglanti1.mysqlbaglan);
+
+            MySqlDataReader okuyucu = komut.ExecuteReader();
+
+            while (okuyucu.Read())
+
+            {   // Çoklu veri okumak için
+                DateTime giris = Convert.ToDateTime(okuyucu["islem_tarih"].ToString());
+                DateTime simdi = Convert.ToDateTime(DateTime.Now);
+
+                if (giris.Day == simdi.Day)
+                {
+                    bugun++;
+                }
+                if (giris.Month== simdi.Month)
+                {
+                    aylik++;
+                }
+
+                if (giris.Year == simdi.Year)
+                {
+                   yillik++;
+                }
+                if (giris >  simdi.AddDays(-7))
+                {
+                    haftalik++;
+                }
+            }
+            GiseIslemler.Add("Bugün", bugun);
+            GiseIslemler.Add("Aylık", aylik);
+            GiseIslemler.Add("Haftalık", haftalik);
+            GiseIslemler.Add("Yıllık", yillik);
+
+
+
+
+
+
+
+            baglanti1.mysqlbaglan.Close();
+            return GiseIslemler;
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                baglanti1.mysqlbaglan.Close();
+                return GiseIslemler;
+
+            }
+        }
 
     }
 }

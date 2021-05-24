@@ -240,7 +240,7 @@ namespace Otopark_Otomasyonu
             label18.Text = Gise["Yıllık"].ToString();
 
             label19.Text = istatistikler.aboneSayisi();
-            label20.Text = istatistikler.icerdekiAracSayisi();
+          //  label20.Text = istatistikler.icerdekiAracSayisi();
             label21.Text = istatistikler.aracSayisi();
         }
         private void kameraMonitor_Load(object sender, EventArgs e)
@@ -828,6 +828,11 @@ namespace Otopark_Otomasyonu
         }
 
         private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
         {
             formParkYerleri parkYerleri = new formParkYerleri()
             {

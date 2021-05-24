@@ -34,44 +34,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbxPlates = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.kameraGroup1 = new System.Windows.Forms.GroupBox();
             this.kamera1LoadingLabel = new System.Windows.Forms.Label();
             this.labelFiligran1 = new System.Windows.Forms.Label();
-            this.pictureBoxKamera1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.kameraGroup2 = new System.Windows.Forms.GroupBox();
             this.kamera2LoadingLabel = new System.Windows.Forms.Label();
-            this.pictureboxKamera2 = new System.Windows.Forms.PictureBox();
             this.labelFiligran2 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timerLoad = new System.Windows.Forms.Timer(this.components);
             this.timerKamera2 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.butonGirisReddet = new System.Windows.Forms.Button();
             this.textPlaka = new System.Windows.Forms.TextBox();
-            this.sonraKaydet = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonTekrarTani = new System.Windows.Forms.Button();
-            this.picLicensePlate = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonTekrarTani2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.textPlkaCikis = new System.Windows.Forms.TextBox();
-            this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
             this.lbxPlatesCikis = new System.Windows.Forms.ListBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.label20 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -87,18 +68,36 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonTekrarTani2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.picLicensePlateCikis = new System.Windows.Forms.PictureBox();
+            this.butonGirisReddet = new System.Windows.Forms.Button();
+            this.sonraKaydet = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonTekrarTani = new System.Windows.Forms.Button();
+            this.picLicensePlate = new System.Windows.Forms.PictureBox();
+            this.pictureboxKamera2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxKamera1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.toolKameraButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.kameraGroup1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.kameraGroup2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // timerKamera1
@@ -135,6 +134,7 @@
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripButton1,
+            this.toolStripButton5,
             this.toolStripLabel1,
             this.toolStripLabel2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -142,56 +142,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1543, 43);
             this.toolStrip1.TabIndex = 40;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolKameraButton
-            // 
-            this.toolKameraButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolKameraButton.Image = ((System.Drawing.Image)(resources.GetObject("toolKameraButton.Image")));
-            this.toolKameraButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolKameraButton.Name = "toolKameraButton";
-            this.toolKameraButton.Size = new System.Drawing.Size(145, 40);
-            this.toolKameraButton.Text = "Kamera Ayarları";
-            this.toolKameraButton.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(97, 40);
-            this.toolStripButton2.Text = "Aboneler";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(86, 40);
-            this.toolStripButton3.Text = "Kayıtlar";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(169, 40);
-            this.toolStripButton4.Text = "Otoparktaki Araçlar";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(129, 40);
-            this.toolStripButton1.Text = "İndirim Paneli";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // toolStripLabel1
             // 
@@ -251,28 +201,6 @@
             this.labelFiligran1.TabIndex = 39;
             this.labelFiligran1.Text = ",";
             // 
-            // pictureBoxKamera1
-            // 
-            this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxKamera1.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
-            this.pictureBoxKamera1.Location = new System.Drawing.Point(5, 17);
-            this.pictureBoxKamera1.Name = "pictureBoxKamera1";
-            this.pictureBoxKamera1.Size = new System.Drawing.Size(581, 452);
-            this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxKamera1.TabIndex = 34;
-            this.pictureBoxKamera1.TabStop = false;
-            this.pictureBoxKamera1.Click += new System.EventHandler(this.pictureBoxKamera1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(120, 28);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
             // kameraGroup2
             // 
             this.kameraGroup2.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -302,18 +230,6 @@
             this.kamera2LoadingLabel.Text = "Kamera Algılanıyor";
             this.kamera2LoadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureboxKamera2
-            // 
-            this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureboxKamera2.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
-            this.pictureboxKamera2.Location = new System.Drawing.Point(5, 17);
-            this.pictureboxKamera2.Name = "pictureboxKamera2";
-            this.pictureboxKamera2.Size = new System.Drawing.Size(581, 449);
-            this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureboxKamera2.TabIndex = 41;
-            this.pictureboxKamera2.TabStop = false;
-            this.pictureboxKamera2.Click += new System.EventHandler(this.pictureboxKamera2_Click_1);
-            // 
             // labelFiligran2
             // 
             this.labelFiligran2.AutoSize = true;
@@ -326,16 +242,6 @@
             this.labelFiligran2.Size = new System.Drawing.Size(19, 25);
             this.labelFiligran2.TabIndex = 40;
             this.labelFiligran2.Text = "-";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(125, 38);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 38;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
             // 
             // timerLoad
             // 
@@ -384,81 +290,12 @@
             this.groupBox2.Text = "Giriş İşlemleri";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // butonGirisReddet
-            // 
-            this.butonGirisReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.butonGirisReddet.Image = global::Otopark_Otomasyonu.Properties.Resources.reddet;
-            this.butonGirisReddet.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.butonGirisReddet.Location = new System.Drawing.Point(6, 170);
-            this.butonGirisReddet.Name = "butonGirisReddet";
-            this.butonGirisReddet.Size = new System.Drawing.Size(137, 30);
-            this.butonGirisReddet.TabIndex = 46;
-            this.butonGirisReddet.Text = "Girişi Reddet";
-            this.butonGirisReddet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.butonGirisReddet.UseVisualStyleBackColor = true;
-            this.butonGirisReddet.Visible = false;
-            this.butonGirisReddet.Click += new System.EventHandler(this.butonGirisReddet_Click);
-            // 
             // textPlaka
             // 
             this.textPlaka.Location = new System.Drawing.Point(188, 96);
             this.textPlaka.Name = "textPlaka";
             this.textPlaka.Size = new System.Drawing.Size(182, 31);
             this.textPlaka.TabIndex = 45;
-            // 
-            // sonraKaydet
-            // 
-            this.sonraKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.sonraKaydet.Image = global::Otopark_Otomasyonu.Properties.Resources.sonra;
-            this.sonraKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sonraKaydet.Location = new System.Drawing.Point(8, 206);
-            this.sonraKaydet.Name = "sonraKaydet";
-            this.sonraKaydet.Size = new System.Drawing.Size(163, 30);
-            this.sonraKaydet.TabIndex = 40;
-            this.sonraKaydet.Text = "Çıkışta İşlem Yap";
-            this.sonraKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.sonraKaydet.UseVisualStyleBackColor = true;
-            this.sonraKaydet.Visible = false;
-            this.sonraKaydet.Click += new System.EventHandler(this.sonraKaydet_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(5, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 30);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Giriş İşlemleri";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonTekrarTani
-            // 
-            this.buttonTekrarTani.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonTekrarTani.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
-            this.buttonTekrarTani.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonTekrarTani.Location = new System.Drawing.Point(188, 133);
-            this.buttonTekrarTani.Name = "buttonTekrarTani";
-            this.buttonTekrarTani.Size = new System.Drawing.Size(182, 30);
-            this.buttonTekrarTani.TabIndex = 43;
-            this.buttonTekrarTani.Text = "Tekrar Tanımla";
-            this.buttonTekrarTani.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonTekrarTani.UseVisualStyleBackColor = true;
-            this.buttonTekrarTani.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // picLicensePlate
-            // 
-            this.picLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLicensePlate.Location = new System.Drawing.Point(6, 31);
-            this.picLicensePlate.Name = "picLicensePlate";
-            this.picLicensePlate.Size = new System.Drawing.Size(364, 60);
-            this.picLicensePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLicensePlate.TabIndex = 33;
-            this.picLicensePlate.TabStop = false;
             // 
             // groupBox1
             // 
@@ -477,35 +314,6 @@
             this.groupBox1.Text = "Çıkış İşlemleri";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // buttonTekrarTani2
-            // 
-            this.buttonTekrarTani2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonTekrarTani2.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
-            this.buttonTekrarTani2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonTekrarTani2.Location = new System.Drawing.Point(180, 132);
-            this.buttonTekrarTani2.Name = "buttonTekrarTani2";
-            this.buttonTekrarTani2.Size = new System.Drawing.Size(182, 30);
-            this.buttonTekrarTani2.TabIndex = 47;
-            this.buttonTekrarTani2.Text = "Tekrar Tanımla";
-            this.buttonTekrarTani2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonTekrarTani2.UseVisualStyleBackColor = true;
-            this.buttonTekrarTani2.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.cikis1;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(6, 95);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 30);
-            this.button3.TabIndex = 48;
-            this.button3.Text = "Çıkış İşlemleri";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // textPlkaCikis
             // 
             this.textPlkaCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -513,16 +321,6 @@
             this.textPlkaCikis.Name = "textPlkaCikis";
             this.textPlkaCikis.Size = new System.Drawing.Size(182, 31);
             this.textPlkaCikis.TabIndex = 47;
-            // 
-            // picLicensePlateCikis
-            // 
-            this.picLicensePlateCikis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLicensePlateCikis.Location = new System.Drawing.Point(5, 30);
-            this.picLicensePlateCikis.Name = "picLicensePlateCikis";
-            this.picLicensePlateCikis.Size = new System.Drawing.Size(356, 53);
-            this.picLicensePlateCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLicensePlateCikis.TabIndex = 37;
-            this.picLicensePlateCikis.TabStop = false;
             // 
             // lbxPlatesCikis
             // 
@@ -540,33 +338,11 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(246, 108);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(16, 16);
-            this.label20.TabIndex = 45;
-            this.label20.Text = "0";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(86, 108);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(151, 16);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "İçerdeki Araç Sayısı:";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(246, 147);
+            this.label21.Location = new System.Drawing.Point(246, 99);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(16, 16);
@@ -577,7 +353,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(86, 147);
+            this.label10.Location = new System.Drawing.Point(86, 99);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(137, 16);
@@ -720,9 +496,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label17);
@@ -742,6 +516,218 @@
             this.groupBox3.TabIndex = 59;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "İSTATİSTİKLER";
+            // 
+            // buttonTekrarTani2
+            // 
+            this.buttonTekrarTani2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonTekrarTani2.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
+            this.buttonTekrarTani2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonTekrarTani2.Location = new System.Drawing.Point(180, 132);
+            this.buttonTekrarTani2.Name = "buttonTekrarTani2";
+            this.buttonTekrarTani2.Size = new System.Drawing.Size(182, 30);
+            this.buttonTekrarTani2.TabIndex = 47;
+            this.buttonTekrarTani2.Text = "Tekrar Tanımla";
+            this.buttonTekrarTani2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonTekrarTani2.UseVisualStyleBackColor = true;
+            this.buttonTekrarTani2.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Image = global::Otopark_Otomasyonu.Properties.Resources.cikis1;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(6, 95);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(141, 30);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Çıkış İşlemleri";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // picLicensePlateCikis
+            // 
+            this.picLicensePlateCikis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLicensePlateCikis.Location = new System.Drawing.Point(5, 30);
+            this.picLicensePlateCikis.Name = "picLicensePlateCikis";
+            this.picLicensePlateCikis.Size = new System.Drawing.Size(356, 53);
+            this.picLicensePlateCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLicensePlateCikis.TabIndex = 37;
+            this.picLicensePlateCikis.TabStop = false;
+            // 
+            // butonGirisReddet
+            // 
+            this.butonGirisReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.butonGirisReddet.Image = global::Otopark_Otomasyonu.Properties.Resources.reddet;
+            this.butonGirisReddet.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.butonGirisReddet.Location = new System.Drawing.Point(6, 170);
+            this.butonGirisReddet.Name = "butonGirisReddet";
+            this.butonGirisReddet.Size = new System.Drawing.Size(137, 30);
+            this.butonGirisReddet.TabIndex = 46;
+            this.butonGirisReddet.Text = "Girişi Reddet";
+            this.butonGirisReddet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.butonGirisReddet.UseVisualStyleBackColor = true;
+            this.butonGirisReddet.Visible = false;
+            this.butonGirisReddet.Click += new System.EventHandler(this.butonGirisReddet_Click);
+            // 
+            // sonraKaydet
+            // 
+            this.sonraKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sonraKaydet.Image = global::Otopark_Otomasyonu.Properties.Resources.sonra;
+            this.sonraKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sonraKaydet.Location = new System.Drawing.Point(8, 206);
+            this.sonraKaydet.Name = "sonraKaydet";
+            this.sonraKaydet.Size = new System.Drawing.Size(163, 30);
+            this.sonraKaydet.TabIndex = 40;
+            this.sonraKaydet.Text = "Çıkışta İşlem Yap";
+            this.sonraKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.sonraKaydet.UseVisualStyleBackColor = true;
+            this.sonraKaydet.Visible = false;
+            this.sonraKaydet.Click += new System.EventHandler(this.sonraKaydet_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Image = global::Otopark_Otomasyonu.Properties.Resources.newCar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(5, 98);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 30);
+            this.button2.TabIndex = 44;
+            this.button2.Text = "Giriş İşlemleri";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonTekrarTani
+            // 
+            this.buttonTekrarTani.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonTekrarTani.Image = global::Otopark_Otomasyonu.Properties.Resources.tekrar;
+            this.buttonTekrarTani.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonTekrarTani.Location = new System.Drawing.Point(188, 133);
+            this.buttonTekrarTani.Name = "buttonTekrarTani";
+            this.buttonTekrarTani.Size = new System.Drawing.Size(182, 30);
+            this.buttonTekrarTani.TabIndex = 43;
+            this.buttonTekrarTani.Text = "Tekrar Tanımla";
+            this.buttonTekrarTani.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonTekrarTani.UseVisualStyleBackColor = true;
+            this.buttonTekrarTani.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // picLicensePlate
+            // 
+            this.picLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLicensePlate.Location = new System.Drawing.Point(6, 31);
+            this.picLicensePlate.Name = "picLicensePlate";
+            this.picLicensePlate.Size = new System.Drawing.Size(364, 60);
+            this.picLicensePlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLicensePlate.TabIndex = 33;
+            this.picLicensePlate.TabStop = false;
+            // 
+            // pictureboxKamera2
+            // 
+            this.pictureboxKamera2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureboxKamera2.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
+            this.pictureboxKamera2.Location = new System.Drawing.Point(5, 17);
+            this.pictureboxKamera2.Name = "pictureboxKamera2";
+            this.pictureboxKamera2.Size = new System.Drawing.Size(581, 449);
+            this.pictureboxKamera2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureboxKamera2.TabIndex = 41;
+            this.pictureboxKamera2.TabStop = false;
+            this.pictureboxKamera2.Click += new System.EventHandler(this.pictureboxKamera2_Click_1);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(125, 38);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 38;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            // 
+            // pictureBoxKamera1
+            // 
+            this.pictureBoxKamera1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxKamera1.Image = global::Otopark_Otomasyonu.Properties.Resources.connecting;
+            this.pictureBoxKamera1.Location = new System.Drawing.Point(5, 17);
+            this.pictureBoxKamera1.Name = "pictureBoxKamera1";
+            this.pictureBoxKamera1.Size = new System.Drawing.Size(581, 452);
+            this.pictureBoxKamera1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxKamera1.TabIndex = 34;
+            this.pictureBoxKamera1.TabStop = false;
+            this.pictureBoxKamera1.Click += new System.EventHandler(this.pictureBoxKamera1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(120, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // toolKameraButton
+            // 
+            this.toolKameraButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolKameraButton.Image = ((System.Drawing.Image)(resources.GetObject("toolKameraButton.Image")));
+            this.toolKameraButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolKameraButton.Name = "toolKameraButton";
+            this.toolKameraButton.Size = new System.Drawing.Size(145, 40);
+            this.toolKameraButton.Text = "Kamera Ayarları";
+            this.toolKameraButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(97, 40);
+            this.toolStripButton2.Text = "Aboneler";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(86, 40);
+            this.toolStripButton3.Text = "Kayıtlar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(169, 40);
+            this.toolStripButton4.Text = "Otoparktaki Araçlar";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(129, 40);
+            this.toolStripButton1.Text = "İndirim Paneli";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(112, 40);
+            this.toolStripButton5.Text = "Park Yerleri";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // formKameraMonitor
             // 
@@ -764,20 +750,20 @@
             this.toolStrip1.PerformLayout();
             this.kameraGroup1.ResumeLayout(false);
             this.kameraGroup1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.kameraGroup2.ResumeLayout(false);
             this.kameraGroup2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlateCikis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicensePlate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxKamera2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKamera1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -824,8 +810,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label19;
@@ -841,5 +825,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }

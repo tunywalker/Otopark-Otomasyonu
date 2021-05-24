@@ -201,6 +201,12 @@
     <Compile Include="View\formKayitlar.Designer.cs">
       <DependentUpon>formKayitlar.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\formParkYerleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\formParkYerleri.Designer.cs">
+      <DependentUpon>formParkYerleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\formYeniAbone.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\formKameraMonitor.resx">
       <DependentUpon>formKameraMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\formParkYerleri.resx">
+      <DependentUpon>formParkYerleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\formYeniAbone.resx">
       <DependentUpon>formYeniAbone.cs</DependentUpon>

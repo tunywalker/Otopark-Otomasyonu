@@ -19,6 +19,8 @@ namespace Otopark_Otomasyonu
        public String plaka = "";
         public List<string> bosParkyerleri;
         public Bitmap plakaResim;
+        // public s
+        public string parkGelen="";
         public formAracGiris()
         {
             InitializeComponent();
@@ -117,8 +119,14 @@ namespace Otopark_Otomasyonu
                 comboParkYer.Items.Clear();
                 foreach (string parkYeri in bosParkyerleri)
                  comboParkYer.Items.Add(parkYeri);
-                
-                comboParkYer.SelectedIndex = 0;
+              //  MessageBox.Show(parkGelen+ comboParkYer.Items.IndexOf(parkGelen).ToString());
+                if (parkGelen!="")
+                {
+                //    MessageBox.Show(parkGelen + comboParkYer.Items.IndexOf(parkGelen).ToString());
+                    comboParkYer.SelectedIndex=comboParkYer.Items.IndexOf(parkGelen);
+                }
+                else
+                 comboParkYer.SelectedIndex = 0;
                 
             }
             catch (Exception)
@@ -126,7 +134,10 @@ namespace Otopark_Otomasyonu
 
                 throw;
             }
-           
+            textPlaka.Text = plaka;
+            textPlaka.Text = "";
+            textPlaka.Text = plaka;
+          
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -134,6 +145,7 @@ namespace Otopark_Otomasyonu
 
         }
         String aracPlaka;
+        String parkYer;
         Boolean kayit;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -175,7 +187,14 @@ namespace Otopark_Otomasyonu
             comboParkYer.Items.Clear();
             foreach (string parkYeri in bosParkyerleri)
                 comboParkYer.Items.Add(parkYeri);
-            comboParkYer.SelectedIndex = 0;
+            if (parkGelen != "")
+            {
+                //    MessageBox.Show(parkGelen + comboParkYer.Items.IndexOf(parkGelen).ToString());
+                comboParkYer.SelectedIndex = comboParkYer.Items.IndexOf(parkGelen);
+            }
+            else
+                comboParkYer.SelectedIndex = 0;
+           
             try
             {
                 aboneArac = aboneArac.aracIcerdenGetir(textPlaka.Text);

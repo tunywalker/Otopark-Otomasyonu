@@ -827,6 +827,15 @@ namespace Otopark_Otomasyonu
 
         }
 
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+            formParkYerleri parkYerleri = new formParkYerleri()
+            {
+
+            };
+            parkYerleri.Show();
+        }
+
         private void pictureboxKamera2_Click(object sender, EventArgs e)
         {
 

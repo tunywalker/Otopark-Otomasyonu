@@ -518,6 +518,56 @@ namespace Otopark_Otomasyonu
                 return aGetirilen;
             }
         }
+        public Arac aracByParkyeri(string parkyeri)
+        {
+            try
+            {
+                parkyeri = parkyeri.ToUpper();
+
+                baglanti1.mysqlbaglan.Close();
+            }
+            catch { }
+         //   Arac gercekArac = new Arac(); gercekArac = gercekArac.aracGetir(parkyeri);
+
+            baglanti1.mysqlbaglan.Open();
+            Arac aGetirilen = new Arac();
+            aGetirilen.arac_plaka = "";
+            MySqlCommand komut = new MySqlCommand("select * from araclar where arac_parkyeri='" + parkyeri + "'", baglanti1.mysqlbaglan);
+
+            MySqlDataReader okuyucu = komut.ExecuteReader();
+
+            while (okuyucu.Read())
+
+            {   // Çoklu veri okumak için
+                aGetirilen.Arac_giris = okuyucu["arac_giris"].ToString();
+                aGetirilen.Arac_sahip = okuyucu["arac_sahip"].ToString();
+               // aGetirilen.Arac_tur = gercekArac.ftDao.GetFiyatTarifesiById(Convert.ToInt32(okuyucu["arac_tur"]));
+                aGetirilen.arac_plaka = okuyucu["arac_plaka"].ToString();
+                aGetirilen.arac_icerde = okuyucu["arac_icerde"].ToString();
+                aGetirilen.arac_parkyeri = okuyucu["arac_parkyeri"].ToString();
+                aGetirilen.abone_Tur = atController.aboneTurleriById(Convert.ToInt32(okuyucu["arac_abonetur_id"]));
+                
+
+
+
+
+
+
+
+            }
+
+            baglanti1.mysqlbaglan.Close();
+            return aGetirilen;
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                baglanti1.mysqlbaglan.Close();
+
+                return aGetirilen;
+            }
+        }
 
     }
 }

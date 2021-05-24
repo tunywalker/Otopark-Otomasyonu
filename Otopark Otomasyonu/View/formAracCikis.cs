@@ -63,7 +63,23 @@ namespace Otopark_Otomasyonu
            
             if (cikacak.Abone_Tur.AboneTurleri_id == -1)
             {
-                cikisdurum = 0; 
+                if (ftController.fiyatTarifesiById(cikacak.Arac_tur.FiyatTarifesi_id) != null)
+                {
+                    cikisdurum = 0;
+                    int sonuc = sureHesapla(Convert.ToInt32(atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_sure), cikacak.Arac_giris);
+                    sonuc = Math.Abs(sonuc);
+                    asim = Convert.ToInt32(ftController.fiyatHesapla(Math.Abs(sonuc) / 60).ToString());
+                    //MessageBox.Show(sonuc.ToString());
+                    int Gun = (sonuc / 60) / 24;
+                    if (Gun >= 1)
+                        sonuc = sonuc - (Gun * 24 * 60);
+                    int saat2 = sonuc / 60;
+                    if (saat2 >= 1)
+                        sonuc = sonuc - (saat2 * 60);
+                    int dakika = sonuc;
+                    label18.Text = Gun.ToString() + " Gün " + saat2.ToString() + " Saat " + dakika.ToString() + " Dakika";
+                    label14.Text = asim.ToString()+" TL";
+                }
             }
             else
             {
@@ -126,6 +142,17 @@ namespace Otopark_Otomasyonu
         }
         FiyatTarifesiController ftController = new FiyatTarifesiController();
         AboneTurleriController atController = new AboneTurleriController();
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void textPlaka_TextChanged(object sender, EventArgs e)
         {
             label9.Text = "-";
@@ -183,7 +210,7 @@ namespace Otopark_Otomasyonu
                         label8.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_ad+" - " + atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_sure +" Gün";
                         label15.Text = atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat +" TL";
                         
-                        label5.Text = (Convert.ToInt32( atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat)+asim).ToString()+ "TL";
+                        label5.Text = (Convert.ToInt32( atController.aboneTurleriById(Cikacak.Abone_Tur.AboneTurleri_id).AboneTurleri_fiyat)+asim).ToString()+ " TL";
                         label1.Text = "";
                         if (asim==0)
                         {
